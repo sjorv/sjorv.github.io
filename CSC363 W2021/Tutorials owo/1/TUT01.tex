@@ -2,11 +2,12 @@
 
 \usetheme{simple}
 
+\usepackage{scalerel,xparse}
 \usepackage{lmodern}
 \usepackage[scale=2]{ccicons}
 \usepackage{ulem}
 \usepackage{tikz}
-\usetikzlibrary{positioning,calc}
+\usetikzlibrary{positioning,calc,automata}
 \usepackage{algorithm}
 \usepackage{algorithmic}
 \usepackage{caption}
@@ -21,6 +22,20 @@
 \date{\today}
 \author{Paul ``sushi{\textunderscore}enjoyer'' Zhang}
 \institute{University of Chungi}
+
+
+\NewDocumentCommand\emojisushi{}{
+    \includegraphics{img/1f363.png}
+}
+\NewDocumentCommand\emojifish{}{
+    \includegraphics{img/1f41f.png}
+}
+\NewDocumentCommand\emojirice{}{
+    \includegraphics{img/1f35a.png}
+}
+\NewDocumentCommand\emojisavouring{}{
+    \includegraphics[scale=0.2]{img/1f60b.png}
+}
 
 \begin{document}
 
@@ -417,9 +432,17 @@ There are multiple different URMs that compute $f: \mathbb N \to \mathbb N$, $f(
 
 actually nvm it would take way too much time. Here's the informal idea of a Turing machine (don't worry if you don't understand everything here):\footnote{There are many equivalent ways of defining the Turing machine. This may differ from what is defined in this class later.}
 
+\vspace{2mm}
+
 You have a tape, as before, but this tape extends infinitely in both directions.
 You also have a \textit{read-write head}, pointing to a position on the tape.
 
+\vspace{2mm}
+
+Each position on the tape can store a symbol in a specified \textit{alphabet} (remember CSC236!). For example, our alphabet could be $\{0, 1\}$, or it could be the set of all ASCII characters. There is a specially designated \textit{empty symbol}, usually denoted by $0$, that the tape is filled with. 
+\end{frame}
+
+\begin{frame}{Turing machines!}
 The Turing machine takes in a string input, say ``sushi''. The execution starts with ``sushi'' written on the tape (and $0$ everywhere else), and the read-write head pointing to the first letter of ``sushi''.
 
 \begin{center}
@@ -440,8 +463,6 @@ The Turing machine takes in a string input, say ``sushi''. The execution starts 
    \draw (R9.north east) -- ++(1cm,0) (R9.south east) -- ++ (1cm,0);
 \end{tikzpicture}
 \end{center}
-
-
 \end{frame}
 
 \begin{frame}{Turing machines!}
@@ -471,6 +492,129 @@ That was very informal. Here's the formal definition from Wikipedia:
 
 The catchline is that although Turing machines are more complicated than URMs, whatever Turing machines can compute, URMs can also compute, and vice versa. So in some sense their ``computational power'' is equivalent! In fact, theoretically you could simulate a Turing machine inside a URM, and vice versa.
 
+\end{frame}
+
+\begin{frame}{Example of Turing machine!}
+Let's make sushi! owo
+
+\vspace{2mm}
+
+Our alphabet will be $\left\lbrace 0, \emojifish, \emojirice, \emojisushi\right\rbrace$. The states in the DFA for the Turing machine will be 
+$\left\lbrace \textit{empty}, \text{rice}, \text{fish}, \textbf{finish}, \textbf{fail}\right\rbrace$ with \textit{empty} being the starting state and bold states being halting states.
+
+\vspace{2mm}
+
+Remember, each state takes in a symbol from the alphabet and outputs three things: a symbol to write back, a new state to transition to, and a direction to move the read-write head.
+
+\end{frame}
+
+\begin{frame}{Example of Turing machine!}
+Consider the following table:
+\begin{table}
+\begin{tabular}{c|c|c|c|c}
+State & $0$ & \emojifish & \emojirice & \emojisushi\\
+\hline
+\textit{empty} & ($0$, \textbf{fail}, R) & (0, fish, R) & (0, \textbf{fail}, R) & - \\
+\hline
+fish & ($0$, \textbf{fail}, R) & ($0$, \textbf{fail}, R) & (\emojisushi, \textbf{finish}, R) & - \\
+\hline
+rice & ($0$, \textbf{fail}, R) & (\emojisushi, \textbf{finish}, R) & ($0$, \textbf{fail}, R) & - \\
+\hline
+\textbf{finish} & - & - & - & - \\
+\hline
+\textbf{fail} & - & - & - & - \\
+\end{tabular}
+\end{table}
+where $-$ denotes that we will never encounter this symbol while in this state (so we can put anything we want there)
+\end{frame}
+
+\begin{frame}{Example of Turing machine!}
+Let's try executing our sushi machine on the string ``\emojifish\emojirice''!
+
+\vspace{2mm}
+
+Current State: \textit{empty}
+\begin{center}
+\begin{tikzpicture}[every node/.style={block},
+        block/.style={minimum height=2em,minimum width=2em,outer sep=0pt,draw,rectangle,node distance=0pt}]
+   \node (R1) {$\ldots$};
+   \node (R2) [right=of R1] {$0$};
+   \node (R3) [right=of R2] {\emojifish};
+   \node (R4) [right=of R3] {\emojirice};
+   \node (R5) [right=of R4] {$0$};
+   \node (R6) [right=of R5] {$\ldots$};
+   \node (HEAD) [above = 0.75cm of R3] {head};
+   \draw[->] (HEAD) -- (R3);
+   \draw (R1.north west) -- ++(-1cm,0) (R1.south west) -- ++ (-1cm,0);
+   \draw (R5.north east) -- ++(1cm,0) (R5.south east) -- ++ (1cm,0);
+\end{tikzpicture}
+\end{center}
+\end{frame}
+
+\begin{frame}{Example of Turing machine!}
+We read in \emojifish, and consult our current state \textit{empty}. 
+
+\begin{table}
+\begin{tabular}{c|c|c|c|c}
+State & $0$ & \emojifish & \emojirice & \emojisushi\\
+\hline
+\textit{empty} & ($0$, \textbf{fail}, R) & (0, fish, R) & (0, \textbf{fail}, R) & - \\
+\end{tabular}
+\end{table}
+Our current state returns ($0$, \text{fish}, R). So we write back $0$, go to the fish state, and move the head right.
+
+\vspace{2mm}
+
+Current State: fish
+\begin{center}
+\begin{tikzpicture}[every node/.style={block},
+        block/.style={minimum height=2em,minimum width=2em,outer sep=0pt,draw,rectangle,node distance=0pt}]
+   \node (R1) {$\ldots$};
+   \node (R2) [right=of R1] {$0$};
+   \node (R3) [right=of R2] {$0$};
+   \node (R4) [right=of R3] {\emojirice};
+   \node (R5) [right=of R4] {$0$};
+   \node (R6) [right=of R5] {$\ldots$};
+   \node (HEAD) [above = 0.75cm of R4] {head};
+   \draw[->] (HEAD) -- (R4);
+   \draw (R1.north west) -- ++(-1cm,0) (R1.south west) -- ++ (-1cm,0);
+   \draw (R5.north east) -- ++(1cm,0) (R5.south east) -- ++ (1cm,0);
+\end{tikzpicture}
+\end{center}
+\end{frame}
+
+\begin{frame}{Example of Turing machine!}
+We read in \emojirice, and consult our current state fish. 
+
+\begin{table}
+\begin{tabular}{c|c|c|c|c}
+State & $0$ & \emojifish & \emojirice & \emojisushi\\
+\hline
+fish & ($0$, \textbf{fail}, R) & ($0$, \textbf{fail}, R) & (\emojisushi, \textbf{finish}, R) & - \\
+\end{tabular}
+\end{table}
+Our current state returns (\emojisushi, \textbf{finish}, R). So we write back \emojisushi, go to the \textbf{finish} state, and move the head right.
+
+\vspace{2mm}
+
+Current State: \textbf{finish}
+\begin{center}
+\begin{tikzpicture}[every node/.style={block},
+        block/.style={minimum height=2em,minimum width=2em,outer sep=0pt,draw,rectangle,node distance=0pt}]
+   \node (R1) {$\ldots$};
+   \node (R2) [right=of R1] {$0$};
+   \node (R3) [right=of R2] {$0$};
+   \node (R4) [right=of R3] {\emojisushi};
+   \node (R5) [right=of R4] {$0$};
+   \node (R6) [right=of R5] {$\ldots$};
+   \node (HEAD) [above = 0.75cm of R5] {head};
+   \draw[->] (HEAD) -- (R5);
+   \draw (R1.north west) -- ++(-1cm,0) (R1.south west) -- ++ (-1cm,0);
+   \draw (R5.north east) -- ++(1cm,0) (R5.south east) -- ++ (1cm,0);
+\end{tikzpicture}
+\end{center}
+
+Then we halt since \textbf{finish} is a halting state, and return \emojisushi! \emojisavouring
 \end{frame}
 
 

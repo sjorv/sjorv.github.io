@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2021.1.11)  12 JAN 2021 14:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2021.1.11)  13 JAN 2021 12:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -826,7 +826,48 @@ File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 )
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamercolorthemestructure.sty)
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerfontthemestructurebold.st
-y)) (/usr/share/texmf/tex/latex/lm/lmodern.sty
+y)) (/usr/share/texlive/texmf-dist/tex/latex/scalerel/scalerel.sty
+Package: scalerel 2016/12/29 v1.8 Routines for constrained scaling and stretchi
+ng of objects, relative to a reference object or in absolute terms
+
+(/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count321
+\calc@Bcount=\count322
+\calc@Adimen=\dimen291
+\calc@Bdimen=\dimen292
+\calc@Askip=\skip63
+\calc@Bskip=\skip64
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count323
+\calc@Cskip=\skip65
+)
+\thesrwidth=\skip66
+\thesrheight=\skip67
+\srblobheight=\skip68
+\srblobdepth=\skip69
+\mnxsrwidth=\skip70
+\LMex=\skip71
+\LMpt=\skip72
+)
+(/usr/share/texlive/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+(/usr/share/texlive/texmf-dist/tex/latex/l3kernel/expl3.sty
+Package: expl3 2020-07-17 L3 programming layer (loader) 
+
+(/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
+File: l3backend-pdfmode.def 2020-06-29 L3 backend support: PDF mode
+\l__kernel_color_stack_int=\count324
+\l__pdf_internal_box=\box98
+))
+Package: xparse 2020-05-15 L3 Experimental document command parser
+
+(/usr/share/texlive/texmf-dist/tex/latex/l3packages/xparse/xparse-generic.tex
+\l__xparse_current_arg_int=\count325
+\g__xparse_grabber_int=\count326
+\l__xparse_m_args_int=\count327
+\l__xparse_v_nesting_int=\count328
+)) (/usr/share/texmf/tex/latex/lm/lmodern.sty
 Package: lmodern 2009/10/30 v1.6 Latin Modern Fonts
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  OT1/cmr/m/n --> OT1/lmr/m/n on input line 22.
@@ -868,20 +909,24 @@ Package: ccicons 2017/10/30 v1.6 LaTeX support for Creative Commons icons
 Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
 ))
 (/usr/share/texlive/texmf-dist/tex/generic/ulem/ulem.sty
-\UL@box=\box98
-\UL@hyphenbox=\box99
-\UL@skip=\skip63
+\UL@box=\box99
+\UL@hyphenbox=\box100
+\UL@skip=\skip73
 \UL@hook=\toks48
-\UL@height=\dimen291
-\UL@pe=\count321
-\UL@pixel=\dimen292
-\ULC@box=\box100
+\UL@height=\dimen293
+\UL@pe=\count329
+\UL@pixel=\dimen294
+\ULC@box=\box101
 Package: ulem 2019/11/18
-\ULdepth=\dimen293
+\ULdepth=\dimen295
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
 zlibrarycalc.code.tex
 File: tikzlibrarycalc.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryautomata.code.tex
+File: tikzlibraryautomata.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 )
 (/usr/share/texlive/texmf-dist/tex/latex/algorithms/algorithm.sty
 Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating enviro
@@ -889,26 +934,26 @@ nment
 
 (/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count322
+\c@float@type=\count330
 \float@exts=\toks49
-\float@box=\box101
+\float@box=\box102
 \@float@everytoks=\toks50
-\@floatcapt=\box102
+\@floatcapt=\box103
 )
 (/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 )
 \@float@every@algorithm=\toks51
-\c@algorithm=\count323
+\c@algorithm=\count331
 )
 (/usr/share/texlive/texmf-dist/tex/latex/algorithms/algorithmic.sty
 Package: algorithmic 2009/08/24 v0.1 Document Style `algorithmic'
-\c@ALC@unique=\count324
-\c@ALC@line=\count325
-\c@ALC@rem=\count326
-\c@ALC@depth=\count327
-\ALC@tlm=\skip64
-\algorithmicindent=\skip65
+\c@ALC@unique=\count332
+\c@ALC@line=\count333
+\c@ALC@rem=\count334
+\c@ALC@depth=\count335
+\ALC@tlm=\skip74
+\algorithmicindent=\skip75
 )
 (/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
 Package: caption 2020/05/30 v3.4k Customizing captions (AR)
@@ -916,17 +961,17 @@ Package: caption 2020/05/30 v3.4k Customizing captions (AR)
 (/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
 Package: caption3 2020/07/20 v1.12b caption3 kernel (AR)
 Package caption3 Info: TeX engine: e-TeX on input line 61.
-\captionmargin=\dimen294
-\captionmargin@=\dimen295
-\captionwidth=\dimen296
-\caption@tempdima=\dimen297
-\caption@indent=\dimen298
-\caption@parindent=\dimen299
-\caption@hangindent=\dimen300
+\captionmargin=\dimen296
+\captionmargin@=\dimen297
+\captionwidth=\dimen298
+\caption@tempdima=\dimen299
+\caption@indent=\dimen300
+\caption@parindent=\dimen301
+\caption@hangindent=\dimen302
 Package caption Info: beamer document class detected.
 )
-\c@caption@flags=\count328
-\c@continuedfloat=\count329
+\c@caption@flags=\count336
+\c@continuedfloat=\count337
 Package caption Info: beamer document class.
 Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
@@ -935,34 +980,29 @@ Package caption Info: Hyperref support is turned off
 )
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\sout' on input line 25.
+(hyperref)                removing `\sout' on input line 40.
 
-(/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
-File: l3backend-pdfmode.def 2020-06-29 L3 backend support: PDF mode
-\l__kernel_color_stack_int=\count330
-\l__pdf_internal_box=\box103
-)
 (./TUT01.aux)
 \openout1 = `TUT01.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
 LaTeX Font Info:    Trying to load font information for OT1+lmss on input line 
-25.
+40.
  (/usr/share/texmf/tex/latex/lm/ot1lmss.fd
 File: ot1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
@@ -1002,16 +1042,16 @@ File: ot1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count331
-\scratchdimen=\dimen301
+\scratchcounter=\count338
+\scratchdimen=\dimen303
 \scratchbox=\box104
-\nofMPsegments=\count332
-\nofMParguments=\count333
+\nofMPsegments=\count339
+\nofMParguments=\count340
 \everyMPshowfont=\toks52
-\MPscratchCnt=\count334
-\MPscratchDim=\dimen302
-\MPnumerator=\count335
-\makeMPintoPDFobject=\count336
+\MPscratchCnt=\count341
+\MPscratchDim=\dimen304
+\MPnumerator=\count342
+\makeMPintoPDFobject=\count343
 \everyMPtoPDFconversion=\toks53
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -1032,7 +1072,7 @@ e
 ))
 ABD: EveryShipout initializing macros
 \AtBeginShipoutBox=\box105
-Package hyperref Info: Link coloring OFF on input line 25.
+Package hyperref Info: Link coloring OFF on input line 40.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
@@ -1043,62 +1083,62 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 (/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count337
+\c@section@level=\count344
 )
-LaTeX Info: Redefining \ref on input line 25.
-LaTeX Info: Redefining \pageref on input line 25.
-LaTeX Info: Redefining \nameref on input line 25.
+LaTeX Info: Redefining \ref on input line 40.
+LaTeX Info: Redefining \pageref on input line 40.
+LaTeX Info: Redefining \nameref on input line 40.
 
 (./TUT01.out) (./TUT01.out)
 \@outlinefile=\write5
 \openout5 = `TUT01.out'.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/lmr/m/n --> OT1/cmss/m/n on input line 25.
+(Font)                  OT1/lmr/m/n --> OT1/cmss/m/n on input line 40.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/lmr/bx/n --> OT1/cmss/b/n on input line 25.
+(Font)                  OT1/lmr/bx/n --> OT1/cmss/b/n on input line 40.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmss/m/n --> OT1/lmss/m/n on input line 25.
+(Font)                  OT1/cmss/m/n --> OT1/lmss/m/n on input line 40.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmss/b/n --> OT1/lmss/b/n on input line 25.
+(Font)                  OT1/cmss/b/n --> OT1/lmss/b/n on input line 40.
 \symnumbers=\mathgroup6
 \sympureletters=\mathgroup7
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/lmss/m/n --> OT1/lmr/m/n on input line 25.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 25.
+(Font)                  OT1/lmss/m/n --> OT1/lmr/m/n on input line 40.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 40.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/lmr/bx/n --> OT1/lmss/b/n on input line 25.
+(Font)                  OT1/lmr/bx/n --> OT1/lmss/b/n on input line 40.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/lmr/bx/n --> OT1/lmss/b/n on input line 25.
-LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 25.
+(Font)                  OT1/lmr/bx/n --> OT1/lmss/b/n on input line 40.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 40.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/lmss/m/n --> OT1/lmss/m/n on input line 25.
+(Font)                  OT1/lmss/m/n --> OT1/lmss/m/n on input line 40.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/lmss/bx/n --> OT1/lmss/m/n on input line 25.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 25.
+(Font)                  OT1/lmss/bx/n --> OT1/lmss/m/n on input line 40.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 40.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/lmr/m/it --> OT1/lmss/m/it on input line 25.
+(Font)                  OT1/lmr/m/it --> OT1/lmss/m/it on input line 40.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/lmr/bx/it --> OT1/lmss/m/it on input line 25.
-LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 25.
+(Font)                  OT1/lmr/bx/it --> OT1/lmss/m/it on input line 40.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 40.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/lmtt/m/n --> OT1/lmtt/m/n on input line 25.
+(Font)                  OT1/lmtt/m/n --> OT1/lmtt/m/n on input line 40.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/lmtt/m/n --> OT1/lmtt/m/n on input line 25.
+(Font)                  OT1/lmtt/m/n --> OT1/lmtt/m/n on input line 40.
 LaTeX Font Info:    Overwriting symbol font `numbers' in version `bold'
-(Font)                  OT1/lmss/m/n --> OT1/lmss/b/n on input line 25.
+(Font)                  OT1/lmss/m/n --> OT1/lmss/b/n on input line 40.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  OT1/lmss/m/it --> OT1/lmss/b/it on input line 25.
+(Font)                  OT1/lmss/m/it --> OT1/lmss/b/it on input line 40.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
-(Font)                  OT1/lmss/b/n --> OT1/lmr/b/n on input line 25.
+(Font)                  OT1/lmss/b/n --> OT1/lmr/b/n on input line 40.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/lmss/b/n --> OT1/lmss/b/n on input line 25.
+(Font)                  OT1/lmss/b/n --> OT1/lmss/b/n on input line 40.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/lmss/m/n --> OT1/lmss/b/n on input line 25.
+(Font)                  OT1/lmss/m/n --> OT1/lmss/b/n on input line 40.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/lmss/m/it --> OT1/lmss/b/it on input line 25.
+(Font)                  OT1/lmss/m/it --> OT1/lmss/b/it on input line 40.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/lmtt/m/n --> OT1/lmtt/b/n on input line 25.
+(Font)                  OT1/lmtt/m/n --> OT1/lmtt/b/n on input line 40.
 
 (/usr/share/texlive/texmf-dist/tex/latex/translator/translator-basic-dictionary
 -English.dict
@@ -1130,61 +1170,61 @@ Package caption Info: End \AtBeginDocument code.
 <img/chungus.png, id=37, 1815.78375pt x 2007.5pt>
 File: img/chungus.png Graphic file (type png)
 <use img/chungus.png>
-Package pdftex.def Info: img/chungus.png  used on input line 27.
+Package pdftex.def Info: img/chungus.png  used on input line 42.
 (pdftex.def)             Requested size: 205.85999pt x 227.62204pt.
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 2
-7.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 4
+2.
  (/usr/share/texmf/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-27.
+42.
 
 (/usr/share/texmf/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-27.
+42.
 
 (/usr/share/texmf/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 27.
+(Font)              <10.95> on input line 42.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 27.
+(Font)              <8> on input line 42.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 27.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 27.
+(Font)              <6> on input line 42.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 42.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 27.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 42.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Font shape `OT1/lmss/m/it' in size <10.95> not available
-(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 27.
+(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 42.
 LaTeX Font Info:    Font shape `OT1/lmss/m/it' in size <8> not available
-(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 27.
+(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 42.
 LaTeX Font Info:    Font shape `OT1/lmss/m/it' in size <6> not available
-(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 27.
+(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 42.
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./img/chungus.png>]
 LaTeX Font Info:    Trying to load font information for OT1+lmtt on input line 
-41.
+56.
 
 (/usr/share/texmf/tex/latex/lm/ot1lmtt.fd
 File: ot1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 File: img/chungus.png Graphic file (type png)
 <use img/chungus.png>
-Package pdftex.def Info: img/chungus.png  used on input line 41.
+Package pdftex.def Info: img/chungus.png  used on input line 56.
 (pdftex.def)             Requested size: 205.85999pt x 227.62204pt.
  [2
 
@@ -1192,18 +1232,18 @@ Package pdftex.def Info: img/chungus.png  used on input line 41.
 <img/helo_fish.jpg, id=56, 883.3pt x 481.8pt>
 File: img/helo_fish.jpg Graphic file (type jpg)
 <use img/helo_fish.jpg>
-Package pdftex.def Info: img/helo_fish.jpg  used on input line 60.
+Package pdftex.def Info: img/helo_fish.jpg  used on input line 75.
 (pdftex.def)             Requested size: 176.65686pt x 96.35829pt.
 File: img/chungus.png Graphic file (type png)
 <use img/chungus.png>
-Package pdftex.def Info: img/chungus.png  used on input line 60.
+Package pdftex.def Info: img/chungus.png  used on input line 75.
 (pdftex.def)             Requested size: 205.85999pt x 227.62204pt.
  [3
 
  <./img/helo_fish.jpg>]
 File: img/chungus.png Graphic file (type png)
 <use img/chungus.png>
-Package pdftex.def Info: img/chungus.png  used on input line 85.
+Package pdftex.def Info: img/chungus.png  used on input line 100.
 (pdftex.def)             Requested size: 205.85999pt x 227.62204pt.
 
 [4
@@ -1211,87 +1251,87 @@ Package pdftex.def Info: img/chungus.png  used on input line 85.
 ]
 File: img/chungus.png Graphic file (type png)
 <use img/chungus.png>
-Package pdftex.def Info: img/chungus.png  used on input line 97.
+Package pdftex.def Info: img/chungus.png  used on input line 112.
 (pdftex.def)             Requested size: 205.85999pt x 227.62204pt.
  [5
 
 ]
 File: img/chungus.png Graphic file (type png)
 <use img/chungus.png>
-Package pdftex.def Info: img/chungus.png  used on input line 107.
+Package pdftex.def Info: img/chungus.png  used on input line 122.
 (pdftex.def)             Requested size: 205.85999pt x 227.62204pt.
  [6
 
 ]
 File: img/chungus.png Graphic file (type png)
 <use img/chungus.png>
-Package pdftex.def Info: img/chungus.png  used on input line 128.
+Package pdftex.def Info: img/chungus.png  used on input line 143.
 (pdftex.def)             Requested size: 205.85999pt x 227.62204pt.
  [7
 
 ]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <9> on input line 142.
+(Font)              <9> on input line 157.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 142.
+(Font)              <5> on input line 157.
 LaTeX Font Info:    Font shape `OT1/lmss/m/it' in size <9> not available
-(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 142.
+(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 157.
 
 LaTeX Font Info:    Font shape `OT1/lmss/m/it' in size <5> not available
-(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 142.
+(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 157.
 
 File: img/chungus.png Graphic file (type png)
 <use img/chungus.png>
-Package pdftex.def Info: img/chungus.png  used on input line 142.
+Package pdftex.def Info: img/chungus.png  used on input line 157.
 (pdftex.def)             Requested size: 205.85999pt x 227.62204pt.
  [8
 
 ]
 File: img/chungus.png Graphic file (type png)
 <use img/chungus.png>
-Package pdftex.def Info: img/chungus.png  used on input line 176.
+Package pdftex.def Info: img/chungus.png  used on input line 191.
 (pdftex.def)             Requested size: 205.85999pt x 227.62204pt.
  [9
 
 ]
 File: img/chungus.png Graphic file (type png)
 <use img/chungus.png>
-Package pdftex.def Info: img/chungus.png  used on input line 180.
+Package pdftex.def Info: img/chungus.png  used on input line 195.
 (pdftex.def)             Requested size: 205.85999pt x 227.62204pt.
  [10
 
 ]
 File: img/chungus.png Graphic file (type png)
 <use img/chungus.png>
-Package pdftex.def Info: img/chungus.png  used on input line 198.
+Package pdftex.def Info: img/chungus.png  used on input line 213.
 (pdftex.def)             Requested size: 205.85999pt x 227.62204pt.
  [11
 
 ]
 File: img/chungus.png Graphic file (type png)
 <use img/chungus.png>
-Package pdftex.def Info: img/chungus.png  used on input line 232.
+Package pdftex.def Info: img/chungus.png  used on input line 247.
 (pdftex.def)             Requested size: 205.85999pt x 227.62204pt.
  [12
 
 ]
 File: img/chungus.png Graphic file (type png)
 <use img/chungus.png>
-Package pdftex.def Info: img/chungus.png  used on input line 282.
+Package pdftex.def Info: img/chungus.png  used on input line 297.
 (pdftex.def)             Requested size: 205.85999pt x 227.62204pt.
  [13
 
 ]
 File: img/chungus.png Graphic file (type png)
 <use img/chungus.png>
-Package pdftex.def Info: img/chungus.png  used on input line 336.
+Package pdftex.def Info: img/chungus.png  used on input line 351.
 (pdftex.def)             Requested size: 205.85999pt x 227.62204pt.
  [14
 
 ]
 File: img/chungus.png Graphic file (type png)
 <use img/chungus.png>
-Package pdftex.def Info: img/chungus.png  used on input line 367.
+Package pdftex.def Info: img/chungus.png  used on input line 382.
 (pdftex.def)             Requested size: 205.85999pt x 227.62204pt.
  [15
 
@@ -1299,28 +1339,28 @@ Package pdftex.def Info: img/chungus.png  used on input line 367.
 <img/ss1.png, id=142, 601.24625pt x 681.54625pt>
 File: img/ss1.png Graphic file (type png)
 <use img/ss1.png>
-Package pdftex.def Info: img/ss1.png  used on input line 382.
+Package pdftex.def Info: img/ss1.png  used on input line 397.
 (pdftex.def)             Requested size: 150.31119pt x 170.38614pt.
 File: img/chungus.png Graphic file (type png)
 <use img/chungus.png>
-Package pdftex.def Info: img/chungus.png  used on input line 382.
+Package pdftex.def Info: img/chungus.png  used on input line 397.
 (pdftex.def)             Requested size: 205.85999pt x 227.62204pt.
  [16
 
  <./img/ss1.png>]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 394.
+(Font)              <10> on input line 409.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 394.
+(Font)              <7> on input line 409.
 LaTeX Font Info:    Font shape `OT1/lmss/m/it' in size <10> not available
-(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 394.
+(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 409.
 
 LaTeX Font Info:    Font shape `OT1/lmss/m/it' in size <7> not available
-(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 394.
+(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 409.
 
 File: img/chungus.png Graphic file (type png)
 <use img/chungus.png>
-Package pdftex.def Info: img/chungus.png  used on input line 394.
+Package pdftex.def Info: img/chungus.png  used on input line 409.
 (pdftex.def)             Requested size: 205.85999pt x 227.62204pt.
 
 [17
@@ -1328,55 +1368,209 @@ Package pdftex.def Info: img/chungus.png  used on input line 394.
 ]
 File: img/chungus.png Graphic file (type png)
 <use img/chungus.png>
-Package pdftex.def Info: img/chungus.png  used on input line 413.
+Package pdftex.def Info: img/chungus.png  used on input line 428.
 (pdftex.def)             Requested size: 205.85999pt x 227.62204pt.
  [18
 
 ]
 File: img/chungus.png Graphic file (type png)
 <use img/chungus.png>
-Package pdftex.def Info: img/chungus.png  used on input line 445.
+Package pdftex.def Info: img/chungus.png  used on input line 443.
 (pdftex.def)             Requested size: 205.85999pt x 227.62204pt.
  [19
 
 ]
 File: img/chungus.png Graphic file (type png)
 <use img/chungus.png>
-Package pdftex.def Info: img/chungus.png  used on input line 462.
+Package pdftex.def Info: img/chungus.png  used on input line 466.
 (pdftex.def)             Requested size: 205.85999pt x 227.62204pt.
  [20
 
 ]
-<img/ss2.png, id=171, 1697.34125pt x 750.805pt>
+File: img/chungus.png Graphic file (type png)
+<use img/chungus.png>
+Package pdftex.def Info: img/chungus.png  used on input line 483.
+(pdftex.def)             Requested size: 205.85999pt x 227.62204pt.
+ [21
+
+]
+<img/ss2.png, id=177, 1697.34125pt x 750.805pt>
 File: img/ss2.png Graphic file (type png)
 <use img/ss2.png>
-Package pdftex.def Info: img/ss2.png  used on input line 474.
+Package pdftex.def Info: img/ss2.png  used on input line 495.
 (pdftex.def)             Requested size: 254.5902pt x 112.61589pt.
 
-Overfull \vbox (2.3596pt too high) detected at line 474
+Overfull \vbox (2.3596pt too high) detected at line 495
  []
 
 File: img/chungus.png Graphic file (type png)
 <use img/chungus.png>
-Package pdftex.def Info: img/chungus.png  used on input line 474.
+Package pdftex.def Info: img/chungus.png  used on input line 495.
 (pdftex.def)             Requested size: 205.85999pt x 227.62204pt.
-[21
+[22
 
  <./img/ss2.png>]
+<img/1f41f.png, id=183, 10.589pt x 10.589pt>
+File: img/1f41f.png Graphic file (type png)
+<use img/1f41f.png>
+Package pdftex.def Info: img/1f41f.png  used on input line 509.
+(pdftex.def)             Requested size: 10.58896pt x 10.58896pt.
+<img/1f35a.png, id=184, 10.589pt x 10.589pt>
+File: img/1f35a.png Graphic file (type png)
+<use img/1f35a.png>
+Package pdftex.def Info: img/1f35a.png  used on input line 509.
+(pdftex.def)             Requested size: 10.58896pt x 10.58896pt.
+<img/1f363.png, id=185, 10.589pt x 10.589pt>
+File: img/1f363.png Graphic file (type png)
+<use img/1f363.png>
+Package pdftex.def Info: img/1f363.png  used on input line 509.
+(pdftex.def)             Requested size: 10.58896pt x 10.58896pt.
 File: img/chungus.png Graphic file (type png)
 <use img/chungus.png>
-Package pdftex.def Info: img/chungus.png  used on input line 481.
+Package pdftex.def Info: img/chungus.png  used on input line 509.
 (pdftex.def)             Requested size: 205.85999pt x 227.62204pt.
- [22
+ [23
+
+ <./img/1f41f.png> <./img/1f35a.png> <./img/1f363.png>]
+File: img/1f41f.png Graphic file (type png)
+<use img/1f41f.png>
+Package pdftex.def Info: img/1f41f.png  used on input line 529.
+(pdftex.def)             Requested size: 10.58896pt x 10.58896pt.
+File: img/1f35a.png Graphic file (type png)
+<use img/1f35a.png>
+Package pdftex.def Info: img/1f35a.png  used on input line 529.
+(pdftex.def)             Requested size: 10.58896pt x 10.58896pt.
+File: img/1f363.png Graphic file (type png)
+<use img/1f363.png>
+Package pdftex.def Info: img/1f363.png  used on input line 529.
+(pdftex.def)             Requested size: 10.58896pt x 10.58896pt.
+File: img/1f363.png Graphic file (type png)
+<use img/1f363.png>
+Package pdftex.def Info: img/1f363.png  used on input line 529.
+(pdftex.def)             Requested size: 10.58896pt x 10.58896pt.
+File: img/1f363.png Graphic file (type png)
+<use img/1f363.png>
+Package pdftex.def Info: img/1f363.png  used on input line 529.
+(pdftex.def)             Requested size: 10.58896pt x 10.58896pt.
+File: img/chungus.png Graphic file (type png)
+<use img/chungus.png>
+Package pdftex.def Info: img/chungus.png  used on input line 529.
+(pdftex.def)             Requested size: 205.85999pt x 227.62204pt.
+[24
+
+]
+File: img/1f41f.png Graphic file (type png)
+<use img/1f41f.png>
+Package pdftex.def Info: img/1f41f.png  used on input line 552.
+(pdftex.def)             Requested size: 10.58896pt x 10.58896pt.
+File: img/1f35a.png Graphic file (type png)
+<use img/1f35a.png>
+Package pdftex.def Info: img/1f35a.png  used on input line 552.
+(pdftex.def)             Requested size: 10.58896pt x 10.58896pt.
+File: img/1f41f.png Graphic file (type png)
+<use img/1f41f.png>
+Package pdftex.def Info: img/1f41f.png  used on input line 552.
+(pdftex.def)             Requested size: 10.58896pt x 10.58896pt.
+File: img/1f35a.png Graphic file (type png)
+<use img/1f35a.png>
+Package pdftex.def Info: img/1f35a.png  used on input line 552.
+(pdftex.def)             Requested size: 10.58896pt x 10.58896pt.
+File: img/chungus.png Graphic file (type png)
+<use img/chungus.png>
+Package pdftex.def Info: img/chungus.png  used on input line 552.
+(pdftex.def)             Requested size: 205.85999pt x 227.62204pt.
+ [25
+
+]
+File: img/1f41f.png Graphic file (type png)
+<use img/1f41f.png>
+Package pdftex.def Info: img/1f41f.png  used on input line 584.
+(pdftex.def)             Requested size: 10.58896pt x 10.58896pt.
+File: img/1f41f.png Graphic file (type png)
+<use img/1f41f.png>
+Package pdftex.def Info: img/1f41f.png  used on input line 584.
+(pdftex.def)             Requested size: 10.58896pt x 10.58896pt.
+File: img/1f35a.png Graphic file (type png)
+<use img/1f35a.png>
+Package pdftex.def Info: img/1f35a.png  used on input line 584.
+(pdftex.def)             Requested size: 10.58896pt x 10.58896pt.
+File: img/1f363.png Graphic file (type png)
+<use img/1f363.png>
+Package pdftex.def Info: img/1f363.png  used on input line 584.
+(pdftex.def)             Requested size: 10.58896pt x 10.58896pt.
+File: img/1f35a.png Graphic file (type png)
+<use img/1f35a.png>
+Package pdftex.def Info: img/1f35a.png  used on input line 584.
+(pdftex.def)             Requested size: 10.58896pt x 10.58896pt.
+File: img/chungus.png Graphic file (type png)
+<use img/chungus.png>
+Package pdftex.def Info: img/chungus.png  used on input line 584.
+(pdftex.def)             Requested size: 205.85999pt x 227.62204pt.
+ [26
+
+]
+File: img/1f35a.png Graphic file (type png)
+<use img/1f35a.png>
+Package pdftex.def Info: img/1f35a.png  used on input line 618.
+(pdftex.def)             Requested size: 10.58896pt x 10.58896pt.
+File: img/1f41f.png Graphic file (type png)
+<use img/1f41f.png>
+Package pdftex.def Info: img/1f41f.png  used on input line 618.
+(pdftex.def)             Requested size: 10.58896pt x 10.58896pt.
+File: img/1f35a.png Graphic file (type png)
+<use img/1f35a.png>
+Package pdftex.def Info: img/1f35a.png  used on input line 618.
+(pdftex.def)             Requested size: 10.58896pt x 10.58896pt.
+File: img/1f363.png Graphic file (type png)
+<use img/1f363.png>
+Package pdftex.def Info: img/1f363.png  used on input line 618.
+(pdftex.def)             Requested size: 10.58896pt x 10.58896pt.
+File: img/1f363.png Graphic file (type png)
+<use img/1f363.png>
+Package pdftex.def Info: img/1f363.png  used on input line 618.
+(pdftex.def)             Requested size: 10.58896pt x 10.58896pt.
+File: img/1f363.png Graphic file (type png)
+<use img/1f363.png>
+Package pdftex.def Info: img/1f363.png  used on input line 618.
+(pdftex.def)             Requested size: 10.58896pt x 10.58896pt.
+File: img/1f363.png Graphic file (type png)
+<use img/1f363.png>
+Package pdftex.def Info: img/1f363.png  used on input line 618.
+(pdftex.def)             Requested size: 10.58896pt x 10.58896pt.
+File: img/1f363.png Graphic file (type png)
+<use img/1f363.png>
+Package pdftex.def Info: img/1f363.png  used on input line 618.
+(pdftex.def)             Requested size: 10.58896pt x 10.58896pt.
+File: img/1f363.png Graphic file (type png)
+<use img/1f363.png>
+Package pdftex.def Info: img/1f363.png  used on input line 618.
+(pdftex.def)             Requested size: 10.58896pt x 10.58896pt.
+<img/1f60b.png, id=210, 160.6pt x 160.6pt>
+File: img/1f60b.png Graphic file (type png)
+<use img/1f60b.png>
+Package pdftex.def Info: img/1f60b.png  used on input line 618.
+(pdftex.def)             Requested size: 32.11942pt x 32.11942pt.
+File: img/chungus.png Graphic file (type png)
+<use img/chungus.png>
+Package pdftex.def Info: img/chungus.png  used on input line 618.
+(pdftex.def)             Requested size: 205.85999pt x 227.62204pt.
+ [27
+
+ <./img/1f60b.png>]
+File: img/chungus.png Graphic file (type png)
+<use img/chungus.png>
+Package pdftex.def Info: img/chungus.png  used on input line 625.
+(pdftex.def)             Requested size: 205.85999pt x 227.62204pt.
+ [28
 
 ]
 LaTeX Font Info:    Font shape `U/ccicons/m/n' will be
-(Font)              scaled to size 21.9pt on input line 498.
+(Font)              scaled to size 21.9pt on input line 642.
 File: img/chungus.png Graphic file (type png)
 <use img/chungus.png>
-Package pdftex.def Info: img/chungus.png  used on input line 498.
+Package pdftex.def Info: img/chungus.png  used on input line 642.
 (pdftex.def)             Requested size: 205.85999pt x 227.62204pt.
- [23
+ [29
 
 ]
 \tf@nav=\write6
@@ -1388,22 +1582,22 @@ Package pdftex.def Info: img/chungus.png  used on input line 498.
 \tf@snm=\write8
 \openout8 = `TUT01.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 500.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 500.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 644.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 644.
  (./TUT01.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 500.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 500.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 644.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 644.
 Package rerunfilecheck Info: File `TUT01.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 25678 strings out of 480906
- 524596 string characters out of 5910772
- 794959 words of memory out of 5000000
- 40599 multiletter control sequences out of 15000+600000
- 598505 words of font info for 83 fonts, out of 8000000 for 9000
+ 26371 strings out of 480906
+ 542071 string characters out of 5910772
+ 813645 words of memory out of 5000000
+ 41257 multiletter control sequences out of 15000+600000
+ 601220 words of font info for 84 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 63i,15n,106p,772b,1009s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 63i,15n,106p,772b,1020s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/share/texmf/fonts/en
 c/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/s
 hare/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/enc/dvips/l
@@ -1419,10 +1613,10 @@ lm/lmssbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsso10.pfb></usr/share
 f/fonts/type1/public/lm/lmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
 ublic/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
 blic/amsfonts/symbols/msbm10.pfb>
-Output written on TUT01.pdf (23 pages, 691571 bytes).
+Output written on TUT01.pdf (29 pages, 733364 bytes).
 PDF statistics:
- 260 PDF objects out of 1000 (max. 8388607)
- 186 compressed objects within 2 object streams
- 47 named destinations out of 1000 (max. 500000)
- 183 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 302 PDF objects out of 1000 (max. 8388607)
+ 213 compressed objects within 3 object streams
+ 59 named destinations out of 1000 (max. 500000)
+ 203 words of extra memory for PDF output out of 10000 (max. 10000000)
 
