@@ -2,7 +2,8 @@
 
 * {
     font-family: 'Purisa', cursive;
-    font-size: 15pt
+    font-size: 15pt;
+    overflow-x: hidden;
 }
 
 @keyframes hscale {
@@ -24,5 +25,5 @@
 
 body {
     background-image: url('img/chungus.png');
-    background-size: 20%
+    background-size: 20%;
 } 
