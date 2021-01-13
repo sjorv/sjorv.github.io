@@ -1,4 +1,28 @@
+@font-face { font-family: Purisa; src: url('Purisa.ttf'); } 
+
 * {
-    font-family: 'Indie Flower', cursive;
-    font-size: 20pt
+    font-family: 'Purisa', cursive;
+    font-size: 15pt
 }
+
+@keyframes hscale {
+    0% {transform: scaleX(1);}
+    50% {transform: scaleX(3);}
+    100% {transform: scaleX(1);}
+}
+
+.helo_fish {
+    animation-name: hscale;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+.mono {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+body {
+    background-image: url('img/chungus.png');
+    background-size: 20%
+} 
