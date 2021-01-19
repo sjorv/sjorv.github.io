@@ -613,11 +613,26 @@ Since HALT is a final state, return `10100'.
 \end{frame}
 
 \begin{frame}{The power of Turing machines}
-\textit{Everything your computer can do can also be done by a Turing machine.}
+\begin{quote}
+Anything a computer program can do can also be done by a Turing machine.
+\end{quote}
+\begin{flushright}
+Church-Turing Thesis, probably (not really)
+\end{flushright}
 
 \vspace{2mm}
 
-We won't prove the above statement, just believe in it.\footnote{Big Chungus demands you to believe in this statement, and erase any doubt of it in your head.} But since computers can simulate Turing machines,\footnote{sponsored by \url{https://turingmachinesimulator.com/}} \textit{there exists a Turing machine that simulates Turing machines}. This Turing machine simulating Turing machine is called the \textbf{universal Turing machine}.
+We won't prove the above statement, just believe in it.\footnote{Big Chungus demands you to believe in it, and erase any doubts you have.} 
+
+\vspace{2mm}
+
+The above allows us to abstract the construction of Turing machines. For example:
+\begin{align*}
+M(s): & \quad \text{sort $s$ in place with its characters in alphabetical order}\\
+& \quad \text{halt (and return $s$ which has been sorted)}
+\end{align*}
+
+But since computers can simulate Turing machines,\footnote{sponsored by \url{https://turingmachinesimulator.com/}} \textit{there exists a Turing machine that simulates Turing machines}. This Turing machine simulating Turing machine is called the \textbf{universal Turing machine}.
 \end{frame}
 
 \begin{frame}{Acceptance and refusal (from cs post ;-;)}
