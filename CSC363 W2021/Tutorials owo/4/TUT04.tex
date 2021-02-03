@@ -1,0 +1,356 @@
+\documentclass{beamer}
+
+\usetheme{simple}
+
+\usepackage{scalerel,xparse}
+\usepackage{lmodern}
+\usepackage[scale=2]{ccicons}
+\usepackage{ulem}
+\usepackage{tikz}
+\usetikzlibrary{positioning,calc,automata}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{caption}
+\usepackage{listings}
+
+% Watermark background (simple theme)
+\setlength{\parindent}{0cm}
+\setwatermark{\includegraphics[height=8cm]{img/chungus.png}}
+
+
+\title{CSC363H5 Tutorial 4}
+\subtitle{this time in dark theme!}
+\date{\today}
+\author{Paul ``sushi{\textunderscore}enjoyer'' Zhang}
+\institute{University of Chungi}
+
+\NewDocumentCommand\emojisushi{}{
+    \includegraphics{img/1f363.png}
+}
+\NewDocumentCommand\emojimoyai{}{
+    \includegraphics{img/1f5ff.png}
+}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}{Learning objectives this tutorial}
+By the end of this tutorial, you should...
+\begin{itemize}
+\item Find a totally legal way to obtain the recommended textbook for this course.
+\item Read the recommended textbook sections (if you'd like, but I think it's really worth it!).
+\item Be able to state the \textit{normal form theorem} and apply it to an example problem.
+\item Turn yourself into a moai. \emojimoyai \emojimoyai \emojimoyai
+\item Have your internet revoked by your ISP due to piracy.
+\item Appreciate the time when I ran tutorials using light theme slides instead of dark theme slides like these.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Readings? What is this, English class?}
+Yea, I just discovered that a (recommended) textbook exists for this course! Available for the cheap price of only \$150.
+\begin{figure}[placement]
+\centering
+\includegraphics[scale=0.3]{img/book.png}
+yea right.
+\end{figure}
+Trust me, it's worth a read! You will learn cool stuff like \sout{how to solve homework problems} the proof of some theorems skipped in class.
+
+\end{frame}
+
+\begin{frame}{Readings? What is this, English class?}
+Just some recommended readings\footnote{not official! just what i think would be useful.} from me to reinforce lecture material:
+\begin{itemize}
+\item Week 2: sections 2, 4.2, 4.3 (Note the book gives a different definition of Turing machine, but it is equivalent and worth a read!)
+\item Week 3: sections 5.1-5.3
+\item Week 4: sections 5.2, 10.1 (first page)
+\end{itemize}
+These recommended readings are certified by \texttt{helo\textunderscore fish.jpg}.
+\begin{figure}[h]
+\includegraphics[scale=0.3]{img/helo_fish_certified.jpg}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Normal Form Theorem!}
+
+\textbf{Task:} Complete the following sentence (according to definition).
+
+\begin{quotation}
+We say a set $A \subseteq \mathbb N$ is \textbf{computably enumerable (c.e.)} if...
+\end{quotation}
+\end{frame}
+
+\begin{frame}{Normal Form Theorem!}
+
+\textbf{Task:} Complete the following sentence (according to definition).
+
+\begin{quotation}
+We say a set $A \subseteq \mathbb N$ is \textbf{computably enumerable (c.e.)} if $A = \emptyset$ or there exists a computable $f: \mathbb N \to \mathbb N$ such that $A = \text{range}(f)$. 
+\end{quotation}
+\end{frame}
+
+\begin{frame}{Normal Form Theorem!}
+
+\textbf{Task:} Complete the following sentence (according to definition).
+
+\begin{quotation}
+We say a relation $R(\vec{x})$ is in $\Sigma^0_1$ if...
+\end{quotation}
+\end{frame}
+
+\begin{frame}{Normal Form Theorem!}
+
+\textbf{Task:} Complete the following sentence (according to definition).
+
+\begin{quotation}
+We say a relation $R(\vec{x})$ is in $\Sigma^0_1$ if there exists a computable relation $C(a, \vec{x})$ such that for all $\vec{x}$, $R(\vec{x}) \Leftrightarrow \exists a \, C(a, \vec{x})$.
+\end{quotation}
+\end{frame}
+
+\begin{frame}{Normal Form Theorem!}
+
+\textbf{Task:} Complete the following sentence (according to definition).
+
+\begin{quotation}
+For $e \in \mathbb N$, we denote by $W_e$ the set...
+\end{quotation}
+\end{frame}
+
+\begin{frame}{Normal Form Theorem!}
+
+\textbf{Task:} Complete the following sentence (according to definition).
+
+\begin{quotation}
+For $e \in \mathbb N$, we denote by $W_e$ the set $\text{dom}(\varphi_e)$, where $\varphi_e$ is the partial recursive function corresponding to the $e$-th Turing machine.
+\end{quotation}
+\end{frame}
+
+\begin{frame}{Normal Form Theorem!}
+Finally, we get to the statement! :D (or D: if you don't like proofs)
+
+\begin{theorem}
+Let $A \subseteq \mathbb N$. The following are equivalent:
+\begin{enumerate}
+\item $A$ is c.e.;
+\item $A \in \Sigma^0_1$ (when $A$ is thought of as a unary relation);
+\item $A = W_e$ for some $e \in \mathbb N$.
+\end{enumerate}
+\end{theorem}
+
+We will prove (1) $\Rightarrow$ (2) $\Rightarrow$ (3) $\Rightarrow$ (1).
+\end{frame}
+
+\begin{frame}{Hope you like proofs.}
+(1) $\Rightarrow$ (2): $A$ is c.e. $\Rightarrow$ $A \in \Sigma^0_1$.
+
+\vspace{2mm}
+
+To prove this: suppose $A$ is c.e., so either $A = \emptyset$ or $A = \{f(0), f(1), \ldots\}$. To show $A \in A \in \Sigma^0_1$, we want to write
+$$A = \{x \in \mathbb N: \exists a \, C(a, x)\}$$
+where $C(a, x)$ is a computable relation.
+
+\vspace{2mm}
+
+\textbf{Task:} Come up with such a computable relation $C(a, x)$ so that $A$ satisfies the above equality. 
+
+\vspace{2mm}
+
+(Hint: I think you will probably need a separate case for $A = \emptyset$).
+\end{frame}
+
+\begin{frame}{Hope you like proofs.}
+(1) $\Rightarrow$ (2): $A$ is c.e. $\Rightarrow$ $A \in \Sigma^0_1$.
+
+\vspace{2mm}
+
+To prove this: suppose $A$ is c.e., so either $A = \emptyset$ or $A = \{f(0), f(1), \ldots\}$. To show $A \in A \in \Sigma^0_1$, we want to write
+$$A = \{x \in \mathbb N: \exists a \, C(a, x)\}$$
+where $C(a, x)$ is a computable relation.
+
+\vspace{2mm}
+
+Answer: If $A = \emptyset$, let $C(a, x)$ be the empty relation (false for all $a, x$). Then for any $x \in \mathbb N$, there doesn't exist $a$ such that $C(a, x)$ is true, so
+$$\{x \in \mathbb N: \exists a \, C(a, x)\} = \emptyset = A.$$
+
+Otherwise let $C(a, x): f(a) = x$. Since the range of $f$ is $A$, we have
+$$\{x \in \mathbb N: \exists a \, C(a, x)\} = \{x \in \mathbb N: \exists a \, f(a) = x\} = A.$$
+\end{frame}
+
+\begin{frame}{Hope you like proofs.}
+(2) $\Rightarrow$ (3): $A \in \Sigma^0_1 \Rightarrow A = W_e$ for some $e \in \mathbb N$.
+
+\vspace{2mm}
+
+To prove this: suppose $A \in \Sigma^0_1$, so there is a computable relation $C(a, x)$ so that
+$$A = \{x \in \mathbb N: \exists a \, C(a, x)\}.$$
+To show $A = W_e$ for some $e \in \mathbb N$, we want to produce a Turing machine that only halts on $A$ (since $W_e$ is the set of inputs that make the $e$th Turing machine halt).
+
+\vspace{2mm}
+
+\textbf{Task:} Come up with such a Turing machine (informally describing what it does).
+\end{frame}
+
+\begin{frame}{Hope you like proofs.}
+(2) $\Rightarrow$ (3): $A \in \Sigma^0_1 \Rightarrow A = W_e$ for some $e \in \mathbb N$.
+
+\vspace{2mm}
+
+To prove this: suppose $A \in \Sigma^0_1$, so there is a computable relation $C(a, x)$ so that
+$$A = \{x \in \mathbb N: \exists a \, C(a, x)\}.$$
+To show $A = W_e$ for some $e \in \mathbb N$, we want to produce a Turing machine that only halts on $A$ (since $W_e$ is the set of inputs that make the $e$th Turing machine halt).
+
+\vspace{2mm}
+
+Answer: Let $P_e$ be the Turing machine that does the following given an input $x \in \mathbb N$:
+\begin{align*}
+& \text{a = 0}\\
+& \text{while not $C(a, x)$:}\\
+& \quad \text{a += 1}
+\end{align*}
+This program halts on input $x$ if and only if $x \in A$.
+\end{frame}
+
+\begin{frame}{Hope you like proofs.}
+(3) $\Rightarrow$ (1): $A = W_e$ for some $e \in \mathbb N$ $\Rightarrow$ $A$ is c.e.
+
+\vspace{2mm}
+
+To prove this: suppose $A = W_e$. If $A = \emptyset$, then $A$ is c.e. by definition and we are done. Otherwise there exists a $p \in A$. We want to find a computable function $f$ such that $A = \text{range}(f)$.
+
+\vspace{2mm}
+
+\textbf{Task:} Recall the definition of $\varphi_{e, s}(x) \downarrow$. What does this mean? (Week 4 slides)
+\end{frame}
+
+\begin{frame}{Hope you like proofs.}
+(3) $\Rightarrow$ (1): $A = W_e$ for some $e \in \mathbb N$ $\Rightarrow$ $A$ is c.e.
+
+\vspace{2mm}
+
+To prove this: suppose $A = W_e$. If $A = \emptyset$, then $A$ is c.e. by definition and we are done. Otherwise there exists a $p \in A$. We want to find a computable function $f$ such that $A = \text{range}(f)$.
+
+\vspace{2mm}
+
+\textbf{Task:} Recall the definition of $\varphi_{e, s}(x) \downarrow$. What does this mean? (Week 4 slides)
+
+Answer: $\varphi_{e, s}(x) \downarrow$ means that $x, e < s$ and the $e$th Turing machine takes $s$ steps or less to halt on $x$.
+
+\vspace{2mm}
+
+So $x \in W_e$ if and only if $\varphi_{e, s}(x) \downarrow$ for some $s \in \mathbb N$. In other words, $s$ is large enough so that $x < s$ and the Turing machine takes $s$ steps or less to halt on $x$.
+\end{frame}
+
+\begin{frame}{Hope you like proofs.}
+(3) $\Rightarrow$ (1): $A = W_e$ for some $e \in \mathbb N$ $\Rightarrow$ $A$ is c.e.
+
+\vspace{2mm}
+
+To prove this: suppose $A = W_e$. If $A = \emptyset$, then $A$ is c.e. by definition and we are done. Otherwise there exists a $p \in A$. We want to find a computable function $f$ such that $A = \text{range}(f)$.
+
+\vspace{2mm}
+
+\textbf{Task:} Show (or convince yourself) that the range of $f$ is exactly $A$, where
+$$f(\langle x, s\rangle) = \begin{cases}
+x & \varphi_{e, s}(x) \downarrow\\
+p & \text{otherwise.}
+\end{cases}$$
+\end{frame}
+
+\begin{frame}{This finishes the proof!}
+\textbf{Task:} Breathe in for 4 seconds, hold your breath for 7 seconds, then slowly release it for 8 seconds. Repeat for 3 minutes. 
+
+\vspace{2mm}
+
+While doing this, imagine you are a 600-year-old giant 50-ton stone on Easter Island in the middle of the Pacific. You have access to a black box that can solve \textit{all} problems in this universe, including non-computable problems such as deciding whether $x \in \mathbb N$ is in the halting set $K$, as it has access to any oracle in existence.
+
+As you breath in and out, you feel your brain expanding. You are filled with \textit{determination}. You can solve any problem. You acknowledge all the suffering and injustice you have received throughout your life, and have ascended beyond any worldly desire. A light breeze brushes up against your coarse stone surface. You feel \textit{at peace}. 
+
+A \textit{Gygis alba} lands on your head. You can hear it chirping amidst the light breeze. You are unbothered, because you have ascended beyond life.
+
+You are a Moai. \emojimoyai\emojimoyai\emojimoyai
+
+
+\end{frame}
+
+\begin{frame}{\emojimoyai\emojimoyai\emojimoyai\emojimoyai\emojimoyai\emojimoyai}
+
+\begin{figure}[h]
+\centering
+\includegraphics{img/moai.jpg}
+\end{figure}
+
+
+\end{frame}
+
+\begin{frame}{\emojimoyai\emojimoyai\emojimoyai\emojimoyai\emojimoyai\emojimoyai}
+Now that you have attained knowledge of this universe, you may prove the following:
+\begin{quotation}
+Let $A \subseteq \mathbb N$. $A$ is c.e. if and only if there exists a partial computable function $f$ such that $A = \text{range}(f)$.
+\end{quotation}
+
+\textbf{Task:} Prove the above using the normal form theorem (written below).
+
+\begin{theorem}
+Let $A \subseteq \mathbb N$. The following are equivalent:
+\begin{enumerate}
+\item $A$ is c.e.;
+\item $A \in \Sigma^0_1$ (when $A$ is thought of as a unary relation);
+\item $A = W_e$ for some $e \in \mathbb N$.
+\end{enumerate}
+\end{theorem}
+
+
+Hint: For proving the $\Leftarrow$ direction, show $A$ satisfies condition 2 in the above theorem.
+
+
+\end{frame}
+
+\begin{frame}{\emojimoyai\emojimoyai\emojimoyai\emojimoyai\emojimoyai\emojimoyai}
+Now that you have attained knowledge of this universe, you may prove the following:
+\begin{quotation}
+Let $A \subseteq \mathbb N$. $A$ is c.e. if and only if there exists a partial computable function $f$ such that $A = \text{range}(f)$.
+\end{quotation}
+
+Proof: ($\Rightarrow$) Suppose $A$ is c.e.. Then either $A = \emptyset$ or $A = \text{range}(f)$ for some \textit{computable} function $f$. If $A = \emptyset$, then $A$ is the range of the empty partial computable function (always undefined). Otherwise $A = \text{range}(f)$ (and $f$ is partial computable since it is computable).
+
+\vspace{2mm}
+
+($\Leftarrow$) Let $A = \text{range}(f)$ for some partial computable $f$. Then $f = \varphi_e$ for some $e \in \mathbb N$ (since $f$ can be emulated by a Turing machine). Define the relation
+$$C(s, x, y): \varphi_{e, s}(x) \downarrow = y.$$
+Then 
+$$A = \{y \in \mathbb N: \exists (s, x)  \, C(s, x, y) \}.$$
+
+
+(Formally I should have used $C(\langle s, x \rangle, y)$ for the relation.)
+\end{frame}
+
+\begin{frame}{Thanks for watching my video. For more information, please visit \texttt{sjorv.github.io} for a giveaway of two \$GME shares.}
+
+\begin{columns}
+\column{0.4\linewidth}
+If you'd like to cheat on the homework, please stay for office hours! :D
+\vspace{4mm}
+
+If not, then bye. ;-; 
+
+To help you on your homework, please try the following proof methods.
+\column{0.5\linewidth}
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.21]{img/proof_techniques.png}
+\end{figure}
+\end{columns}
+
+
+\end{frame}
+
+
+
+
+
+
+
+
+
+
+\end{document}
