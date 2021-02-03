@@ -47,6 +47,12 @@ By the end of this tutorial, you should...
 \end{itemize}
 \end{frame}
 
+\begin{frame}{IMPORTANT NOTICE}
+sowwy ;-; i had to speedrun those slides, i realized i was covering the wrong content only a few hours prior. i was gonna cover some week 4 material, until i realized people in the friday lecture would probably have no idea what i'm talking about, so i had to quickly remake some slides.
+
+the point of today's tutorial is to introduce you to some proofs that we have skipped in class. 
+\end{frame}
+
 \begin{frame}{Readings? What is this, English class?}
 Yea, I just discovered that a (recommended) textbook exists for this course! Available for the cheap price of only \$150.
 \begin{figure}[placement]
@@ -71,59 +77,55 @@ These recommended readings are certified by \texttt{helo\textunderscore fish.jpg
 \end{figure}
 \end{frame}
 
-\begin{frame}{Normal Form Theorem!}
-
-\textbf{Task:} Complete the following sentence (according to definition).
-
+\begin{frame}{G*del is back!}
+We claimed this statement is true without proving it previously:
 \begin{quotation}
-We say a set $A \subseteq \mathbb N$ is \textbf{computably enumerable (c.e.)} if...
+Any finite set $A \subseteq \mathbb N$ is computable.
 \end{quotation}
+Let us prove it.
+
+\vspace{2mm}
+
+\textbf{Task:} Prove the above statement using the Church-Turing Thesis. In other words, describe an algorithm that decides whether some arbitrary $x \in \mathbb N$ is in $A$ or not (within a finite amount of time).\footnote{Note that $A$ is predetermined already: your algorithm does not take $A$ as an input.}
+
+\vspace{2mm}
+
+Hint: If $A$ is finite, we can write $A = \{a_1, a_2, \ldots, a_n\}$.
+
+\vspace{2mm}
+
+\pause
+
+Answer: Given an input $x \in \mathbb N$, do the following:
+\begin{align*}
+& \text{$i = 1$}\\
+& \text{while $i \leq n$:}\\
+& \quad \text{if $x = a_i$: return True}\\
+& \text{return False}
+\end{align*}
+
+
 \end{frame}
 
+
 \begin{frame}{Normal Form Theorem!}
-
-\textbf{Task:} Complete the following sentence (according to definition).
-
 \begin{quotation}
 We say a set $A \subseteq \mathbb N$ is \textbf{computably enumerable (c.e.)} if $A = \emptyset$ or there exists a computable $f: \mathbb N \to \mathbb N$ such that $A = \text{range}(f)$. 
 \end{quotation}
-\end{frame}
-
-\begin{frame}{Normal Form Theorem!}
-
-\textbf{Task:} Complete the following sentence (according to definition).
 
 \begin{quotation}
-We say a relation $R(\vec{x})$ is in $\Sigma^0_1$ if...
+We say a relation $R(\vec{x})$ is in $\Sigma^0_1$ if there exists a computable relation $C(a, \vec{x})$ such that for all $\vec{x}$, $R(\vec{x}) \Leftrightarrow \exists \vec{a} \, C(\vec{a}, \vec{x})$. In other words, when $R$ is thought of as a set,
+$$R = \{\vec{x}: \exists \vec{a} \, C(\vec{a}, \vec{x})\}.$$
 \end{quotation}
-\end{frame}
-
-\begin{frame}{Normal Form Theorem!}
-
-\textbf{Task:} Complete the following sentence (according to definition).
-
-\begin{quotation}
-We say a relation $R(\vec{x})$ is in $\Sigma^0_1$ if there exists a computable relation $C(a, \vec{x})$ such that for all $\vec{x}$, $R(\vec{x}) \Leftrightarrow \exists a \, C(a, \vec{x})$.
-\end{quotation}
-\end{frame}
-
-\begin{frame}{Normal Form Theorem!}
-
-\textbf{Task:} Complete the following sentence (according to definition).
-
-\begin{quotation}
-For $e \in \mathbb N$, we denote by $W_e$ the set...
-\end{quotation}
-\end{frame}
-
-\begin{frame}{Normal Form Theorem!}
-
-\textbf{Task:} Complete the following sentence (according to definition).
 
 \begin{quotation}
 For $e \in \mathbb N$, we denote by $W_e$ the set $\text{dom}(\varphi_e)$, where $\varphi_e$ is the partial recursive function corresponding to the $e$-th Turing machine.
 \end{quotation}
+
+\textbf{Task:} Digest those definitions.
+
 \end{frame}
+
 
 \begin{frame}{Normal Form Theorem!}
 Finally, we get to the statement! :D (or D: if you don't like proofs)
@@ -137,7 +139,68 @@ Let $A \subseteq \mathbb N$. The following are equivalent:
 \end{enumerate}
 \end{theorem}
 
-We will prove (1) $\Rightarrow$ (2) $\Rightarrow$ (3) $\Rightarrow$ (1).
+We will prove (1) $\Rightarrow$ (2) $\Rightarrow$ (3) $\Rightarrow$ (1). But before we begin, let's try some examples!
+
+\vspace{2mm}
+
+\textbf{Task:} Let $A = \mathbb N$. Show that $A$ is c.e.. Do the same with $A = E$ (the set of even natural numbers).
+
+\pause
+
+Answer: For $A = \mathbb N$, $f(x) = x$ satisfies $\text{range}(f) = A$. For $A = E$, $f(x) = 2x$ satisfies $\text{range}(f) = A$.
+\end{frame}
+
+\begin{frame}{Normal Form Theorem!}
+\textbf{Task:} Let $A = \mathbb N$. Show that $A \in \Sigma^0_1$ by finding a computable relation $C(a, x)$ such that for all $x \in \mathbb N$, $x \in A$ if and only if there exists $a$ such that $C(a, x)$ holds. In other words,
+$$A = \{x \in \mathbb N: \exists a \, C(a, x)\}.$$ 
+Do the same with $A = E$ (the set of even natural numbers).
+
+\vspace{2mm}
+
+\pause
+
+Answer: For $A = \mathbb N$, if $C(a, x): a = x$, then
+$$A = \{x \in \mathbb N: \exists a \, C(a, x)\}.$$
+
+For $A = E$, if $C(a, x): 2a = x$, then
+$$A = \{x \in \mathbb N: \exists a \, C(a, x)\}.$$
+\end{frame}
+
+\begin{frame}{Normal Form Theorem!}
+\textbf{Task:} Let $A = \mathbb N$. Show that $A = W_e$ for some $e \in \mathbb N$, by finding a Turing machine $P_e$ that halts only on $A$. In other words,
+$$A = \{x \in \mathbb N: \text{$P_e$ halts given input $x$}\}.$$
+Do the same with $A = E$ (the set of even natural numbers).
+
+\vspace{2mm}
+
+\pause
+
+Answer: For $A = \mathbb N$, let $P_e$ be the Turing machine that halts as soon as it receives any input (so that it halts on all inputs).
+
+For $A = E$, let $P_e$ be the Turing machine that performs the following procedure given input $x$:
+\begin{align*}
+& \text{if $x \bmod 2 = 0$}:\\
+& \quad \text{stop executing!!! D:}\\
+& \text{else}:\\
+& \quad \text{loop and waste CPU resources.}
+\end{align*}
+\end{frame}
+
+
+\begin{frame}{Hope you like proofs.}
+Here's the Normal Form Theorem again.
+\begin{theorem}
+Let $A \subseteq \mathbb N$. The following are equivalent:
+\begin{enumerate}
+\item $A$ is c.e.;
+\item $A \in \Sigma^0_1$ (when $A$ is thought of as a unary relation);
+\item $A = W_e$ for some $e \in \mathbb N$.
+\end{enumerate}
+\end{theorem}
+
+Hopefully with the previous tasks, you have convinced yourself that the Normal Form Theorem holds for computable sets.
+
+\vspace{2mm}
 \end{frame}
 
 \begin{frame}{Hope you like proofs.}
@@ -145,7 +208,7 @@ We will prove (1) $\Rightarrow$ (2) $\Rightarrow$ (3) $\Rightarrow$ (1).
 
 \vspace{2mm}
 
-To prove this: suppose $A$ is c.e., so either $A = \emptyset$ or $A = \{f(0), f(1), \ldots\}$. To show $A \in A \in \Sigma^0_1$, we want to write
+To prove this: suppose $A$ is c.e., so either $A = \emptyset$ or $A = \{f(0), f(1), \ldots\}$. To show $A \in \Sigma^0_1$, we want to write
 $$A = \{x \in \mathbb N: \exists a \, C(a, x)\}$$
 where $C(a, x)$ is a computable relation.
 
@@ -159,20 +222,20 @@ where $C(a, x)$ is a computable relation.
 \end{frame}
 
 \begin{frame}{Hope you like proofs.}
-(1) $\Rightarrow$ (2): $A$ is c.e. $\Rightarrow$ $A \in \Sigma^0_1$.
+To show $A \in \Sigma^0_1$, we want to write
+$$A = \{x \in \mathbb N: \exists a \, C(a, x)\}$$
+where $C(a, x)$ is a computable relation.
 
 \vspace{2mm}
 
-To prove this: suppose $A$ is c.e., so either $A = \emptyset$ or $A = \{f(0), f(1), \ldots\}$. To show $A \in A \in \Sigma^0_1$, we want to write
-$$A = \{x \in \mathbb N: \exists a \, C(a, x)\}$$
-where $C(a, x)$ is a computable relation.
+\textbf{Task:} Come up with such a computable relation $C(a, x)$ so that $A$ satisfies the above equality. 
 
 \vspace{2mm}
 
 Answer: If $A = \emptyset$, let $C(a, x)$ be the empty relation (false for all $a, x$). Then for any $x \in \mathbb N$, there doesn't exist $a$ such that $C(a, x)$ is true, so
 $$\{x \in \mathbb N: \exists a \, C(a, x)\} = \emptyset = A.$$
 
-Otherwise let $C(a, x): f(a) = x$. Since the range of $f$ is $A$, we have
+Otherwise $A = \{f(0), f(1), \ldots\}$ for a computable $f$. Let $C(a, x): f(a) = x$. Since the range of $f$ is $A$, we have
 $$\{x \in \mathbb N: \exists a \, C(a, x)\} = \{x \in \mathbb N: \exists a \, f(a) = x\} = A.$$
 \end{frame}
 
@@ -191,13 +254,13 @@ To show $A = W_e$ for some $e \in \mathbb N$, we want to produce a Turing machin
 \end{frame}
 
 \begin{frame}{Hope you like proofs.}
-(2) $\Rightarrow$ (3): $A \in \Sigma^0_1 \Rightarrow A = W_e$ for some $e \in \mathbb N$.
+\vspace{2mm}
+$$A = \{x \in \mathbb N: \exists a \, C(a, x)\}.$$
+We want to produce a Turing machine that only halts on $A$.
 
 \vspace{2mm}
 
-To prove this: suppose $A \in \Sigma^0_1$, so there is a computable relation $C(a, x)$ so that
-$$A = \{x \in \mathbb N: \exists a \, C(a, x)\}.$$
-To show $A = W_e$ for some $e \in \mathbb N$, we want to produce a Turing machine that only halts on $A$ (since $W_e$ is the set of inputs that make the $e$th Turing machine halt).
+\textbf{Task:} Come up with such a Turing machine (informally describing what it does).
 
 \vspace{2mm}
 
@@ -219,25 +282,20 @@ To prove this: suppose $A = W_e$. If $A = \emptyset$, then $A$ is c.e. by defini
 
 \vspace{2mm}
 
-\textbf{Task:} Recall the definition of $\varphi_{e, s}(x) \downarrow$. What does this mean? (Week 4 slides)
-\end{frame}
+\textbf{Definition:} We say $\varphi_{e, s}(x) \downarrow$ when $x, e < s$ and the $e$th Turing machine takes $s$ steps or less to halt on $x$.
 
-\begin{frame}{Hope you like proofs.}
-(3) $\Rightarrow$ (1): $A = W_e$ for some $e \in \mathbb N$ $\Rightarrow$ $A$ is c.e.
+\textbf{Task:} Digest the above definition.
 
-\vspace{2mm}
-
-To prove this: suppose $A = W_e$. If $A = \emptyset$, then $A$ is c.e. by definition and we are done. Otherwise there exists a $p \in A$. We want to find a computable function $f$ such that $A = \text{range}(f)$.
 
 \vspace{2mm}
 
-\textbf{Task:} Recall the definition of $\varphi_{e, s}(x) \downarrow$. What does this mean? (Week 4 slides)
+\pause
 
-Answer: $\varphi_{e, s}(x) \downarrow$ means that $x, e < s$ and the $e$th Turing machine takes $s$ steps or less to halt on $x$.
+Notice: $x \in W_e$ if and only if $\varphi_{e, s}(x) \downarrow$ for some $s \in \mathbb N$. In other words, $s$ is large enough so that $x, e < s$ and the Turing machine takes $s$ steps or less to halt on $x$.
 
-\vspace{2mm}
+\textbf{Task:} Argue that we can determine whether $\varphi_{e, s}(x) \downarrow$ or not (in a finite amount of time).
 
-So $x \in W_e$ if and only if $\varphi_{e, s}(x) \downarrow$ for some $s \in \mathbb N$. In other words, $s$ is large enough so that $x < s$ and the Turing machine takes $s$ steps or less to halt on $x$.
+
 \end{frame}
 
 \begin{frame}{Hope you like proofs.}
@@ -300,7 +358,7 @@ Let $A \subseteq \mathbb N$. The following are equivalent:
 \end{theorem}
 
 
-Hint: For proving the $\Leftarrow$ direction, show $A$ satisfies condition 2 in the above theorem.
+Hint: For proving the $\Leftarrow$ direction (which is more difficult), show $A$ satisfies condition 2 in the above theorem. You may want to use $\varphi_{e, s}(x) \downarrow$ somewhere in this direction.
 
 
 \end{frame}
