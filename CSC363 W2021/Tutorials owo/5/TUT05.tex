@@ -153,7 +153,7 @@ Again, do not attempt to use these lines. I take no responsibility for any poten
 
 \begin{frame}{$m$-reduction? \emojiflushed}
 
-\textbf{Task:} Let $K_0 = \{\langle x, y \rangle: \varphi_x(y) \downarrow\}$. Show that $K \leq_m K_0$ by finding a computable function $f$ such that $x \in K \Leftrightarrow f(x) \in K_0$.\footnote{$K = \{x: \phi_x(x) \downarrow\}$.}
+\textbf{Task:} Let $K_0 = \{\langle x, y \rangle: \varphi_x(y) \downarrow\}$. Show that $K \leq_m K_0$ by finding a computable function $f$ such that $x \in K \Leftrightarrow f(x) \in K_0$.\footnote{$K = \{x: \varphi_x(x) \downarrow\}$.}
 
 \vspace{2mm}
 
@@ -174,7 +174,7 @@ cursed smiley.
 
 \begin{frame}{$m$-reduction? \emojiflushed}
 
-\textbf{Task:} Let $K_0 = \{\langle x, y \rangle: \varphi_x(y) \downarrow\}$. Show that $K \leq_m K_0$ by finding a computable function $f$ such that $x \in K \Leftrightarrow f(x) \in K_0$.\footnote{$K = \{x: \phi_x(x) \downarrow\}$.}
+\textbf{Task:} Let $K_0 = \{\langle x, y \rangle: \varphi_x(y) \downarrow\}$. Show that $K \leq_m K_0$ by finding a computable function $f$ such that $x \in K \Leftrightarrow f(x) \in K_0$.\footnote{$K = \{x: \varphi_x(x) \downarrow\}$.}
 
 \vspace{2mm}
 
@@ -201,7 +201,7 @@ Hint: \begin{enumerate}
 \item Show that we can decide whether something is in $A$ or not.
 \item Using the normal form theorem, we can suppose there exists a computable relation $R$ such that
 $$x \in B \Leftrightarrow \exists y \, R(x, y).$$
-Show that $A \in \Sigma_0^1$.
+Show that $A \in \Sigma^0_1$.
 \end{enumerate}
 
 \end{frame}
@@ -255,8 +255,8 @@ Hint: Normal form theorem! $A$ is c.e. implies $A = W_e$ for some $e$.
 \vspace{2mm}
 
 \pause
-Answer: Suppose $A$ is c.e.. Then $A = W_e$ for some $e$. Consider the function $f(x) = \langle x, e \rangle$: 
-$$x \in A \Leftrightarrow x \in W_e \Leftrightarrow \phi_e(x) \downarrow \Leftrightarrow \langle x, e \rangle \in K_0.$$
+Answer: Suppose $A$ is c.e.. Then $A = W_e$ for some $e$. Consider the function $f(x) = \langle e, x\rangle$: 
+$$x \in A \Leftrightarrow x \in W_e \Leftrightarrow \varphi_e(x) \downarrow \Leftrightarrow \langle e, x \rangle \in K_0.$$
 Conversely suppose $A \leq_m K_0$. Since $K_0$ is c.e., by the theorem we have proven, $A$ is also c.e..
 
 \end{frame}
