@@ -51,14 +51,14 @@
 \begin{frame}{Learning objectives this tutorial}
 By the end of this tutorial, you should...
 \begin{itemize}
-\item be able to convert \textit{formulas} into \textit{conjunctive normal form (CNF)}, cuz we need it to understand \textit{3SAT} or something.
+\item Be able to convert \textit{formulas} into \textit{conjunctive normal form (CNF)}, cuz we need it to understand \textit{3SAT} or something.
 \item Have a brief idea of what NP-completeness is, and be convinced that you shouldn't try to solve NP-complete problems in polynomial time.
 \item Have the truth tables haunt you in your dreams.
 \item Rejoice! because, uh, you'll only be scared by \texttt{helo\textunderscore fish.jpg} for only two more weeks? 
 \item Feel uneasy, if you've are taking CSC258 right now... 
-
-(\texttt{helo\textunderscore fish.jpg} is taking a break this week due to oceanic acidification.)      
 \end{itemize}
+(\texttt{helo\textunderscore fish.jpg} is taking a break this week due to oceanic acidification.) 
+
 Big Chux certified readings: 7.4, probably, in Sipser's book.
 \end{frame}
 
@@ -109,6 +109,8 @@ Do you remember truth tables?
 \centering
 \includegraphics[width=7cm]{img/truth_table.png}
 \end{figure}
+
+Given a formula, we can fill out its truth table!
 
 Let us write out the truth table for $(x \Rightarrow y) \Leftrightarrow \neg (y \land z)$!
 
@@ -206,7 +208,7 @@ $$(\neg x \lor \neg y \lor \neg z) \land (\neg x \lor y \lor z) \land (\neg x \l
 \end{frame}
 
 \begin{frame}{formula}
-More formally, a \textbf{clause} is several variables connected with $\lor$s with, so something like $(x \land \neg y \land \neg z)$ is a clause. A formula is in \textbf{conjunctive normal form (CNF)} if it comprises several clauses connected with $\land$s, as in 
+More formally, a \textbf{clause} is several variables connected with $\lor$s with, so something like $(x \lor \neg y \lor \neg z)$ is a clause. A formula is in \textbf{conjunctive normal form (CNF)} if it comprises several clauses connected with $\land$s, as in 
 $$(\neg x \lor \neg y \lor \neg z) \land (\neg x \lor y \lor z) \land (\neg x \lor y \lor z) \land (x \lor \neg x \lor \neg z).$$
 \end{frame}
 
@@ -237,8 +239,8 @@ F & F & F & T\\
 How to write out the CNF for a formula?
 \begin{enumerate}[label=(\arabic*)]
 \item Fill out the truth table for the formula.
-\item For each row which ends in `F', take the value of the variables coming before it, and negate them and add `$\lor$'. idk how to describe it, but here's an example. For the third row in our table, we create the expression $(\neg x \lor y \lor \neg z)$.
-\item Take all the expressions you've made and add $\land$ between them.
+\item For each row which ends in `F', take the value of the variables coming before it, and negate them. Then add $\lor$ between them to create a clause. For example, for the third row in our table, we create the expression $(\neg x \lor y \lor \neg z)$.
+\item Take all the clauses you've made and add $\land$ between them.
 \end{enumerate}
 \end{frame}
 
@@ -312,7 +314,7 @@ So you're given this CNF formula,\footnote{it's in fact called a 3CNF formula!} 
 
 \vspace{2mm}
 
-in the example $(x \lor \neg y \lor \neg z) \land (\neg x \lor z \lor \neg w)$, the answer is yes, since if we assign $x, z$ to be true and $y, w$ to be false, then
+In the example $(x \lor \neg y \lor \neg z) \land (\neg x \lor z \lor \neg w)$, the answer is yes, since if we assign $x, z$ to be true and $y, w$ to be false, then
 $(x \lor \neg y \lor \neg z) \land (x \lor z \lor \neg w)$ is true.
 \end{frame}
 
@@ -322,7 +324,7 @@ So you're given this CNF formula,\footnote{it's in fact called a 3CNF formula!} 
 
 \vspace{2mm}
 
-in the example \begin{align*}
+In the example \begin{align*}
 &(x \lor y \lor z) \land (x \lor y \lor \neg z) \land (x \lor \neg y \lor z) \land  (x \lor \neg y \lor \neg z)\\
 \land &(\neg x \lor y \lor z) \land (\neg x \lor y \lor \neg z) \land (\neg x \lor \neg y \lor z) \land (\neg x \lor \neg y \lor \neg z)
 \end{align*}
@@ -330,7 +332,7 @@ there is no assignment of variables that makes this true!
 \end{frame}
 
 \begin{frame}{are you satisfied \emojiflushed}
-turns out, uh, 3SAT\footnote{As a language, 3SAT is defined as $\{\varphi: \text{$\varphi$ is a 3CNF formula that can be satisfied}\}$.} is what is called a \textit{NP-complete problem}. 
+Turns out, uh, 3SAT\footnote{As a language, 3SAT is defined as $\{\varphi: \text{$\varphi$ is a 3CNF formula that can be satisfied}\}$.} is what is called a \textit{NP-complete problem}. 
 
 \textbf{Definition:} A language $A$ is \textbf{NP-complete} if
 \begin{enumerate}[label=(\alph*)]
@@ -352,6 +354,8 @@ The above is saying that $A$ is the ``hardest NP problem''. If we can solve $A$ 
 \begin{figure}[h]
 \centering
 \includegraphics[width=5cm]{img/np-complete.png}
+
+List of NP-complete problems
 \end{figure}
 
 \end{frame}

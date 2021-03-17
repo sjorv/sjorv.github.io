@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2021.1.11)  17 MAR 2021 00:49
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2021.1.11)  17 MAR 2021 01:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1341,18 +1341,18 @@ Package pdftex.def Info: img/chux.png  used on input line 104.
 <img/truth_table.png, id=90, 445.665pt x 290.08376pt>
 File: img/truth_table.png Graphic file (type png)
 <use img/truth_table.png>
-Package pdftex.def Info: img/truth_table.png  used on input line 116.
+Package pdftex.def Info: img/truth_table.png  used on input line 118.
 (pdftex.def)             Requested size: 199.16928pt x 129.63794pt.
 File: img/chux.png Graphic file (type png)
 <use img/chux.png>
-Package pdftex.def Info: img/chux.png  used on input line 116.
+Package pdftex.def Info: img/chux.png  used on input line 118.
 (pdftex.def)             Requested size: 167.90994pt x 227.62204pt.
  [7
 
  <./img/truth_table.png>]
 File: img/chux.png Graphic file (type png)
 <use img/chux.png>
-Package pdftex.def Info: img/chux.png  used on input line 145.
+Package pdftex.def Info: img/chux.png  used on input line 147.
 (pdftex.def)             Requested size: 167.90994pt x 227.62204pt.
  [8
 
@@ -1360,50 +1360,50 @@ Package pdftex.def Info: img/chux.png  used on input line 145.
 <img/larry.png, id=102, 871.00406pt x 446.41782pt>
 File: img/larry.png Graphic file (type png)
 <use img/larry.png>
-Package pdftex.def Info: img/larry.png  used on input line 178.
+Package pdftex.def Info: img/larry.png  used on input line 180.
 (pdftex.def)             Requested size: 142.26378pt x 72.91327pt.
 
-Overfull \vbox (3.5006pt too high) detected at line 178
+Overfull \vbox (3.5006pt too high) detected at line 180
  []
 
 File: img/chux.png Graphic file (type png)
 <use img/chux.png>
-Package pdftex.def Info: img/chux.png  used on input line 178.
+Package pdftex.def Info: img/chux.png  used on input line 180.
 (pdftex.def)             Requested size: 167.90994pt x 227.62204pt.
 [9
 
  <./img/larry.png>]
 File: img/chux.png Graphic file (type png)
 <use img/chux.png>
-Package pdftex.def Info: img/chux.png  used on input line 206.
+Package pdftex.def Info: img/chux.png  used on input line 208.
 (pdftex.def)             Requested size: 167.90994pt x 227.62204pt.
  [10
 
 ]
 File: img/chux.png Graphic file (type png)
 <use img/chux.png>
-Package pdftex.def Info: img/chux.png  used on input line 211.
+Package pdftex.def Info: img/chux.png  used on input line 213.
 (pdftex.def)             Requested size: 167.90994pt x 227.62204pt.
  [11
 
 ]
 File: img/chux.png Graphic file (type png)
 <use img/chux.png>
-Package pdftex.def Info: img/chux.png  used on input line 243.
+Package pdftex.def Info: img/chux.png  used on input line 245.
 (pdftex.def)             Requested size: 167.90994pt x 227.62204pt.
  [12
 
 ]
 File: img/chux.png Graphic file (type png)
 <use img/chux.png>
-Package pdftex.def Info: img/chux.png  used on input line 270.
+Package pdftex.def Info: img/chux.png  used on input line 272.
 (pdftex.def)             Requested size: 167.90994pt x 227.62204pt.
  [13
 
 ]
 File: img/chux.png Graphic file (type png)
 <use img/chux.png>
-Package pdftex.def Info: img/chux.png  used on input line 299.
+Package pdftex.def Info: img/chux.png  used on input line 301.
 (pdftex.def)             Requested size: 167.90994pt x 227.62204pt.
  [14
 
@@ -1411,33 +1411,33 @@ Package pdftex.def Info: img/chux.png  used on input line 299.
 <img/1f633.png, id=135, 160.6pt x 160.6pt>
 File: img/1f633.png Graphic file (type png)
 <use img/1f633.png>
-Package pdftex.def Info: img/1f633.png  used on input line 317.
+Package pdftex.def Info: img/1f633.png  used on input line 319.
 (pdftex.def)             Requested size: 8.5359pt x 8.53528pt.
 File: img/chux.png Graphic file (type png)
 <use img/chux.png>
-Package pdftex.def Info: img/chux.png  used on input line 317.
+Package pdftex.def Info: img/chux.png  used on input line 319.
 (pdftex.def)             Requested size: 167.90994pt x 227.62204pt.
  [15
 
  <./img/1f633.png>]
 File: img/1f633.png Graphic file (type png)
 <use img/1f633.png>
-Package pdftex.def Info: img/1f633.png  used on input line 330.
+Package pdftex.def Info: img/1f633.png  used on input line 332.
 (pdftex.def)             Requested size: 8.5359pt x 8.53528pt.
 File: img/chux.png Graphic file (type png)
 <use img/chux.png>
-Package pdftex.def Info: img/chux.png  used on input line 330.
+Package pdftex.def Info: img/chux.png  used on input line 332.
 (pdftex.def)             Requested size: 167.90994pt x 227.62204pt.
  [16
 
 ]
 File: img/1f633.png Graphic file (type png)
 <use img/1f633.png>
-Package pdftex.def Info: img/1f633.png  used on input line 347.
+Package pdftex.def Info: img/1f633.png  used on input line 349.
 (pdftex.def)             Requested size: 8.5359pt x 8.53528pt.
 File: img/chux.png Graphic file (type png)
 <use img/chux.png>
-Package pdftex.def Info: img/chux.png  used on input line 347.
+Package pdftex.def Info: img/chux.png  used on input line 349.
 (pdftex.def)             Requested size: 167.90994pt x 227.62204pt.
 
 [17
@@ -1446,92 +1446,92 @@ Package pdftex.def Info: img/chux.png  used on input line 347.
 <img/np-complete.png, id=154, 728.7225pt x 869.2475pt>
 File: img/np-complete.png Graphic file (type png)
 <use img/np-complete.png>
-Package pdftex.def Info: img/np-complete.png  used on input line 357.
+Package pdftex.def Info: img/np-complete.png  used on input line 361.
 (pdftex.def)             Requested size: 142.26378pt x 169.6949pt.
 File: img/chux.png Graphic file (type png)
 <use img/chux.png>
-Package pdftex.def Info: img/chux.png  used on input line 357.
+Package pdftex.def Info: img/chux.png  used on input line 361.
 (pdftex.def)             Requested size: 167.90994pt x 227.62204pt.
  [18
 
  <./img/np-complete.png>]
 File: img/chux.png Graphic file (type png)
 <use img/chux.png>
-Package pdftex.def Info: img/chux.png  used on input line 365.
+Package pdftex.def Info: img/chux.png  used on input line 369.
 (pdftex.def)             Requested size: 167.90994pt x 227.62204pt.
  [19
 
 ]
 File: img/1f633.png Graphic file (type png)
 <use img/1f633.png>
-Package pdftex.def Info: img/1f633.png  used on input line 419.
+Package pdftex.def Info: img/1f633.png  used on input line 423.
 (pdftex.def)             Requested size: 8.5359pt x 8.53528pt.
 File: img/chux.png Graphic file (type png)
 <use img/chux.png>
-Package pdftex.def Info: img/chux.png  used on input line 419.
+Package pdftex.def Info: img/chux.png  used on input line 423.
 (pdftex.def)             Requested size: 167.90994pt x 227.62204pt.
  [20
 
 ]
 File: img/1f633.png Graphic file (type png)
 <use img/1f633.png>
-Package pdftex.def Info: img/1f633.png  used on input line 485.
+Package pdftex.def Info: img/1f633.png  used on input line 489.
 (pdftex.def)             Requested size: 8.5359pt x 8.53528pt.
 File: img/chux.png Graphic file (type png)
 <use img/chux.png>
-Package pdftex.def Info: img/chux.png  used on input line 485.
+Package pdftex.def Info: img/chux.png  used on input line 489.
 (pdftex.def)             Requested size: 167.90994pt x 227.62204pt.
  [21
 
 ]
 File: img/1f633.png Graphic file (type png)
 <use img/1f633.png>
-Package pdftex.def Info: img/1f633.png  used on input line 485.
+Package pdftex.def Info: img/1f633.png  used on input line 489.
 (pdftex.def)             Requested size: 8.5359pt x 8.53528pt.
 File: img/chux.png Graphic file (type png)
 <use img/chux.png>
-Package pdftex.def Info: img/chux.png  used on input line 485.
+Package pdftex.def Info: img/chux.png  used on input line 489.
 (pdftex.def)             Requested size: 167.90994pt x 227.62204pt.
  [22
 
 ]
 File: img/1f633.png Graphic file (type png)
 <use img/1f633.png>
-Package pdftex.def Info: img/1f633.png  used on input line 505.
+Package pdftex.def Info: img/1f633.png  used on input line 509.
 (pdftex.def)             Requested size: 8.5359pt x 8.53528pt.
 
-Overfull \vbox (20.88673pt too high) detected at line 505
+Overfull \vbox (20.88673pt too high) detected at line 509
  []
 
 File: img/chux.png Graphic file (type png)
 <use img/chux.png>
-Package pdftex.def Info: img/chux.png  used on input line 505.
+Package pdftex.def Info: img/chux.png  used on input line 509.
 (pdftex.def)             Requested size: 167.90994pt x 227.62204pt.
 [23
 
 ]
 File: img/1f633.png Graphic file (type png)
 <use img/1f633.png>
-Package pdftex.def Info: img/1f633.png  used on input line 525.
+Package pdftex.def Info: img/1f633.png  used on input line 529.
 (pdftex.def)             Requested size: 8.5359pt x 8.53528pt.
 
-Overfull \vbox (20.88673pt too high) detected at line 525
+Overfull \vbox (20.88673pt too high) detected at line 529
  []
 
 File: img/chux.png Graphic file (type png)
 <use img/chux.png>
-Package pdftex.def Info: img/chux.png  used on input line 525.
+Package pdftex.def Info: img/chux.png  used on input line 529.
 (pdftex.def)             Requested size: 167.90994pt x 227.62204pt.
 [24
 
 ]
 File: img/1f633.png Graphic file (type png)
 <use img/1f633.png>
-Package pdftex.def Info: img/1f633.png  used on input line 537.
+Package pdftex.def Info: img/1f633.png  used on input line 541.
 (pdftex.def)             Requested size: 8.5359pt x 8.53528pt.
 File: img/chux.png Graphic file (type png)
 <use img/chux.png>
-Package pdftex.def Info: img/chux.png  used on input line 537.
+Package pdftex.def Info: img/chux.png  used on input line 541.
 (pdftex.def)             Requested size: 167.90994pt x 227.62204pt.
  [25
 
@@ -1539,30 +1539,30 @@ Package pdftex.def Info: img/chux.png  used on input line 537.
 <img/book_example.png, id=199, 716.6775pt x 390.45876pt>
 File: img/book_example.png Graphic file (type png)
 <use img/book_example.png>
-Package pdftex.def Info: img/book_example.png  used on input line 551.
+Package pdftex.def Info: img/book_example.png  used on input line 555.
 (pdftex.def)             Requested size: 227.62204pt x 124.008pt.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <14.4> on input line 551.
+(Font)              <14.4> on input line 555.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 551.
+(Font)              <10> on input line 555.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 551.
+(Font)              <7> on input line 555.
 LaTeX Font Info:    Font shape `OT1/lmss/m/it' in size <14.4> not available
-(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 551.
+(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 555.
 
 LaTeX Font Info:    Font shape `OT1/lmss/m/it' in size <10> not available
-(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 551.
+(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 555.
 
 LaTeX Font Info:    Font shape `OT1/lmss/m/it' in size <7> not available
-(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 551.
+(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 555.
 
 File: img/1f633.png Graphic file (type png)
 <use img/1f633.png>
-Package pdftex.def Info: img/1f633.png  used on input line 551.
+Package pdftex.def Info: img/1f633.png  used on input line 555.
 (pdftex.def)             Requested size: 8.5359pt x 8.53528pt.
 File: img/chux.png Graphic file (type png)
 <use img/chux.png>
-Package pdftex.def Info: img/chux.png  used on input line 551.
+Package pdftex.def Info: img/chux.png  used on input line 555.
 (pdftex.def)             Requested size: 167.90994pt x 227.62204pt.
  [26
 
@@ -1570,15 +1570,15 @@ Package pdftex.def Info: img/chux.png  used on input line 551.
 <img/not_floppa.png, id=205, 2055.68pt x 1657.19125pt>
 File: img/not_floppa.png Graphic file (type png)
 <use img/not_floppa.png>
-Package pdftex.def Info: img/not_floppa.png  used on input line 562.
+Package pdftex.def Info: img/not_floppa.png  used on input line 566.
 (pdftex.def)             Requested size: 227.62204pt x 183.48007pt.
 File: img/1f5ff.png Graphic file (type png)
 <use img/1f5ff.png>
-Package pdftex.def Info: img/1f5ff.png  used on input line 562.
+Package pdftex.def Info: img/1f5ff.png  used on input line 566.
 (pdftex.def)             Requested size: 10.58896pt x 10.58896pt.
 File: img/chux.png Graphic file (type png)
 <use img/chux.png>
-Package pdftex.def Info: img/chux.png  used on input line 562.
+Package pdftex.def Info: img/chux.png  used on input line 566.
 (pdftex.def)             Requested size: 167.90994pt x 227.62204pt.
  [27
 
@@ -1592,19 +1592,19 @@ Package pdftex.def Info: img/chux.png  used on input line 562.
 \tf@snm=\write8
 \openout8 = `TUT09.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 567.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 567.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 571.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 571.
 
 (./TUT09.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 567.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 567.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 571.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 571.
 Package rerunfilecheck Info: File `TUT09.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
  27913 strings out of 480906
  563393 string characters out of 5910772
- 853597 words of memory out of 5000000
+ 853598 words of memory out of 5000000
  42784 multiletter control sequences out of 15000+600000
  602324 words of font info for 87 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1620,7 +1620,7 @@ pfb></usr/share/texmf/fonts/type1/public/lm/lmsso8.pfb></usr/share/texmf/fonts/
 type1/public/lm/lmsso9.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb><
 /usr/share/texmf/fonts/type1/public/lm/lmsy9.pfb></usr/share/texmf/fonts/type1/
 public/lm/lmtt10.pfb>
-Output written on TUT09.pdf (27 pages, 4826066 bytes).
+Output written on TUT09.pdf (27 pages, 4826099 bytes).
 PDF statistics:
  269 PDF objects out of 1000 (max. 8388607)
  183 compressed objects within 2 object streams
