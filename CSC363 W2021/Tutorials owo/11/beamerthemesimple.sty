@@ -35,7 +35,7 @@
 \def\@alpha{} % This one does not work. Why?
 \define@key{setwatermark}{hoffset}[\def\@hos{.}]{\def\@hos{\hspace*{#1}}} 
 \define@key{setwatermark}{voffset}[\def\@vos{.}]{\def\@vos{\vspace*{#1}}} 
-\define@key{setwatermark}{alpha}[\def\@alpha{0.9}]{\def\@alpha{#1}} 
+\define@key{setwatermark}{alpha}[\def\@alpha{1}]{\def\@alpha{#1}} 
 
 \def\setwatermark{\@ifnextchar[\@setwatermark{\@setwatermark[]}}
 \def\@setwatermark[#1]#2{%
@@ -54,7 +54,7 @@
   \definecolor{fondo}{HTML}{e6e6e6}  % gris claro
   \definecolor{very light}{HTML}{cecece}
   \definecolor{light}{HTML}{b2b2b2}
-  \definecolor{kinda light}{HTML}{010101}
+  \definecolor{kinda light}{HTML}{000000}
  
   \setbeamercolor{normal text}{bg=black,fg=light}
   \setbeamercolor*{block title}{bg=kinda light,fg=very light}

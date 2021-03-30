@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2021.1.11)  30 MAR 2021 13:15
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2021.1.11)  30 MAR 2021 18:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**TUT10.tex
-(./TUT10.tex
+**TUT11.tex
+(./TUT11.tex
 LaTeX2e <2020-02-02> patch level 5
 L3 programming layer <2020-07-17>
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamer.cls
@@ -1011,8 +1011,8 @@ Package: enumitem 2019/06/20 v3.9 Customized lists
 \enit@inbox=\box106
 \enit@count@id=\count346
 \enitdp@description=\count347
-) (./TUT10.aux)
-\openout1 = `TUT10.aux'.
+) (./TUT11.aux)
+\openout1 = `TUT11.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 48.
 LaTeX Font Info:    ... okay on input line 48.
@@ -1111,9 +1111,9 @@ LaTeX Info: Redefining \ref on input line 48.
 LaTeX Info: Redefining \pageref on input line 48.
 LaTeX Info: Redefining \nameref on input line 48.
 
-(./TUT10.out) (./TUT10.out)
+(./TUT11.out) (./TUT11.out)
 \@outlinefile=\write5
-\openout5 = `TUT10.out'.
+\openout5 = `TUT11.out'.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  OT1/lmr/m/n --> OT1/cmss/m/n on input line 48.
@@ -1190,7 +1190,7 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
 \c@lstlisting=\count355
- (./TUT10.nav)
+ (./TUT11.nav)
 <img/chungus.png, id=37, 1815.78375pt x 2007.5pt>
 File: img/chungus.png Graphic file (type png)
 <use img/chungus.png>
@@ -1242,108 +1242,188 @@ LaTeX Font Info:    Font shape `OT1/lmss/m/it' in size <6> not available
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./img/chungus.png>]
 File: img/chungus.png Graphic file (type png)
 <use img/chungus.png>
-Package pdftex.def Info: img/chungus.png  used on input line 61.
+Package pdftex.def Info: img/chungus.png  used on input line 63.
 (pdftex.def)             Requested size: 205.85999pt x 227.62204pt.
  [2
 
 ]
-<img/helpme.png, id=55, 525.46312pt x 85.82062pt>
-File: img/helpme.png Graphic file (type png)
-<use img/helpme.png>
-Package pdftex.def Info: img/helpme.png  used on input line 72.
-(pdftex.def)             Requested size: 284.52756pt x 46.47206pt.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <9> on input line 72.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 72.
-LaTeX Font Info:    Font shape `OT1/lmss/m/it' in size <9> not available
-(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 72.
-LaTeX Font Info:    Font shape `OT1/lmss/m/it' in size <5> not available
-(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 72.
-<img/a.png, id=56, 210.0648pt x 19.272pt>
-File: img/a.png Graphic file (type png)
-<use img/a.png>
-Package pdftex.def Info: img/a.png  used on input line 72.
-(pdftex.def)             Requested size: 210.06429pt x 19.27194pt.
+<img/oooooooooooooooooooooooooooooooooooooooooooooooooohhhhhh.png, id=54, 380.4
+2125pt x 321.2pt>
+File: img/oooooooooooooooooooooooooooooooooooooooooooooooooohhhhhh.png Graphic 
+file (type png)
+<use img/oooooooooooooooooooooooooooooooooooooooooooooooooohhhhhh.png>
+Package pdftex.def Info: img/oooooooooooooooooooooooooooooooooooooooooooooooooo
+hhhhhh.png  used on input line 72.
+(pdftex.def)             Requested size: 227.62204pt x 192.19217pt.
 File: img/chungus.png Graphic file (type png)
 <use img/chungus.png>
 Package pdftex.def Info: img/chungus.png  used on input line 72.
 (pdftex.def)             Requested size: 205.85999pt x 227.62204pt.
  [3
 
- <./img/a.png (PNG copy)> <./img/helpme.png>]
-<img/1f633.png, id=64, 160.6pt x 160.6pt>
-File: img/1f633.png Graphic file (type png)
-<use img/1f633.png>
-Package pdftex.def Info: img/1f633.png  used on input line 92.
-(pdftex.def)             Requested size: 8.5359pt x 8.53528pt.
+ <./img/oooooooooooooooooooooooooooooooooooooooooooooooooohhhhhh.png (PNG copy)
+>]
 File: img/chungus.png Graphic file (type png)
 <use img/chungus.png>
-Package pdftex.def Info: img/chungus.png  used on input line 92.
+Package pdftex.def Info: img/chungus.png  used on input line 84.
 (pdftex.def)             Requested size: 205.85999pt x 227.62204pt.
  [4
 
- <./img/1f633.png>]
-File: img/1f633.png Graphic file (type png)
-<use img/1f633.png>
-Package pdftex.def Info: img/1f633.png  used on input line 112.
+]
+<img/1f363.png, id=71, 10.589pt x 10.589pt>
+File: img/1f363.png Graphic file (type png)
+<use img/1f363.png>
+Package pdftex.def Info: img/1f363.png  used on input line 91.
+(pdftex.def)             Requested size: 10.58896pt x 10.58896pt.
+<img/1f9c3.png, id=72, 160.6pt x 160.6pt>
+File: img/1f9c3.png Graphic file (type png)
+<use img/1f9c3.png>
+Package pdftex.def Info: img/1f9c3.png  used on input line 91.
+(pdftex.def)             Requested size: 8.5359pt x 8.53528pt.
+<img/1f955.png, id=73, 160.6pt x 160.6pt>
+File: img/1f955.png Graphic file (type png)
+<use img/1f955.png>
+Package pdftex.def Info: img/1f955.png  used on input line 91.
+(pdftex.def)             Requested size: 8.5359pt x 8.53528pt.
+<img/1f950.png, id=74, 160.6pt x 160.6pt>
+File: img/1f950.png Graphic file (type png)
+<use img/1f950.png>
+Package pdftex.def Info: img/1f950.png  used on input line 91.
+(pdftex.def)             Requested size: 8.5359pt x 8.53528pt.
+<img/1f956.png, id=75, 160.6pt x 160.6pt>
+File: img/1f956.png Graphic file (type png)
+<use img/1f956.png>
+Package pdftex.def Info: img/1f956.png  used on input line 91.
+(pdftex.def)             Requested size: 8.5359pt x 8.53528pt.
+<img/1f359.png, id=76, 10.589pt x 10.589pt>
+File: img/1f359.png Graphic file (type png)
+<use img/1f359.png>
+Package pdftex.def Info: img/1f359.png  used on input line 91.
+(pdftex.def)             Requested size: 8.5359pt x 8.53583pt.
+File: img/1f363.png Graphic file (type png)
+<use img/1f363.png>
+Package pdftex.def Info: img/1f363.png  used on input line 91.
+(pdftex.def)             Requested size: 10.58896pt x 10.58896pt.
+File: img/1f956.png Graphic file (type png)
+<use img/1f956.png>
+Package pdftex.def Info: img/1f956.png  used on input line 91.
+(pdftex.def)             Requested size: 8.5359pt x 8.53528pt.
+File: img/1f9c3.png Graphic file (type png)
+<use img/1f9c3.png>
+Package pdftex.def Info: img/1f9c3.png  used on input line 91.
+(pdftex.def)             Requested size: 8.5359pt x 8.53528pt.
+File: img/1f956.png Graphic file (type png)
+<use img/1f956.png>
+Package pdftex.def Info: img/1f956.png  used on input line 91.
+(pdftex.def)             Requested size: 8.5359pt x 8.53528pt.
+File: img/1f359.png Graphic file (type png)
+<use img/1f359.png>
+Package pdftex.def Info: img/1f359.png  used on input line 91.
+(pdftex.def)             Requested size: 8.5359pt x 8.53583pt.
+File: img/1f9c3.png Graphic file (type png)
+<use img/1f9c3.png>
+Package pdftex.def Info: img/1f9c3.png  used on input line 91.
+(pdftex.def)             Requested size: 8.5359pt x 8.53528pt.
+File: img/1f955.png Graphic file (type png)
+<use img/1f955.png>
+Package pdftex.def Info: img/1f955.png  used on input line 91.
+(pdftex.def)             Requested size: 8.5359pt x 8.53528pt.
+File: img/1f956.png Graphic file (type png)
+<use img/1f956.png>
+Package pdftex.def Info: img/1f956.png  used on input line 91.
+(pdftex.def)             Requested size: 8.5359pt x 8.53528pt.
+File: img/1f950.png Graphic file (type png)
+<use img/1f950.png>
+Package pdftex.def Info: img/1f950.png  used on input line 91.
+(pdftex.def)             Requested size: 8.5359pt x 8.53528pt.
+File: img/1f359.png Graphic file (type png)
+<use img/1f359.png>
+Package pdftex.def Info: img/1f359.png  used on input line 91.
+(pdftex.def)             Requested size: 8.5359pt x 8.53583pt.
+File: img/1f950.png Graphic file (type png)
+<use img/1f950.png>
+Package pdftex.def Info: img/1f950.png  used on input line 91.
+(pdftex.def)             Requested size: 8.5359pt x 8.53528pt.
+File: img/1f363.png Graphic file (type png)
+<use img/1f363.png>
+Package pdftex.def Info: img/1f363.png  used on input line 91.
+(pdftex.def)             Requested size: 10.58896pt x 10.58896pt.
+File: img/1f955.png Graphic file (type png)
+<use img/1f955.png>
+Package pdftex.def Info: img/1f955.png  used on input line 91.
+(pdftex.def)             Requested size: 8.5359pt x 8.53528pt.
+File: img/1f950.png Graphic file (type png)
+<use img/1f950.png>
+Package pdftex.def Info: img/1f950.png  used on input line 91.
+(pdftex.def)             Requested size: 8.5359pt x 8.53528pt.
+File: img/1f9c3.png Graphic file (type png)
+<use img/1f9c3.png>
+Package pdftex.def Info: img/1f9c3.png  used on input line 91.
+(pdftex.def)             Requested size: 8.5359pt x 8.53528pt.
+File: img/1f956.png Graphic file (type png)
+<use img/1f956.png>
+Package pdftex.def Info: img/1f956.png  used on input line 91.
+(pdftex.def)             Requested size: 8.5359pt x 8.53528pt.
+File: img/1f359.png Graphic file (type png)
+<use img/1f359.png>
+Package pdftex.def Info: img/1f359.png  used on input line 91.
+(pdftex.def)             Requested size: 8.5359pt x 8.53583pt.
+File: img/1f363.png Graphic file (type png)
+<use img/1f363.png>
+Package pdftex.def Info: img/1f363.png  used on input line 91.
+(pdftex.def)             Requested size: 10.58896pt x 10.58896pt.
+File: img/1f955.png Graphic file (type png)
+<use img/1f955.png>
+Package pdftex.def Info: img/1f955.png  used on input line 91.
+(pdftex.def)             Requested size: 8.5359pt x 8.53528pt.
+File: img/1f950.png Graphic file (type png)
+<use img/1f950.png>
+Package pdftex.def Info: img/1f950.png  used on input line 91.
 (pdftex.def)             Requested size: 8.5359pt x 8.53528pt.
 File: img/chungus.png Graphic file (type png)
 <use img/chungus.png>
-Package pdftex.def Info: img/chungus.png  used on input line 112.
+Package pdftex.def Info: img/chungus.png  used on input line 91.
 (pdftex.def)             Requested size: 205.85999pt x 227.62204pt.
  [5
 
-]
-<img/thank_wikipedia.png, id=78, 462.528pt x 289.08pt>
-File: img/thank_wikipedia.png Graphic file (type png)
-<use img/thank_wikipedia.png>
-Package pdftex.def Info: img/thank_wikipedia.png  used on input line 132.
-(pdftex.def)             Requested size: 227.6217pt x 142.26378pt.
-File: img/1f633.png Graphic file (type png)
-<use img/1f633.png>
-Package pdftex.def Info: img/1f633.png  used on input line 132.
-(pdftex.def)             Requested size: 8.5359pt x 8.53528pt.
+ <./img/1f363.png> <./img/1f9c3.png> <./img/1f955.png> <./img/1f950.png> <./img
+/1f956.png> <./img/1f359.png>]
 File: img/chungus.png Graphic file (type png)
 <use img/chungus.png>
-Package pdftex.def Info: img/chungus.png  used on input line 132.
+Package pdftex.def Info: img/chungus.png  used on input line 103.
 (pdftex.def)             Requested size: 205.85999pt x 227.62204pt.
  [6
 
- <./img/thank_wikipedia.png>]
-<img/1f363.png, id=85, 10.589pt x 10.589pt>
-File: img/1f363.png Graphic file (type png)
-<use img/1f363.png>
-Package pdftex.def Info: img/1f363.png  used on input line 150.
-(pdftex.def)             Requested size: 10.58896pt x 10.58896pt.
-File: img/1f633.png Graphic file (type png)
-<use img/1f633.png>
-Package pdftex.def Info: img/1f633.png  used on input line 150.
-(pdftex.def)             Requested size: 8.5359pt x 8.53528pt.
+]
 File: img/chungus.png Graphic file (type png)
 <use img/chungus.png>
-Package pdftex.def Info: img/chungus.png  used on input line 150.
+Package pdftex.def Info: img/chungus.png  used on input line 118.
 (pdftex.def)             Requested size: 205.85999pt x 227.62204pt.
  [7
 
- <./img/1f363.png>]
+]
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <9> on input line 124.
+LaTeX Font Info:    Font shape `OT1/lmss/m/it' in size <9> not available
+(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 124.
+
 File: img/chungus.png Graphic file (type png)
 <use img/chungus.png>
-Package pdftex.def Info: img/chungus.png  used on input line 160.
+Package pdftex.def Info: img/chungus.png  used on input line 124.
 (pdftex.def)             Requested size: 205.85999pt x 227.62204pt.
  [8
 
 ]
 File: img/chungus.png Graphic file (type png)
 <use img/chungus.png>
-Package pdftex.def Info: img/chungus.png  used on input line 160.
+Package pdftex.def Info: img/chungus.png  used on input line 136.
 (pdftex.def)             Requested size: 205.85999pt x 227.62204pt.
  [9
 
 ]
 File: img/chungus.png Graphic file (type png)
 <use img/chungus.png>
-Package pdftex.def Info: img/chungus.png  used on input line 174.
+Package pdftex.def Info: img/chungus.png  used on input line 160.
 (pdftex.def)             Requested size: 205.85999pt x 227.62204pt.
  [10
 
@@ -1357,81 +1437,119 @@ Package pdftex.def Info: img/chungus.png  used on input line 184.
 ]
 File: img/chungus.png Graphic file (type png)
 <use img/chungus.png>
-Package pdftex.def Info: img/chungus.png  used on input line 184.
+Package pdftex.def Info: img/chungus.png  used on input line 207.
 (pdftex.def)             Requested size: 205.85999pt x 227.62204pt.
  [12
 
 ]
+<img/uwu.png, id=126, 500.87125pt x 501.875pt>
+File: img/uwu.png Graphic file (type png)
+<use img/uwu.png>
+Package pdftex.def Info: img/uwu.png  used on input line 216.
+(pdftex.def)             Requested size: 142.26378pt x 142.54575pt.
 File: img/chungus.png Graphic file (type png)
 <use img/chungus.png>
-Package pdftex.def Info: img/chungus.png  used on input line 198.
+Package pdftex.def Info: img/chungus.png  used on input line 216.
 (pdftex.def)             Requested size: 205.85999pt x 227.62204pt.
  [13
 
-]
+ <./img/uwu.png>]
 File: img/chungus.png Graphic file (type png)
 <use img/chungus.png>
-Package pdftex.def Info: img/chungus.png  used on input line 209.
+Package pdftex.def Info: img/chungus.png  used on input line 228.
 (pdftex.def)             Requested size: 205.85999pt x 227.62204pt.
- [14
+
+[14
 
 ]
-LaTeX Font Info:    Trying to load font information for TS1+lmss on input line 
-227.
-
-(/usr/share/texmf/tex/latex/lm/ts1lmss.fd
-File: ts1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-<img/helo_fish_kahoot.jpg, id=131, 883.3pt x 481.8pt>
-File: img/helo_fish_kahoot.jpg Graphic file (type jpg)
-<use img/helo_fish_kahoot.jpg>
-Package pdftex.def Info: img/helo_fish_kahoot.jpg  used on input line 227.
-(pdftex.def)             Requested size: 227.62204pt x 124.15494pt.
+<img/helo_fish.jpg, id=138, 883.3pt x 481.8pt>
+File: img/helo_fish.jpg Graphic file (type jpg)
+<use img/helo_fish.jpg>
+Package pdftex.def Info: img/helo_fish.jpg  used on input line 240.
+(pdftex.def)             Requested size: 199.16928pt x 108.63557pt.
 File: img/chungus.png Graphic file (type png)
 <use img/chungus.png>
-Package pdftex.def Info: img/chungus.png  used on input line 227.
+Package pdftex.def Info: img/chungus.png  used on input line 240.
 (pdftex.def)             Requested size: 205.85999pt x 227.62204pt.
  [15
 
- <./img/helo_fish_kahoot.jpg>]
+ <./img/helo_fish.jpg>]
+Overfull \vbox (6.47507pt too high) detected at line 255
+ []
+
+File: img/chungus.png Graphic file (type png)
+<use img/chungus.png>
+Package pdftex.def Info: img/chungus.png  used on input line 255.
+(pdftex.def)             Requested size: 205.85999pt x 227.62204pt.
+[16
+
+]
+File: img/chungus.png Graphic file (type png)
+<use img/chungus.png>
+Package pdftex.def Info: img/chungus.png  used on input line 271.
+(pdftex.def)             Requested size: 205.85999pt x 227.62204pt.
+ [17
+
+]
+LaTeX Font Info:    Trying to load font information for OT1+lmtt on input line 
+285.
+ (/usr/share/texmf/tex/latex/lm/ot1lmtt.fd
+File: ot1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+<img/helo_fish_sad.jpg, id=156, 883.3pt x 481.8pt>
+File: img/helo_fish_sad.jpg Graphic file (type jpg)
+<use img/helo_fish_sad.jpg>
+Package pdftex.def Info: img/helo_fish_sad.jpg  used on input line 285.
+(pdftex.def)             Requested size: 199.16928pt x 108.63557pt.
+File: img/chungus.png Graphic file (type png)
+<use img/chungus.png>
+Package pdftex.def Info: img/chungus.png  used on input line 285.
+(pdftex.def)             Requested size: 205.85999pt x 227.62204pt.
+ [18
+
+ <./img/helo_fish_sad.jpg>]
 \tf@nav=\write6
-\openout6 = `TUT10.nav'.
+\openout6 = `TUT11.nav'.
 
 \tf@toc=\write7
-\openout7 = `TUT10.toc'.
+\openout7 = `TUT11.toc'.
 
 \tf@snm=\write8
-\openout8 = `TUT10.snm'.
+\openout8 = `TUT11.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 231.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 231.
-
-(./TUT10.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 231.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 231.
-Package rerunfilecheck Info: File `TUT10.out' has not changed.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 290.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 290.
+ (./TUT11.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 290.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 290.
+Package rerunfilecheck Info: File `TUT11.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 27673 strings out of 480906
- 560246 string characters out of 5910772
- 833449 words of memory out of 5000000
- 42578 multiletter control sequences out of 15000+600000
- 582716 words of font info for 69 fonts, out of 8000000 for 9000
+ 27772 strings out of 480906
+ 561861 string characters out of 5910772
+ 837256 words of memory out of 5000000
+ 42667 multiletter control sequences out of 15000+600000
+ 585372 words of font info for 70 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 63i,15n,106p,772b,847s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/share/texmf/fonts/enc/d
-vips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/shar
-e/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}</usr/share/texmf/fonts/type1/public/l
-m/lmmi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmss10.pfb></usr/share/tex
-mf/fonts/type1/public/lm/lmss8.pfb></usr/share/texmf/fonts/type1/public/lm/lmss
-9.pfb></usr/share/texmf/fonts/type1/public/lm/lmssbx10.pfb></usr/share/texmf/fo
-nts/type1/public/lm/lmsso10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsso8.
-pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb>
-Output written on TUT10.pdf (15 pages, 661566 bytes).
+ 63i,17n,106p,772b,847s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf/fonts/enc/dvips/lm/lm-rmtt.enc}{/usr/share/texmf/fonts/enc/
+dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/sha
+re/texmf/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/share/texmf/fonts/enc/dvips/lm/
+lm-mathit.enc}</usr/share/texmf/fonts/type1/public/lm/lmex10.pfb></usr/share/te
+xmf/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf/fonts/type1/public/lm/lm
+ss10.pfb></usr/share/texmf/fonts/type1/public/lm/lmss8.pfb></usr/share/texmf/fo
+nts/type1/public/lm/lmss9.pfb></usr/share/texmf/fonts/type1/public/lm/lmssbx10.
+pfb></usr/share/texmf/fonts/type1/public/lm/lmsso10.pfb></usr/share/texmf/fonts
+/type1/public/lm/lmsso8.pfb></usr/share/texmf/fonts/type1/public/lm/lmsso9.pfb>
+</usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type
+1/public/lm/lmsy6.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb></usr/s
+hare/texmf/fonts/type1/public/lm/lmsy9.pfb></usr/share/texmf/fonts/type1/public
+/lm/lmtt10.pfb>
+Output written on TUT11.pdf (18 pages, 940377 bytes).
 PDF statistics:
- 179 PDF objects out of 1000 (max. 8388607)
- 118 compressed objects within 2 object streams
- 31 named destinations out of 1000 (max. 500000)
- 174 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 225 PDF objects out of 1000 (max. 8388607)
+ 149 compressed objects within 2 object streams
+ 37 named destinations out of 1000 (max. 500000)
+ 194 words of extra memory for PDF output out of 10000 (max. 10000000)
 
