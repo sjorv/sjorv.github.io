@@ -239,7 +239,7 @@ $$\text{HP} = \{(M, w): \text{$M$ is a Turing machine that halts on input $w$}\}
 We will prove HP is NP-Hard by showing $\text{3SAT} \leq_p \text{HP}$.\footnote{In fact, any computable language $A$ satisfies $A \leq_p \text{HP}$! You can just adapt the proof I'm about to show.}
 \end{frame}
 
-\begin{frame}{HP is NP-complete}
+\begin{frame}{HP is NP-Hard}
 $$\text{HP} = \{(M, w): \text{$M$ is a Turing machine that halts on input $w$}\}.$$
 We will construct the following reduction of 3SAT to HP. Suppose $\varphi$ is a given instance of 3SAT. Construct the following Turing machine $M$:
 
@@ -254,7 +254,7 @@ Notice that \textit{it takes constant time to construct $M$}, since the \textit{
 
 \end{frame}
 
-\begin{frame}{HP is NP-complete}
+\begin{frame}{HP is NP-Hard}
 $$\text{HP} = \{(M, w): \text{$M$ is a Turing machine that halts on input $w$}\}.$$
 We will construct the following reduction of 3SAT to HP. Suppose $\varphi$ is a given instance of 3SAT. Construct the following Turing machine $M$:
 
