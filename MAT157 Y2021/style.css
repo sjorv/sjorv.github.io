@@ -9,3 +9,9 @@
 .mono {
     font-family: 'Courier New', Courier, monospace;
 }
+
+body {
+    background-image: url('img/1f972.png');
+    background-size: 30%;
+    background-opacity: 0.1
+} 
