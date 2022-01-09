@@ -15,7 +15,9 @@
     animation-name: rotate;
     animation-duration: 7.27s;
     animation-iteration-count: infinite;
-    animation-timing-function: linear;
+    animation-timing-function: ease-in-out;
+    width: 25%;
+    height: auto;
 }
 
 .mono {

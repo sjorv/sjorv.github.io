@@ -1,0 +1,388 @@
+\documentclass{beamer}
+
+\usetheme{simple}
+
+\usepackage{scalerel,xparse}
+\usepackage{lmodern}
+\usepackage[scale=2]{ccicons}
+\usepackage{ulem}
+\usepackage{tikz}
+\usetikzlibrary{positioning,calc,automata}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{caption}
+\usepackage{listings}
+\usepackage{xcolor}
+
+% Watermark background (simple theme)
+\setlength{\parindent}{0cm}
+\setwatermark{\includegraphics[height=8cm]{img/chungus_glitch.png}}
+
+
+\title{CSC363 Tutorial 7}
+\subtitle{\includegraphics[width=4cm]{img/qr.png}}
+\date{\today}
+\author{Paul ``sushi{\textunderscore}enjoyer'' Zhang}
+\institute{University of Humongus Chungus Amogus}
+
+\NewDocumentCommand\emojisushi{}{
+    \includegraphics{img/1f363.png}
+}
+\NewDocumentCommand\emojiflushed{}{
+    \includegraphics[scale=0.05]{img/1f633.png}
+}  
+\NewDocumentCommand\emojimoyai{}{
+    \includegraphics{img/1f5ff.png}
+}   
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}{Learning objectives this tutorial}
+By the end of this tutorial, you should...
+\begin{itemize}
+\item Have \url{turingmachinesimulator.com} bookmarked in Microsoft Edge (or whichever browser you use).
+\item Feel great, because you will probably never have to touch upon any computability theory again.\footnote{Oh wait! You have an assignment due on computability theory. ;-;
+If you want \sout{unauthorized aids} help, stay for my office hours! :D}
+\item Understand $p$-reducibility and have a practical example in the back of your mind.
+\item Fall in love with polynomials. They are so nice!
+\end{itemize}
+(no readings this week cuz we didn't really go over anything new)
+\end{frame}
+
+\begin{frame}{More Turing Machines. \emojimoyai}
+
+\textbf{Task:} Answer the following:
+\begin{quote}
+do you like optimwizing cowde? uwu
+\end{quote}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=5cm]{img/gru.jpg}
+\end{figure}
+
+\pause
+
+\textbf{Answer:} Of course you do.
+
+
+\end{frame}
+
+
+\begin{frame}{Turing machines are back! :D}
+
+\textbf{Task:} Decrypt what this Turing machine is doing (i.e. find the language that this Turing machine accepts). Our alphabet is $\{0, 1\}$.
+
+\begin{center}
+\begin{tabular}{c|c|c|c}
+State & 0 & 1 & $\square$\\
+\hline
+$q_0$ & ($q_1$, $\square$, R) & reject & accept\\
+\hline
+$q_1$ & ($q_1$, 0, R) & ($q_1$, 1, R) & ($q_2$, $\square$, L)\\
+\hline
+$q_2$ & reject & ($q_3$, $\square$, L) & reject\\
+\hline
+$q_3$ & ($q_3$, 0, L) & ($q_3$, 1, L) & ($q_0$, $\square$, R)\\
+\end{tabular}
+\end{center}
+
+Hint: 
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=6cm]{img/dejavu.jpg}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{Turing machines are back! :D}
+
+\textbf{Task:} Decrypt what this Turing machine is doing (i.e. find the language that this Turing machine accepts). Our alphabet is $\{0, 1\}$.
+
+\begin{center}
+\begin{tabular}{c|c|c|c}
+State & 0 & 1 & $\square$\\
+\hline
+$q_0$ & ($q_1$, $\square$, R) & reject & accept\\
+\hline
+$q_1$ & ($q_1$, 0, R) & ($q_1$, 1, R) & ($q_2$, $\square$, L)\\
+\hline
+$q_2$ & reject & ($q_3$, $\square$, L) & reject\\
+\hline
+$q_3$ & ($q_3$, 0, L) & ($q_3$, 1, L) & ($q_0$, $\square$, R)\\
+\end{tabular}
+\end{center}
+
+Answer: $\{0^n 1^n: n \in \mathbb N\}$. (this is the same turing machine as Q1 Assignment 1)
+
+\end{frame}
+
+\begin{frame}{Turing machines are back! :D}
+
+\begin{center}
+\begin{tabular}{c|c|c|c}
+State & 0 & 1 & $\square$\\
+\hline
+$q_0$ & ($q_1$, $\square$, R) & reject & accept\\
+\hline
+$q_1$ & ($q_1$, 0, R) & ($q_1$, 1, R) & ($q_2$, $\square$, L)\\
+\hline
+$q_2$ & reject & ($q_3$, $\square$, L) & reject\\
+\hline
+$q_3$ & ($q_3$, 0, L) & ($q_3$, 1, L) & ($q_0$, $\square$, R)\\
+\end{tabular}
+\end{center}
+
+\textbf{Task:} Open Microsoft Edge (or whatever your favourite browser is :D), go to \url{http://turingmachinesimulator.com/shared/bkuepwxgdh}. Bookmark the website. Put on your favourite music. Read the code. Click ``Compile''. Try a few different inputs and see how the Turing machine runs. Convince yourself that this Turing machine indeed accepts exactly $\{0^n 1^n: n \in \mathbb N\}$. Go grab a snack in the meantime.
+
+\end{frame}
+
+\begin{frame}{Turing machines are back! :D}
+
+\begin{center}
+\begin{tabular}{c|c|c|c}
+State & 0 & 1 & $\square$\\
+\hline
+$q_0$ & ($q_1$, $\square$, R) & reject & accept\\
+\hline
+$q_1$ & ($q_1$, 0, R) & ($q_1$, 1, R) & ($q_2$, $\square$, L)\\
+\hline
+$q_2$ & reject & ($q_3$, $\square$, L) & reject\\
+\hline
+$q_3$ & ($q_3$, 0, L) & ($q_3$, 1, L) & ($q_0$, $\square$, R)\\
+\end{tabular}
+\end{center}
+
+\textbf{Task:} Open Microsoft Edge (or whatever your favourite browser is :D), go to \url{http://turingmachinesimulator.com/shared/bkuepwxgdh}. Bookmark the website. Put on your favourite music. Read the code. Click ``Compile''. Try a few different inputs and see how the Turing machine runs. Convince yourself that this Turing machine indeed accepts exactly $\{0^n 1^n: n \in \mathbb N\}$. Also convince yourself that this is an $O(n^2)$ Turing machine: given an input string of length $n$, this Turing machine takes at most $O(n^2)$ steps to halt (no matter if it accepts or rejects).
+
+\end{frame}
+
+\begin{frame}{Turing machines are back! :D}
+
+\begin{center}
+\begin{tabular}{c|c|c|c}
+State & 0 & 1 & $\square$\\
+\hline
+$q_0$ & ($q_1$, $\square$, R) & reject & accept\\
+\hline
+$q_1$ & ($q_1$, 0, R) & ($q_1$, 1, R) & ($q_2$, $\square$, L)\\
+\hline
+$q_2$ & reject & ($q_3$, $\square$, L) & reject\\
+\hline
+$q_3$ & ($q_3$, 0, L) & ($q_3$, 1, L) & ($q_0$, $\square$, R)\\
+\end{tabular}
+\end{center}
+
+\textbf{Task:} Open Microsoft Edge (or whatever your favourite browser is :D), go to \url{http://turingmachinesimulator.com/shared/bkuepwxgdh}. Bookmark the website. Put on your favourite music. Read the code. Click ``Compile''. Try a few different inputs and see how the Turing machine runs. Convince yourself that this Turing machine indeed accepts exactly $\{0^n 1^n: n \in \mathbb N\}$. Also convince yourself that this is an $O(n^2)$ Turing machine: given an input string of length $n$, this Turing machine takes at most $O(n^2)$ steps to halt (no matter if it accepts or rejects).
+
+\end{frame}
+
+\begin{frame}{Turing machines are back! :D}
+But we can do better, in fact! There is an $O(n \log n)$ way to decide whether a given input is in ${0^n 1^n: n \in \mathbb N}$. Here is the high-level idea:
+
+On input $w$, we do the following:
+\begin{enumerate}
+\item Scan across the tape and reject if a 0 is found to the right of a 1.
+\item Repeat the following as long as there is both a 0 and 1 on the tape:
+\begin{enumerate}
+\item Scan across the tape, checking if the total number of 0s and 1s remaining is odd. If it is odd, \textit{reject}.
+\item Scan again across the tape, crossing off every other 0 starting with the first 0, and then crossing off every other 1 starting with the first 1.
+\end{enumerate}
+\item If the tape doesn't have any 0s or 1s, \textit{accept}. Else, \textit{reject}.
+\end{enumerate}
+
+\textbf{Task: } Try this procedure (by hand) on input $0000011111$ and on input $000001111$.
+\end{frame}
+
+\begin{frame}{Turing machines are back! :D}
+\begin{enumerate}
+\item Scan across the tape and reject if a 0 is found to the right of a 1.
+\item Repeat the following as long as there is both a 0 and 1 on the tape:
+\begin{enumerate}
+\item Scan across the tape, checking if the total number of 0s and 1s remaining is odd. If it is odd, \textit{reject}.
+\item Scan again across the tape, crossing off every other 0 starting with the first 0, and then crossing off every other 1 starting with the first 1.
+\end{enumerate}
+\item If the tape doesn't have any 0s or 1s, \textit{accept}. Else, \textit{reject}.
+\end{enumerate}
+The above procedure actually takes $O(n \log n)$ time for the Turing machine, because we cross off at least half of all the symbols on each iteration of 2, so $2$ runs at most $\log n$ times (of course i'm being informal here).
+
+But either way, it's more efficient now! yay\footnote{yea optimizing turing machine code is definitely something i would do as a career.}
+
+\vspace{2mm}
+
+You may try it out at \url{http://turingmachinesimulator.com/shared/prsswhkkyb}.
+
+\end{frame}
+
+\begin{frame}{i dunno... break time before we get into $P$-reducibility?}
+hmm... i'm not sure if youse prefer watching Turing machines execute, over playing with computable and c.e. sets!\footnote{i don't think you want to ever see the symbol $\varphi$ again.}
+
+\begin{block}{Trivia time!}
+What ingredients are in this ``drink''?\footnote{i dunno if this classifies as a drink...}
+
+\pause
+
+\textbf{Answer:} i dunno, i haven't yet made the drink when making these slides.
+\end{block}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=6cm]{img/helo_fish_sushi.jpg}
+\end{figure}
+
+ 
+\end{frame}
+
+\begin{frame}{some preface as we're transitioning into a different part of the course, probably} 
+
+Remember when we were talking about computability of \textit{sets of natural numbers} $A \subseteq \mathbb N$?
+
+\vspace{2mm}
+
+Now we are talking about computability of \textit{languages} $L \subseteq \Sigma^*$, which are sets of strings. 
+
+\vspace{2mm}
+
+But really, they're the same thing! Each string has a G*del number. When we talk about a language $L \subseteq \Sigma^*$, we can instead be talking about
+$$A = \{e \in \mathbb N: \text{$e$ is the G*dot number for some string in $L$}\}$$
+and vice versa.
+
+\end{frame}
+
+\begin{frame}{some preface as we're transitioning into a different part of the course, probably} 
+
+Remember when we were talking about computability of \textit{sets of natural numbers} $A \subseteq \mathbb N$?
+
+\vspace{2mm}
+
+Now we are talking about computability of \textit{languages} $L \subseteq \Sigma^*$, which are sets of strings. 
+
+\vspace{2mm}
+
+But really, they're the same thing! Each string has a G*del number. When we talk about a language $L \subseteq \Sigma^*$, we can instead be talking about
+$$A = \{e \in \mathbb N: \text{$e$ is the G*dot number for some string in $L$}\}$$
+and vice versa.
+
+\end{frame}
+
+\begin{frame}{$P$-reducibility :/} 
+
+\textbf{Task:} What does the $P$ in ``$P$-reducibility'' stand for?
+\textbf{Answer:} \sout{Psushi} paulinomial.
+
+\vspace{4mm}
+
+\textbf{Definition:} Let $A, B \subseteq \Sigma^*$ be languages. We say $A \leq_p B$ (read ``$A$ polynomially reduces to $B$'') when there exists a polynomial-time computable $f: \Sigma^* \to \Sigma^*$ such that
+$$x \in A \Leftrightarrow f(x) \in B.$$
+
+\textbf{Fact:}
+\begin{quote}
+A language is polynomial-time computable on your computer if and only if it is polynomial-time computable by a Turing machine.
+
+\flushright{- Chungus, 2077 (don't quote the chungus on that)}
+\end{quote}
+\end{frame}
+
+\begin{frame}{$P$-reducibility :/} 
+
+\textbf{Definition:} Let $A, B \subseteq \Sigma^*$ be languages. We say $A \leq_p B$ (read ``$A$ polynomially reduces to $B$'') when there exists a polynomial-time computable $f: \Sigma^* \to \Sigma^*$ such that
+$$x \in A \Leftrightarrow f(x) \in B.$$
+
+\begin{theorem}
+If $A \leq_p B$ and $B \leq_p C$, then $A \leq_p C$. 
+\end{theorem}
+
+\textbf{Task:} Prove this. 
+
+\end{frame}
+
+\begin{frame}{$P$-reducibility :/} 
+
+\textbf{Definition:} Let $A, B \subseteq \Sigma^*$ be languages. We say $A \leq_p B$ (read ``$A$ polynomially reduces to $B$'') when there exists a polynomial-time computable $f: \Sigma^* \to \Sigma^*$ such that
+$$x \in A \Leftrightarrow f(x) \in B.$$
+
+\begin{theorem}
+If $A \leq_p B$ and $B \leq_p C$, then $A \leq_p C$. 
+\end{theorem}
+\begin{proof}
+Since $A \leq_p B$, let $f$ be a polynomial time computable function such that
+$x \in A \Leftrightarrow f(x) \in B$. Since $B \leq_p C$, let $g$ be a polynomial time computable function such that $y \in B \Leftrightarrow g(y) \in C$.
+Then $g \circ f$ is polynomial-time computable (why?), and
+$$x \in A \Leftrightarrow f(x) \in B \Leftrightarrow g(f(x)) \in C.$$
+By definition, this means $A \leq_p C$.
+\end{proof}
+
+\end{frame}
+
+\begin{frame}{$P$-reducibility :/} 
+
+\textbf{Definition:} Let $A, B \subseteq \Sigma^*$ be languages. We say $A \leq_p B$ (read ``$A$ polynomially reduces to $B$'') when there exists a polynomial-time computable $f: \Sigma^* \to \Sigma^*$ such that
+$$x \in A \Leftrightarrow f(x) \in B.$$
+
+\textbf{Task:} Guess what $A \equiv_p B$ means!
+
+\pause
+
+\textbf{Answer:} $A \equiv_p B$ when $A \leq_p B$ and $B \leq_p A$.
+
+\end{frame}
+
+\begin{frame}{$P$-reducibility :/} 
+
+\textbf{Definition:} Let $A, B \subseteq \Sigma^*$ be languages. We say $A \leq_p B$ (read ``$A$ polynomially reduces to $B$'') when there exists a polynomial-time computable $f: \Sigma^* \to \Sigma^*$ such that
+$$x \in A \Leftrightarrow f(x) \in B.$$
+
+\textbf{Task:} Prove the following theorem, and then try solving $P = NP$ or something:
+\begin{theorem}
+Let $A, B, C$ be languages. Then
+\begin{enumerate}
+\item $A \equiv_p A$.
+\item $A \equiv_p B$ implies $B \equiv_p A$.
+\item $A \equiv_p B$ and $B \equiv_p C$ implies $A \equiv_p C$
+\end{enumerate}
+So $\equiv_p$ is an equivalence relation on the set of languages.
+\end{theorem}
+\end{frame}
+
+\begin{frame}{$P$-reducibility :/} 
+\begin{theorem}
+Let $A, B, C$ be languages. Then
+\begin{enumerate}
+\item $A \equiv_p A$.
+\item $A \equiv_p B$ implies $B \equiv_p A$.
+\item $A \equiv_p B$ and $B \equiv_p C$ implies $A \equiv_p C$
+\end{enumerate}
+So $\equiv_p$ is an equivalence relation on the set of languages.
+\end{theorem}
+
+\vspace{-4mm}
+
+\begin{proof}
+\begin{enumerate}
+\item The function $f(x) = x$ is very polynomial-time computable, and $x \in A \Leftrightarrow f(x) \in A$, so $A \leq_p A$. Bruh. $A \leq_p A$, so $A \equiv_p A$.
+\item $A \equiv_p B$ means $A \leq_p B$ and $B \leq_p A$. Bruh. $B \leq_p A$ and $A \leq_p B$ means $B \equiv_p A$.
+\item We have $A \leq_p B$, $B \leq_p A$, $B \leq_p C$, and $C \leq_p B$. By the theorem we've proven earlier, $A \leq_p B$ and $B \leq_p C$ imply $A \leq_p C$. Similarly $C \leq_p B$ and $B \leq_p A$ imply $C \leq_p A$. So $A \equiv_p C$.
+
+\end{enumerate}
+\end{proof}
+\end{frame}
+
+\begin{frame}{Homework cheating time!} 
+
+I'm sure you hate the letter $p$ by now. Why don't we also throw in the letter $P$?
+
+\begin{theorem}
+If $A \leq_p B$ and $B \in P$, then $A \in P$.
+\end{theorem}
+
+\textbf{Task:} Prove this. Then submit your proof for this under Question 5 of Assignment 3.
+
+(or you know, the proof is actually in the textbook! page 251.)
+
+\end{frame}
+
+
+\end{document}
