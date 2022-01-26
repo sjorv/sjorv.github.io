@@ -108,7 +108,7 @@ where $g(a, b, c) = +(P_1^3(a, b, c), P_3^3(a, b, c))$ is primitive recursive by
 \begin{frame}{``Subtraction'' is in PRIM}
 \textbf{Task}: Show that $\delta: \N \to \N$, $\delta(n) = \begin{cases} n - 1 & n \geq 1\\ 0 & n = 0\end{cases}$ is in PRIM. 
 
-Hint: Define $f(x, n) = n - 1$ (basically ignoring the first parameter). If we show $f$ is primitive recursive, then $\delta(n) = f(n, n)$ is primitive recursive by the substitution rule.
+Hint: Define $f(x, n) = \begin{cases} n - 1 & n \geq 1\\ 0 & n = 0\end{cases}$ (basically ignoring the first parameter). If we show $f$ is primitive recursive, then $\delta(n) = f(n, n)$ is primitive recursive by the substitution rule.
 
 \pause
 
