@@ -9,6 +9,10 @@
     font-family: 'Courier New', Courier, monospace;
 }
 
+p {
+    font-size: 9pt;
+}
+
 body {
     background-image: url('img/chungus.png');
     background-size: 20%;
