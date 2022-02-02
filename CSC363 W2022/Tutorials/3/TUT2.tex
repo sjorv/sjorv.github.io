@@ -240,7 +240,7 @@ What about the other direction? (It's hard!)
 
 \pause
 
-Let $S = \text{domain}(f)$, where $f$ is partial recursive. If $S = \emptyset$ then $S$ is CE and we're done, so suppose $S \neq \emptyset$. Since $S$ is nonempty, choose some $s \in S$.
+Let $S = \text{domain}(f)$, where $f$ is partial recursive. If $S = \emptyset$ then $S$ is CE and we're done, so suppose $S \neq \emptyset$. Since $S$ is nonempty, choose some $p \in S$.
 
 We may define the following computable function $g$:
 \begin{verbatim}
@@ -249,7 +249,7 @@ def g(x, s):
   if f(x) returns within s steps:
     return x
   else: 
-    return s
+    return p
 \end{verbatim}
 
 \textbf{Task}: Show that the range of $g$ is indeed $S$.
