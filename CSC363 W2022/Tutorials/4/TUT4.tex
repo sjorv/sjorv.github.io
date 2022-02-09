@@ -164,7 +164,7 @@ def is_in_H(x, e):
       Run the eth Turing machine on x
       Return if it halts
   Let z be the Turing Machine # of M
-  if (z, z) in K:
+  if z in K:
     return True
   else: return False
 \end{verbatim}
@@ -203,7 +203,7 @@ $$x \in A \Leftrightarrow f(x) \in B.$$
 
 \vspace{2mm}
 
-It turns out that $m$-reduction is weaker than Turing reduction: if $A \leq_m B$, then $A \leq_T B$. However, there do exists sets $A, B$ such that $A \leq_T B$ but not $A \leq_m B$.
+It turns out that $m$-reduction is stronger than Turing reduction: if $A \leq_m B$, then $A \leq_T B$. However, there do exists sets $A, B$ such that $A \leq_T B$ but not $A \leq_m B$.
 
 \pause
 \vspace{2mm}
@@ -249,7 +249,7 @@ So what we have just shown is that $A \leq_m B \Rightarrow A \leq_T B$, but $A \
 
 \pause
 
-\textbf{Task:} Let $S \subseteq \N$ be computable, and $T \subseteq \N$ be any arbitrary set satisfying $T \neq \emptyset$ and $T \neq S$. Show that $S \leq_m T$.
+\textbf{Task:} Let $S \subseteq \N$ be computable, and $T \subseteq \N$ be any arbitrary set satisfying $T \neq \emptyset$ and $T \neq \N$. Show that $S \leq_m T$.
 
 \pause
 
