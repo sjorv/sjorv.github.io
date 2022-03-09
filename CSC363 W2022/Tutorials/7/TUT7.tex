@@ -107,33 +107,6 @@ Most languages we consider in complexity theory are decidable; we examine whethe
 \end{frame}
 
 
-\begin{frame}{Some aliases}
-
-In complexity, we will consider the efficient \textit{decidability} of languages.
-
-\vspace{2mm}
-
-\textbf{Question:} What is another word for \textit{decidable}?
-
-\pause
-
-\textbf{Ans:} \textit{Computable}.
-
-\vspace{2mm}
-
-Most languages we consider in complexity theory are decidable; we examine whether they are decidable \textit{efficiently}.
-
-\vspace{2mm} \pause
-
-\textbf{Definition:} A \textit{decider} for a language $L$ is a TM that: 
-\begin{enumerate}
-    \item always halts \textit{on any input},
-    \item accepts the input $x$ if and only if $x \in L$.
-\end{enumerate}
-
-\end{frame}
-
-
 \begin{frame}{Multi-tape TM}
 
 \textbf{Task:} Describe some attributes we could add to a TM to make it ``multi-tape''. What will the transition function look like? How is input handled?
@@ -187,7 +160,7 @@ The input is placed on the first tape; all other tapes start blank.
 
 \begin{frame}{Multi-tape TM Example}
 
-Let's construct a multi-tape TM over the language $\{0, 1\}$ that accepts palindromes. Here's what we will do:
+Let's construct a multi-tape TM over the alphabet $\{0, 1\}$ that accepts palindromes. Here's what we will do:
 
 \begin{center}
 \begin{tikzpicture}[every node/.style={block},
@@ -340,7 +313,7 @@ Let's construct a multi-tape TM over the language $\{0, 1\}$ that accepts palind
 \end{frame}
 
 \begin{frame}{Multi-tape TM Example}
-\textbf{Question:} How fast can we decide $\{0^n 1^n: k \in \N\}$ same language with a TM?
+\textbf{Question:} How fast can we decide $\{0^n 1^n: k \in \N\}$ with a TM?
 
 \pause
 
@@ -369,7 +342,7 @@ But we can do better! There is a $O(n \log n)$ procedure:
 
 \pause
 
-Try \url{https://turingmachinesimulator.com/shared/prsswhkkyb}.
+Try \url{https://turingmachinesimulator.com/shared/bkuepwxgdh}.
 
 \end{frame}
 
