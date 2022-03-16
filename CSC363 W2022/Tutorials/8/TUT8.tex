@@ -274,7 +274,7 @@ def has_hcycle(V, E):
   suppose V = {v1, v2, ..., vn}
   for every permutation {vi1, vi2, ..., vin} 
     of {v1, v2, ..., vn}:
-    if vi1->vi2->...->vin is a valid path in the graph:
+    if vi1->vi2->...->vin->vi1 is a valid path in the graph:
       return True
   return False
 \end{verbatim}
