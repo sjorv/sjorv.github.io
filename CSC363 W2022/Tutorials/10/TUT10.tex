@@ -1,0 +1,308 @@
+\documentclass{beamer}
+
+\usetheme{simple}
+
+\newcommand{\emojiskull}{\includegraphics[width=12pt]{img/skull.png}}
+
+\usepackage{caption}
+\usepackage{xcolor}
+\usepackage{fancyvrb, hyperref}
+\usepackage{ulem}
+\usepackage{subcaption}
+\usetikzlibrary{positioning,calc,automata}
+
+\title{CSC363 Tutorial \#10}
+\subtitle{Subset Sum, Partition problem}
+\date{March 30, 2022}
+\institute{}
+
+\newcommand{\N}{{\mathbb N}}
+\newcommand{\R}{{\mathbb R}}
+\newcommand{\inner}[1]{\langle #1 \rangle}
+
+\setwatermark{\includegraphics[height=8cm]{img/chungus.png}}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}{Learning objectives this tutorial}
+\begin{itemize}
+\item Review the Subset Sum Problem.
+\item Introduce the Partition problem.
+\item Prove that the Subset Sum Problem and the Partition Problem $p$-reduce to each other.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Subset Sum Review}
+
+\textbf{Task:} Recall the (integer, multiset) Subset Sum (Decision) Problem. What are you given? What are you asked to do?
+
+\pause
+
+\textbf{Ans:} We are given a finite (multi)set\footnote{A multiset is a set that allows duplicates.} of integers $S = \{x_1, x_2, \ldots, x_n\}$ and a ``target'' $t \in \mathbb Z$. We are asked to determine whether there is a subset $S' \subseteq S$ such that 
+$$\sum_{s' \in S'} s' = t.$$
+
+
+\pause
+
+\textbf{Task:} Solve the subset sum problem for the following inputs:
+
+\begin{itemize}
+    \item $S = \{18, 37, 20, 13, 33\}$, $t = 75$.
+    \item $S = \{20, 21, 22, 36, 67\}$, $t = 90$.
+\end{itemize}
+
+\pause
+
+\textbf{Ans:}
+\begin{itemize}
+    \item There is a subset $S' = \{18, 37, 20\}$ that sums to $75$.
+    \item There is no subset that sums to $90$.
+\end{itemize}
+
+\pause
+
+Remind yourself that Subset Sum is easy to verify (NP), but hard to solve (NP-hard), so Subset Sum is NP-complete.
+
+\end{frame}
+
+\begin{frame}{Partition Problem}
+
+Consider the following scenario:
+
+\vspace{2mm} \pause
+
+You team up with your friend in the annual \textit{Chungus Turing Machine Contest}. Your team manages to achieve 2nd place with an $O(n)$ solution of the NP-complete \textit{Chungus-Cover Problem}.
+
+\vspace{2mm} \pause
+
+The 2nd place prize includes the following: \pause
+\begin{itemize}
+    \item A NoVideo CTX 7270 GPU, worth \$18k on gBay. \pause
+    \item A signed Chungus plushie, worth \$37k on the black market. \pause
+    \item A \textit{University of Mississauga scholar of 2077} stipend, covering approximately two days of tuition. Worth \$26k. \pause
+    \item A 4-year subscription to Bestla's new ``road rage$^{\text{TM}}$'' feature, worth \$15k on \textit{ElongatedPay}$^{\text{TM}}$. \pause
+    \item A pair of tickets to the new hottest music concert \textit{Silence}, where they literally play nothing. Worth \$15k on the scalpers' market.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Partition Problem}
+The 2nd place prize includes the following: \pause
+\begin{itemize}
+    \item A NoVideo CTX 7270 GPU, worth \$18k on gBay. \pause
+    \item A signed Chungus plushie, worth \$37k on the black market. \pause
+    \item A \textit{University of Mississauga scholar of 2077} stipend, covering approximately two days of tuition. Worth \$26k. \pause
+    \item A 4-year subscription to Bestla's new ``road rage$^{\text{TM}}$'' feature, worth \$15k on \textit{ElongatedPay}$^{\text{TM}}$. \pause
+    \item A pair of tickets to the new hottest music concert \textit{Silence}, where they literally play nothing. Worth \$15k on the scalpers' market.
+\end{itemize}
+
+\pause
+
+Of course, you and your partner have contributed equally in the contest, so you want to split the prize pool evenly (in terms of monetary value).
+
+\vspace{2mm} \pause
+
+\textbf{Question:} Is it possible to split the 2nd place prize pool evenly, in terms of monetary value? \pause
+
+\textbf{Ans:} Yes. You take the Chungus plushie (\$37k) and the stipend (\$26k), and your friend takes the rest. Your prize is $37\text{k} + 26\text{k} = 53\text{k}$, while your friend's prize is $18\text{k} + 15\text{k} + 15\text{k} + 15\text{k} = 53\text{k}$.
+
+\end{frame}
+
+\begin{frame}{Partition Problem}
+
+In general, the partition problem asks the following: \pause You are given a finite (multi)set of integers $S = \{s_1, \ldots, s_n\}$. Can you find a way to ``split'' $S$ into two equal parts? That is, can you find $S_1, S_2 \subseteq S$ such that:
+\begin{enumerate}
+    \item $S_1 \cup S_2 = S$,
+    \item $S_1 \cap S_2 = \emptyset$,
+    \item $\sum S_1 = \sum S_2$.
+\end{enumerate}
+
+\pause
+
+Note that 1. and 2. say that $S_1$ and $S_2$ form a ``partition'' of $S$.
+
+\end{frame}
+
+\begin{frame}{Partition Problem}
+
+\textbf{Task:} Determine if the following sets are partitionable.
+
+\begin{enumerate}
+    \item $S = \{18, 37, 26, 15, 15, 15\}$.
+    \item $S = \{18, 37, 20, 13, 33\}$.
+    \item $S = \{20, 21, 32, 36, 69\}$.
+    \item $S = \{18, 37, 20, 15\}$.
+\end{enumerate}
+
+\textbf{Ans:}
+\begin{enumerate}
+    \item Yes. (This is the example I gave earlier)
+    \item No. \pause
+    \item Yes; $S_1 = \{20, 69\}$ and $S_2 = \{21, 32, 36\}$. \pause
+    \item No. \pause
+\end{enumerate}
+
+\pause 
+
+\textbf{Bonus Task:} Find a way to easily check that $S$ in 1. is not partitionable. (This won't work on 3.)
+
+\pause
+
+\textbf{Ans:} Notice that $\sum S = 121$ is odd. Thus, $S$ can't be partitioned into two subsets with equal sum (since both subsets have integer sums). 
+
+\pause
+
+This test won't work if $\sum S$ is even though... \pause
+
+\vspace{2mm}
+
+\textbf{Task:} Guess which class of problems the Partition Problem belongs in.\\
+
+\pause
+
+\textbf{Ans:} The partition problem is NP-complete!
+
+\end{frame}
+
+\begin{frame}[fragile]{Partition Problem is NPC}
+
+\textbf{Task:} Prove that the Partition Problem is NP.\\
+
+\pause
+
+\textbf{Ans:} We can build a poly-time verifier $V$:
+\begin{verbatim}
+V(S, S1):
+  if S1 isn't a subset of S2:
+    reject
+  S2 = S \ S1
+  if sum(S1) = sum(S2):
+    accept
+  reject
+\end{verbatim}
+
+\pause
+
+\textbf{Unrelated Task:} Show that $\text{Partition} \leq_p \text{Subset-Sum}$.
+
+\pause
+
+\textbf{Ans:} For an instance of the partition problem $S$, we can let $t = \frac{1}{2} \sum S$. $S$ is partitionable iff $(S, t)$ is in subset sum.
+\end{frame}
+
+\begin{frame}{Partition Problem is NPC}
+
+Now we show the Partition Problem is NP-hard, by showing $\text{Subset-Sum} \leq_p \text{Partition}$. Let $(S, t)$ be an instance of the Subset-Sum problem.
+
+
+\pause
+
+Define $x = \sum S$. We define
+$$\tilde{S} = S \cup \{2x - t\}.$$
+
+\pause 
+
+Of course, $\tilde{S}$ can be created in poly-time. We claim:
+$$(S, t) \in \text{Subset-Sum} \Leftrightarrow \tilde{S} \in \text{Partition}.$$
+
+\pause \vspace{2mm}
+
+$(\Rightarrow)$ Suppose $(S, t) \in \text{Subset-Sum}$. Then there exists $S' \subseteq S$ such that $\sum S' = t$. 
+
+\textbf{Task:} Using the above, find a partition $S_1, S_2 \subseteq \tilde{S}$ such that $\sum S_1 = \sum S_2$. This shows $\tilde{S}$ is partitionable. \pause
+
+\textbf{Ans:} Defining $S_1 = S' \cup \{x - 2t\}$ and $S_2 = S \setminus S'$. We have
+$$\sum S_1 = (\sum S') + x - 2t = t + x - 2t = x - t, \sum S_2 = x - t.$$
+
+\end{frame}
+
+\begin{frame}{Partition Problem is NPC}
+Define $x = \sum S$. We define
+$$\tilde{S} = S \cup \{x - 2t\}.$$
+Of course, $\tilde{S}$ can be created in poly-time. We claim:
+$$(S, t) \in \text{Subset-Sum} \Leftrightarrow \tilde{S} \in \text{Partition}.$$
+
+\pause \vspace{2mm}
+
+$(\Leftarrow)$ Suppose $\tilde{S} \in \text{Partition}$. Then there exists a partition $S_1, S_2 \subseteq \tilde{S}$ such that $\sum S_1 = \sum S_2$.
+
+\vspace{2mm} \pause
+
+\textbf{Task:} Determine the common value of $\sum S_1$ and $\sum S_2$. (Hint: What's $\sum \tilde{S}$?)
+
+\pause
+
+\textbf{Ans:} $\sum S_1 = \sum S_2 = x - t$, since each sum has to be exactly half of $$\sum \tilde{S} = x + x - 2t = 2(x - t).$$
+
+\pause \vspace{2mm}
+
+Since $S_1, S_2$ partition $\tilde{S}$, $x - 2t$ belongs in exactly one of $S_1$ or $S_2$. Let's say $x - 2t \in S_1$, without loss of generality (or else we can swap $S_1$ and $S_2$).
+
+\pause 
+
+\end{frame}
+
+\begin{frame}{Partition Problem is NPC}
+Define $x = \sum S$. We define
+$$\tilde{S} = S \cup \{x - 2t\}.$$
+Of course, $\tilde{S}$ can be created in poly-time. We claim:
+$$(S, t) \in \text{Subset-Sum} \Leftrightarrow \tilde{S} \in \text{Partition}.$$
+
+\pause \vspace{2mm}
+
+$(\Leftarrow)$ Suppose $\tilde{S} \in \text{Partition}$. Then there exists a partition $S_1, S_2 \subseteq \tilde{S}$ such that $\sum S_1 = \sum S_2$.
+
+\vspace{2mm} \pause
+
+We have 
+$$\sum S_1 = \sum S_2 = x - t.$$
+
+\pause 
+
+\textbf{Task:} Find a subset $S' \subseteq S$ such that $\sum S' = t$. This shows $(S, t) \in \text{Subset-Sum}$.
+
+\pause
+
+\textbf{Ans:} Let $S' = S \setminus S_2$. Since $x - 2t \in S_1$, we have $S_2 \subseteq S$, so
+$$\sum S' = \sum S - \sum S_2 = x - (x - t) = t.$$
+
+
+\end{frame}
+
+\begin{frame}{Partition Problem is NPC}
+
+Let's try an example to see how Subset Sum reduces to Partition. Let $S = \{18, 37, 20, 13, 33\}$, $t = 75$ be an instance of the Subset Sum problem.
+
+\vspace{2mm} \pause
+
+\textbf{Task:} Find $x - 2t$, where $x = \sum S$.
+\pause
+\textbf{Ans:} $x = 121$, so $x - 2t = -29$.
+
+\vspace{2mm} \pause
+
+\textbf{Task:} What's $\tilde{S}$, the instance of the partition problem we are constructing?
+\pause
+\textbf{Ans:} $\tilde{S} = \{18, 37, 20, 13, 33, -29\}$.
+
+\vspace{2mm} \pause
+
+\textbf{Task:} Recall that $S' = \{18, 37, 20\} \subseteq S$ sums to $t = 75$. Using this, how can we partition $\tilde{S}$?
+
+\pause
+
+\textbf{Ans:} Let $S_1 = S' \cup \{x - 2t\}  = \{18, 37, 20, -29\}$, and $S_2 = \tilde{S} \setminus S_1 = \{20, 13, 33\}$. Both sum to $46$.
+
+\end{frame}
+
+
+
+
+
+
+
+
+
+\end{document}
