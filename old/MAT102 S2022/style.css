@@ -1,0 +1,17 @@
+@font-face { font-family: Purisa; src: url('../Purisa.ttf'); } 
+
+* {
+    font-family: 'Purisa', cursive;
+    font-size: 15pt;
+    overflow-x: hidden;
+}
+
+.mono {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+body {
+    background-image: url('img/cantor.jpg');
+    background-size: 30%;
+    background-opacity: 0.1
+} 
