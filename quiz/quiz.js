@@ -161,14 +161,14 @@ async function opt_click_handler(opt_number) {
         correct_answer_audio();
         opt.style.backgroundColor = "green";
         await delay(2000);
-        opt.style.backgroundColor = "FloralWhite";
+        opt.style = "option";
         iterate_question();
     }
     else {
         incorrect_answer_audio()
         opt.style.backgroundColor = "red";
         await delay(2000);
-        opt.style.backgroundColor = "FloralWhite";
+        opt.style = "option";
     }
 }
 
