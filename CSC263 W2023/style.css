@@ -1,0 +1,23 @@
+* {
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    font-size: 20pt;
+}
+
+p {
+    font-size: 9pt;
+}
+
+body {
+    background-image: url('img/1984.jpg');
+    background-size: 20%;
+} 
+
+.container{
+    display: flex;
+    justify-content: left; 
+    margin: 10px;
+    padding: 5px;
+    width: 50vw;
+    height: 80vh;
+    background-color: #9eb1b3;   
+}
