@@ -37,8 +37,8 @@ const questions = [{
 },
 {
     q: "Out of the following, which object is Paul most scared of?",
-    a: [{ text: "Escalators", isCorrect: false },
-        { text: "C++", isCorrect: true },
+    a: [{ text: "Escalators", isCorrect: true },
+        { text: "C++", isCorrect: false },
         { text: "Garlic", isCorrect: false },
         { text: "Shopping carts", isCorrect: false }
     ]
@@ -49,14 +49,6 @@ const questions = [{
         { text: "arcade gaming", isCorrect: false },
         { text: "his cat", isCorrect: false },
         { text: "mechanical keyboards", isCorrect: true }
-    ]
-},
-{
-    q: "what moosic like? owo (go to https://www.youtube.com/watch?v=<code>)",
-    a: [{ text: "YEtvskb_npI", isCorrect: true },
-        { text: "ekp9QKIuKnM", isCorrect: true },
-        { text: "TCd6PfxOy0Y", isCorrect: true },
-        { text: "eNnxdVICxbU", isCorrect: true }
     ]
 },
 {
