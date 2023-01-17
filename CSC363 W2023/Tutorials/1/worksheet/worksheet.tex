@@ -1,0 +1,234 @@
+\documentclass[10pt]{article}
+\input{structure.tex}
+
+\lhead{}
+\rhead{CSC363H5 Winter 2023} 
+\chead{\textbf{Tutorial 1: Turing Machines}}
+\date{}
+\begin{document}
+		
+\subsection*{Things to remember}
+
+
+\begin{itemize}
+	\item Each Turing Machine must designate a \textbf{blank character}. In our course, the blank character is usually denoted `$\square$'.
+	\item Turing Machines can receive string inputs. On \textbf{input} $w$ ($w$ being some string), place $w$ on the TM's tape (at the read/write head) before executing, and fill the rest of the infinite tape with $\square$. For example, the tape should look as follows after accepting the input `CHUNGUS':
+	
+	\begin{center}
+		\begin{tikzpicture}[scale=0.5]
+			% tape
+			\renewcommand{\entriesarray}{$\square$, $\square$, C,H,U,N,G,U,S, $\square$}
+			\pgfmathsetmacro{\NumCells}{10}
+			\pgfmathsetmacro{\NumCellsMinusOne}{\NumCells - 1}
+			\foreach \x in {0, ...,\NumCellsMinusOne} {
+				\draw (\x, 0) rectangle (\x + 1, 1);
+				\node at (\x + 0.5, 0.5) {\texttt{\entries[\x]}};
+			}
+			\draw (-0.5, 0) -- (0, 0); \draw (-0.5, 1) -- (0, 1); \node[left] at (-0.5, 0.5) {$\ldots$}; 
+			\draw (\NumCells, 0) -- (\NumCells + 0.5, 0); \draw (\NumCells, 1) -- (\NumCells + 0.5, 1); \node[right] at (\NumCells + 0.5, 0.5) {$\ldots$}; 
+			
+			% head
+			\pgfmathsetmacro{\HeadPosition}{2}
+			\draw (\HeadPosition - 0.5, -2.5) rectangle (\HeadPosition + 1.5, -1.5);
+			\node at (\HeadPosition + 0.5, -2) {Head};
+			\draw[->] (\HeadPosition + 0.5, -1.5) -- (\HeadPosition + 0.5, 0);
+		\end{tikzpicture}
+	\end{center}
+	\item Each Turing Machine has a designated \textbf{finish state}. For us, the finishing state is called $f$. Upon reaching the finishing state, execution stops, and whatever string remains on the tape (excluding $\square$ characters) is the \textbf{output}.
+\end{itemize}
+
+\subsection*{How to execute Turing machines}
+Each Turing machine has a DFA that governs its execution logic:
+\begin{center}
+	\begin{tikzpicture}[shorten >=1pt,node distance=2.5cm,on grid,auto] 
+		\node[state, initial] (s) {$s$};
+		\node[state] (q_0) [right of=s] {$q_0$};
+		\node[state] (q_1) [below of=s] {$q_1$};
+		\node[state] (q_2) [right of=q_1] {$q_2$};
+		\node[state, accepting] (f) [right of=q_2] {$f$};
+		
+		\path[->] (s) edge node [above] {$(0, 1, R)$} (q_0);
+		\path[->] (s) edge node [left] {$(1, 1, R)$} (q_1);
+		\path[->] (q_0) edge [loop right] node [right] {$(0, 0, R)$} (q_0);
+		\path[->] (q_0) edge node [right] {$(1, 0, R)$} (q_2);
+		\path[->] (q_1) edge [loop left] node [left] {$(1, 1, L)$} (q_1);
+		\path[->] (q_1) edge node [above] {$(0, 1, R)$} (q_2);
+		\path[->] (q_2) edge node [above] {$(0, 1, R)$} (f);
+		\path[->] (q_2) edge node [below] {$(1, 0, L)$} (f);
+	\end{tikzpicture}
+\end{center}
+To execute the Turing Machine on a given input string:
+\begin{enumerate}
+	\item Place the input on the tape. Begin in the starting state ($s$ in the above diagram). 
+	\item Read one character from the read/write head.
+	\item Each arrow leaving the current state is labelled with a $3$-tuple ``($x$, $y$, $d$)''. Find the arrow that has a label where the first entry $x$ is the character you've just read in Step 2. Then:
+	\begin{itemize}
+		\item Transition to the state that the arrow is pointing to.
+		\item Write the second character $y$ on the label back to the tape.
+		\item Move the read/write head left or right based on the value of $d$ on the label.
+	\end{itemize}
+	\item If the current state is not the finishing state, jump back to Step 2.
+\end{enumerate}
+
+
+\subsection*{FAQ}
+\begin{itemize}
+	\item \textbf{Q:} After reading a character, can the TM choose to not write anything back to the tape?\\
+	\textbf{A:} No, but the TM can write the same character back to the tape, which has the same effect as not writing anything.
+	\item \textbf{Q:} After reading a character, can the TM choose to not move the read/write head, as opposed to moving the head left or right?\\
+	\textbf{A:} Unfortunately, no. The TM must move the read/write head.
+	\item \textbf{Q:} What happens if the TM never reaches the finish state?\\
+	\textbf{A:} If the TM never finishes execution, the TM is said to \textbf{loop}. There is no output in this case.
+	\item \textbf{Q:} What's `\#'?\\
+	\textbf{A:} This is just a character, like '0' or '1'. 
+	\item \textbf{Q:} What happens if the TM reads a character such as `\#', and the current state doesn't have any transition that handles the character `\#'? \\
+	\textbf{A:} The Turing Machine halts and catches on fire.
+	
+	Jokes aside, this situation should never happen! When designing a Turing machine, we may be lazy and leave out transitions for characters that aren't expected in the given state. For example, in Exercise 1, while the TM is in the state $s$, there is no outgoing transition handling `\#'; this is because we don't expect to see the character `\#' while in state $s$.
+\end{itemize}
+
+\newpage
+
+\textbf{Exercise 1.} Consider the following Turing machine (with starting state $s$ and finishing state $f$).
+% reverses the input binary string
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[shorten >=1pt,node distance=3cm,on grid,auto] 
+		\node[state] (q_0) [] {$q_0$};
+		\node[state] (x) [above of=q_0] {$x$};
+		\node[state, initial] (s) [left of=x] {$s$};
+		\node[state, accepting] (f) [right of=x] {$f$};
+		\node[state] (q_1) [right of=q_0] {$q_1$};
+		\node[state] (q_2) [below of=q_0] {$q_2$};
+		\node[state] (q_3) [right of=q_2] {$q_3$};
+		
+		\path[->] (s) edge [loop below] node[left, xshift=-0.2cm, align=center] {\footnotesize (0, 0, R) \\ \footnotesize (1, 1, R)} (s);
+		\path[->] (s) edge node[below left, yshift=0.2cm] {\footnotesize ($\square$, \#, L)} (q_0);
+		
+		\path[->] (q_0) edge node[right, yshift=-0.4cm] {\footnotesize ($\square$, $\square$, R)} (x);
+		\path[->] (x) edge [loop left] node[below, yshift=-0.2cm] {\footnotesize (\#, $\square$, R)} (x);
+		\path[->] (x) edge node[below, align=center] {\footnotesize ($\square$, $\square$, R) \\ \footnotesize (0, 0, R) \\\ \footnotesize (1, 1, R)} (f);
+		
+		\path[->] (q_0) edge node[above] {\footnotesize (0, \#, R)} (q_1);
+		\path[->] (q_1) edge [loop above] node[right, xshift=0.2cm, align=center] {\footnotesize (\#, \#, R)\\ \footnotesize (0, 0, R) \\ \footnotesize (1, 1, R)} (q_1);
+		\path[->] (q_1) edge node[right] {\footnotesize ($\square$, 0, L)} (q_3);
+		
+		\path[->] (q_0) edge node[left] {\footnotesize (1, \#, R)} (q_2);
+		\path[->] (q_2) edge [loop left] node[left, align=center] {\footnotesize (\#, \#, R)\\ \footnotesize (0, 0, R) \\ \footnotesize (1, 1, R)} (q_2);
+		\path[->] (q_2) edge node[below] {\footnotesize ($\square$, 1, L)} (q_3);
+		
+		\path[->] (q_3) edge [loop right] node[right, align=center] {\footnotesize (0, 0, L) \\ \footnotesize (1, 1, L)} (q_3);
+		\path[->] (q_3) edge node[above right, xshift=-0.2cm] {\footnotesize (\#, \#, L)} (q_0);
+		
+		\path[->] (q_0) edge [loop left] node[left] {\footnotesize (\#, \#, L)} (q_0);
+		
+	\end{tikzpicture}
+\end{figure}
+
+\begin{enumerate}[label=(\alph*)]
+\item Execute the Turing machine on the following inputs, and determine the output:
+\begin{multicols}{3}
+\begin{enumerate}[label=(\roman*)]
+\item ``001``.
+\item ``1101``.
+\item $\epsilon$ (the empty string).
+\end{enumerate}
+\end{multicols}
+
+Three blank tapes are provided below for your convenience.
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[scale=0.5]
+	% tape
+	\renewcommand{\entriesarray}{}
+	\pgfmathsetmacro{\NumCells}{20}
+	\pgfmathsetmacro{\NumCellsMinusOne}{\NumCells - 1}
+	\foreach \x in {0, ...,\NumCellsMinusOne} {
+		\draw (\x, 0) rectangle (\x + 1, 1);
+		\node at (\x + 0.5, 0.5) {\texttt{\entries[\x]}};
+	}
+	\draw (-0.5, 0) -- (0, 0); \draw (-0.5, 1) -- (0, 1); \node[left] at (-0.5, 0.5) {$\ldots$}; 
+	\draw (\NumCells, 0) -- (\NumCells + 0.5, 0); \draw (\NumCells, 1) -- (\NumCells + 0.5, 1); \node[right] at (\NumCells + 0.5, 0.5) {$\ldots$}; 
+	\end{tikzpicture}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[scale=0.5]
+		% tape
+		\renewcommand{\entriesarray}{}
+		\pgfmathsetmacro{\NumCells}{20}
+		\pgfmathsetmacro{\NumCellsMinusOne}{\NumCells - 1}
+		\foreach \x in {0, ...,\NumCellsMinusOne} {
+			\draw (\x, 0) rectangle (\x + 1, 1);
+			\node at (\x + 0.5, 0.5) {\texttt{\entries[\x]}};
+		}
+		\draw (-0.5, 0) -- (0, 0); \draw (-0.5, 1) -- (0, 1); \node[left] at (-0.5, 0.5) {$\ldots$}; 
+		\draw (\NumCells, 0) -- (\NumCells + 0.5, 0); \draw (\NumCells, 1) -- (\NumCells + 0.5, 1); \node[right] at (\NumCells + 0.5, 0.5) {$\ldots$}; 
+	\end{tikzpicture}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[scale=0.5]
+		% tape
+		\renewcommand{\entriesarray}{}
+		\pgfmathsetmacro{\NumCells}{20}
+		\pgfmathsetmacro{\NumCellsMinusOne}{\NumCells - 1}
+		\foreach \x in {0, ...,\NumCellsMinusOne} {
+			\draw (\x, 0) rectangle (\x + 1, 1);
+			\node at (\x + 0.5, 0.5) {\texttt{\entries[\x]}};
+		}
+		\draw (-0.5, 0) -- (0, 0); \draw (-0.5, 1) -- (0, 1); \node[left] at (-0.5, 0.5) {$\ldots$}; 
+		\draw (\NumCells, 0) -- (\NumCells + 0.5, 0); \draw (\NumCells, 1) -- (\NumCells + 0.5, 1); \node[right] at (\NumCells + 0.5, 0.5) {$\ldots$}; 
+	\end{tikzpicture}
+\end{figure}
+
+\item Given a binary string $w$ as input, what does the Turing machine output?
+\end{enumerate}
+
+\noindent \hrulefill
+
+\textbf{Exercise 2.} Consider the following Turing machine (with starting state $s$, accepting state $q_\text{acc}$, and rejecting state $q_{\text{rej}}$).
+
+% accept iff string is a palindrome
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[shorten >=1pt,node distance=3cm,on grid,auto] 
+		\node[state, initial] (q_0) {$q_0$};
+		\node[state, accepting] (q_acc) [right of=q_0] {$q_\text{acc}$};
+		\node[state, accepting] (q_rej) [right of=q_acc] {$q_\text{rej}$};
+		\node[state] (q_1) [above right of=q_0] {$q_1$};
+		\node[state] (c_1) [right of=q_1] {$c_1$};
+		\node[state] (q_2) [below right of=q_0] {$q_2$};
+		\node[state] (c_2) [right of=q_2] {$c_2$};
+		\node[state] (r) [left of=q_0] {$r$};
+		
+		\path[->] (q_0) edge node[above] {\footnotesize ($\square$, $\square$, L)} (q_acc);
+		\path[->] (q_0) edge node[left] {\footnotesize (0, $\square$, R)} (q_1);
+		\path[->] (q_0) edge node[left] {\footnotesize (1, $\square$, R)} (q_2);
+		
+		\path[->] (q_1) edge[loop left] node[left, align=center] {\footnotesize (0, 0, R)\\ \footnotesize (1, 1, R)} (q_1);
+		\path[->] (q_1) edge node[above] {\footnotesize ($\square$, $\square$, L)} (c_1);
+		
+		\path[->] (c_1) edge node[left] {\footnotesize ($\square$, $\square$, L)} (q_acc);
+		\path[->] (c_1) edge[bend right=55] node[above] {\footnotesize (0, $\square$, L)} (r);
+		\path[->] (c_1) edge node[right] {\footnotesize (1, $\square$, L)} (q_rej);
+		
+		\path[->] (q_2) edge[loop left] node[left, align=center] {\footnotesize (0, 0, R)\\ \footnotesize (1, 1, R)} (q_2);
+		\path[->] (q_2) edge node[above] {\footnotesize ($\square$, $\square$, L)} (c_2);
+		
+		\path[->] (c_2) edge node[left] {\footnotesize ($\square$, $\square$, L)} (q_acc);
+		\path[->] (c_2) edge[bend left=55] node[below] {\footnotesize (1, $\square$, L)} (r);
+		\path[->] (c_2) edge node[right] {\footnotesize (0, $\square$, L)} (q_rej);
+		
+		\path[->] (r) edge[loop left] node[left, align=center] {\footnotesize (0, 0, L)\\ \footnotesize (1, 1, L)} (r);
+		
+		\path[->] (r) edge[bend right] node[below, align=center] {\footnotesize ($\square$, $\square$, R)} (q_0);
+	\end{tikzpicture}
+\end{figure}
+
+Which input binary strings does the Turing machine accept?
+
+
+\end{document}

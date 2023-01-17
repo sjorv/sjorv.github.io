@@ -1,0 +1,251 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Specification file for
+% Custom Assignment Template (For Students) by Paul Zhang
+%
+% Based on:
+% Cleese Assignment (For Students) Version 2.0 (27/5/2018)
+%
+% This template originates from http://www.LaTeXTemplates.com
+% Original Author: Vel (vel@LaTeXTemplates.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\usepackage{
+amsfonts,     % Extra fonts
+amsmath,      % Lots of useful mathematical symbols
+amssymb,      % More useful mathematical symbols
+amsthm,       % Theorem and proof environments
+cite,         % Citations
+enumitem,     % Change enumerate counter style
+fancyhdr, 	  % Fancy header
+float,		  % Figure placement
+geometry,     % Required for adjusting page dimensions and margins
+graphicx,     % Required to insert images
+hyperref,     % Hyperlinks
+ifthen,       % Required for ifthenelse statements
+import,       % So that tex files can input from relative paths
+listings,     % Required for insertion of code
+mathtools,    % Extra math symbols
+multicol,     % Easy setup for local multi-column use
+pgfplots,     % For drawing graphs of functions
+tikz,         % Nice diagrams
+xcolor,       % Used for changing text color
+}
+
+\pgfplotsset{compat=1.17}
+\hypersetup{
+  colorlinks   = true,    % Colours links instead of ugly boxes
+  urlcolor     = blue,    % Colour for external hyperlinks
+  linkcolor    = blue,    % Colour of internal links
+  citecolor    = red      % Colour of citations
+}
+
+\usepackage[most]{tcolorbox} % Required for boxes that split across pages
+\usepackage[justification=centering, margin=1.3cm]{caption} % Center long captions
+
+\setlength{\parindent}{0pt}
+
+%----------------------------------------------------------------------------------------
+%	LISTINGS
+%----------------------------------------------------------------------------------------
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+	backgroundcolor=\color{backcolour},
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{magenta},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{codepurple},
+	basicstyle=\ttfamily,
+	breakatwhitespace=false,
+	breaklines=true,
+	captionpos=b,
+	keepspaces=true,
+	numbers=left,
+	numbersep=5pt,
+	showspaces=false,
+	showstringspaces=false,
+	showtabs=false,
+	tabsize=2
+}
+
+\lstdefinestyle{mystyletiny}{
+	backgroundcolor=\color{backcolour},
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{magenta},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{codepurple},
+	basicstyle=\tiny\ttfamily,
+	breakatwhitespace=false,
+	breaklines=true,
+	captionpos=b,
+	keepspaces=true,
+	numbers=left,
+	numbersep=5pt,
+	showspaces=false,
+	showstringspaces=false,
+	showtabs=false,
+	tabsize=2
+}
+
+\lstset{style=mystyle}
+
+%----------------------------------------------------------------------------------------
+%	MARGINS
+%----------------------------------------------------------------------------------------
+
+\usepackage{geometry} % Required for adjusting page dimensions and margins
+
+\geometry{
+	paper=a4paper, % Change to letterpaper for US letter
+	top=1.7cm, % Top margin
+	bottom=1.7cm, % Bottom margin
+	left=2.5cm, % Left margin
+	right=2.5cm, % Right margin
+	headheight=14pt, % Header height
+	footskip=0.5cm, % Space from the bottom margin to the baseline of the footer
+	headsep=0.5cm, % Space from the top margin to the baseline of the header
+	%showframe, % Uncomment to show how the type block is set on the page
+}
+
+%----------------------------------------------------------------------------------------
+%	FONT
+%----------------------------------------------------------------------------------------
+
+\usepackage[utf8]{inputenc} % Required for inputting international characters
+\usepackage[T1]{fontenc} % Output font encoding for international characters
+
+\usepackage{tgpagella} % Use the TEX Gyre Pagella font
+
+%----------------------------------------------------------------------------------------
+%	HEADERS AND FOOTERS
+%----------------------------------------------------------------------------------------
+
+\usepackage{fancyhdr} % Required for customising headers and footers
+
+\pagestyle{fancy} % Enable custom headers and footers
+
+\lhead{} % Left header
+\chead{} % Centre header
+\rhead{}
+
+\lfoot{} % Left footer
+% \cfoot{} % Centre footer, shows page numbers
+\rfoot{} % Right footer
+
+\renewcommand\headrulewidth{0pt} % Remove header rule
+
+%----------------------------------------------------------------------------------------
+%	MODIFY SECTION STYLES
+%----------------------------------------------------------------------------------------
+
+\usepackage{titlesec} % Required for modifying sections
+
+\pagenumbering{arabic}
+
+%------------------------------------------------
+% Section
+
+\titleformat
+{\section} % Section type being modified
+[block] % Shape type, can be: hang, block, display, runin, leftmargin, rightmargin, drop, wrap, frame
+{\LARGE\bfseries} % Format of the whole section
+{\assignmentQuestionName~\thesection} % Format of the section label
+{6pt} % Space between the title and label
+{} % Code before the label
+
+\titlespacing{\section}{0pt}{0.5\baselineskip}{0.5\baselineskip} % Spacing around section titles, the order is: left, before and after
+
+%------------------------------------------------
+% Subsection
+
+\titleformat
+{\subsection} % Section type being modified
+[block] % Shape type, can be: hang, block, display, runin, leftmargin, rightmargin, drop, wrap, frame
+{\large\bfseries} % Format of the whole section
+{(\alph{subsection})} % Format of the section label
+{4pt} % Space between the title and label
+{} % Code before the label
+
+\titlespacing{\subsection}{0pt}{0.5\baselineskip}{0.5\baselineskip} % Spacing around section titles, the order is: left, before and after
+
+\renewcommand\thesubsection{(\alph{subsection})}
+
+%------------------------------------------------
+% Theorem, Lemma, etc
+
+\newenvironment{question}[1][]{
+    {\noindent \textbf{\ifthenelse{\equal{#1}{}}{Question. }{Question [#1]. }}}}
+    {}
+
+\newenvironment{definition}[1][]{
+    {\noindent \textbf{\ifthenelse{\equal{#1}{}}{Definition. }{Definition [#1]. }}}}
+    {}
+
+\newenvironment{solution}{
+    ~\\ \noindent \textbf{My solution.} \par}
+    {}
+
+\newenvironment{theorem}[1][]{
+    {\noindent \textbf{\ifthenelse{\equal{#1}{}}{Theorem. }{Theorem [#1]. }}}}
+    {}
+
+\newenvironment{lemma}[1][]{
+    {\noindent \textbf{\ifthenelse{\equal{#1}{}}{Lemma. }{Lemma [#1]. }}}}
+    {}
+
+\newenvironment{proposition}[1][]{
+    {\noindent \textbf{\ifthenelse{\equal{#1}{}}{Proposition. }{Proposition [#1]. }}}}
+    {}
+
+\renewenvironment{comment}{
+    {\noindent \textbf{Comment. }}}
+    {}
+
+
+%------------------------------------------------
+% Math Commands
+
+\newcommand{\N}{\mathbb N}        % Naturals
+\newcommand{\Z}{\mathbb Z}        % Integers
+\newcommand{\Q}{\mathbb Q}        % Rationals
+\newcommand{\R}{\mathbb R}        % Reals
+\newcommand{\C}{\mathbb C}	      % Complex
+\newcommand{\mb}{\mathbf}
+\newcommand{\mc}{\mathcal}
+\newcommand{\mf}{\mathfrak}
+\newcommand{\inver}{^{-1}}
+\newcommand{\floor}[1]{\lfloor #1 \rfloor}
+\newcommand{\ceil}[1]{\lceil #1 \rceil}
+
+%------------------------------------------------
+% Tikz settings
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{automata, calc, positioning}
+
+\usepackage{xparse}% http://ctan.org/pkg/xparse
+\usepackage{etoolbox}% http://ctan.org/pkg/etoolbox
+\newcounter{listtotal}\newcounter{listcntr}%
+\NewDocumentCommand{\entries}{o}{%
+	\setcounter{listtotal}{0}\setcounter{listcntr}{-1}%
+	\renewcommand*{\do}[1]{\stepcounter{listtotal}}%
+	\expandafter\docsvlist\expandafter{\entriesarray}%
+	\IfNoValueTF{#1}
+	{\entriesarray}% \names
+	{% \names[<index>]
+		\renewcommand*{\do}[1]{\stepcounter{listcntr}\ifnum\value{listcntr}=#1\relax##1\fi}%
+		\expandafter\docsvlist\expandafter{\entriesarray}}%
+}
+\newcommand{\entriesarray}{}
