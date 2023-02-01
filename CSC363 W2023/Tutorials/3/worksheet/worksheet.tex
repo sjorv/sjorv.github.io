@@ -1,0 +1,90 @@
+\documentclass[10pt]{article}
+\input{structure.tex}
+
+\lhead{}
+\rhead{CSC363H5 Winter 2023} 
+\chead{\textbf{Tutorial 3: Recognizable and Decidable Sets}}
+\date{}
+\begin{document}
+		
+\subsection*{Things to remember}
+
+
+\begin{itemize}
+	\item Let $\Sigma$ be the input alphabet. We let $\Sigma^*$ denote the set of finite strings containing characters from $\Sigma$.  For example, suppose $\Sigma = \{\mathrm{a}, \mathrm{c}, \mathrm{d}, \mathrm{e}, \mathrm{i}, \mathrm{m}\}$. Then  $\Sigma^*$ contains the strings $\mathrm{mmmmmddddddd}$, $\mathrm{mid}$, $\mathrm{academia}$, $\mathrm{macademia}$, and the empty string $\epsilon$, but does not contain the strings $\mathrm{bad}$ or $\mathrm{13d}$.
+	\item A subset of $\Sigma^*$ is called a \textbf{language}. With $\Sigma = \{\mathrm{a}, \mathrm{c}, \mathrm{d}, \mathrm{e}, \mathrm{i}, \mathrm{m}\}$ again, examples of languages include the empty language $\emptyset$, the universal language  $\Sigma^*$, the singleton language $\{\mathrm{a}\}$, and so on.
+	\item A language $L$ is \textbf{decidable} if there is a Turing machine $M$ such that for any input $s \in \Sigma^*$:
+	\begin{itemize}
+		\item If $s \in L$, then $M$ accepts $s$.
+		\item If $s \notin L$, then $M$ \underline{rejects} $s$.
+	\end{itemize}
+	\item A language $L$ is \textbf{recognizable} if there is a Turing machine $M$ such that for any input $s \in \Sigma^*$:
+	\begin{itemize}
+		\item If $s \in L$, then $M$ accepts $s$.
+		\item If $s \notin L$, then $M$ \underline{rejects or loops} on $s$.
+	\end{itemize}
+	\item A function $f: \Sigma^* \to \Sigma^*$ is \textbf{computable} if there is a Turing machine $M$ such that for any input $s \in \Sigma^*$:
+	\begin{itemize}
+		\item $M$ halts (either accepts or rejects).
+		\item $M$ outputs $f(s)$.
+	\end{itemize}
+\end{itemize}
+
+\subsection*{Dealing with an identity crisis}
+Recognizable/decidable languages are central notions to computability theory. They also go by many names!
+\begin{itemize}
+	\item Recognizable languages are sometimes called \textit{recursively enumerable languages}.
+	\item Decidable languages are sometimes called \textit{recursive} or \textit{computable} languages.
+\end{itemize}
+\subsection*{Exercises}
+
+\textbf{Exercise -1.} Let $\Sigma = \{0, 1\}$ be the input alphabet. Show that the following languages are decidable. Do not formally construct the Turing machines; simply describe how a Turing machine (or equivalently, a computer program) would decide if an input is in the language.
+
+\begin{itemize}
+	\item $\emptyset$.
+	\item $\{ww: w \in \Sigma^*\}$.
+	\item $\{w \in \Sigma^*: \text{$w$ is a prime number in binary}\}$.
+	\item $\{w \in \Sigma^*: \text{There is an integer solution $x$ to $wx^6 - 5wx^5 + 4000x^4 - 2wx - 60 = 0$}\}$.
+	\vspace{-3mm}
+\end{itemize}
+
+\noindent \hrulefill
+
+\textbf{Exercise 0.} Show that a language $L$ is decidable if and only if its \textit{characteristic function} $\chi_L$ is computable, where
+\begin{align*}
+	\chi_L(s) &=
+	\begin{cases}
+		1, & s\in L,\\
+		0, & s \notin L.
+	\end{cases}
+\end{align*}
+
+\noindent \hrulefill
+
+\textbf{Exercise 1.} Let $L_1, L_2$ be languages.
+\begin{enumerate}[label=(\alph*)]
+ 
+\item If $L_1$ and $L_2$ are decidable, prove that the following sets are decidable, by giving a high-level description/pseudocode of an appropriate Turing machine.
+\begin{multicols}{3}
+\begin{enumerate}[label=(\roman*)]
+\item $L_1 \cup L_2$.
+\item $L_1 \cap L_2$.
+\item $L_1^\text{c}$.
+\end{enumerate}
+\end{multicols}
+
+ \item If $L_1$ and $L_2$ are recognizable, prove that the following sets are recognizable.
+\begin{enumerate}[label=(\roman*)]
+\begin{multicols}{3}
+\item $L_1 \cup L_2$.
+\item $L_1 \cap L_2$.
+\item $L_1L_2 = \{st: s \in L_1,\; t \in L_2\}$.
+\end{multicols}
+\end{enumerate}
+\item Is the complement of a recognizable language always recognizable? If not, when is this true?
+\end{enumerate}
+
+\noindent \hrulefill
+
+\textbf{Exercise 2.} Show that every infinite recognizable language has an infinite decidable subset.
+\end{document}
