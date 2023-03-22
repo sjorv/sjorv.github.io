@@ -1,0 +1,261 @@
+\documentclass[10pt]{article}
+\input{structure.tex}
+
+\lhead{}
+\rhead{CSC363H5 Winter 2023} 
+\chead{\textbf{Tutorial 9: Boolean Satisfiability Problem}}
+\date{}
+\begin{document}
+		
+In this worksheet, we outline a proof that SAT is NP-Complete (known as the \textbf{Cook-Levin Theorem}) (from \href{https://en.wikipedia.org/wiki/Cook%E2%80%93Levin_theorem#Proof}{\textcolor{blue}{Wikipedia}}). This proof has two parts.
+\begin{enumerate}
+	\item $\mathrm{SAT} \in \mathrm{NP}$.
+	\item SAT is \textit{NP-hard}: Any language $L \in \mathrm{NP}$ will satisfy $L \leq_p \mathrm{SAT}$.
+\end{enumerate}
+
+
+\noindent \textbf{Exercise 1.} Show that $\mathrm{SAT} \in \mathrm{NP}$. That is, build a poly-time nondeterministic Turing machine that decides SAT.
+
+\subsection*{SAT is NP-hard}
+
+Let $L \in \mathrm{NP}$. We will show that $L \leq_p \mathrm{SAT}$ by constructing a poly-time computable function $f$ such that $x \in L \Leftrightarrow f(x) \in \mathrm{SAT}$.
+
+Since $L \in \mathrm{NP}$, there is a poly-time nondeterministic Turing machine $M = (Q, \Sigma, \Gamma, \delta, q_0, q_\text{acc}, q_\text{rej})$ that decides $L$. Since $M$ is poly-time, we may assume $M$ halts in $\leq p(n)$ steps on any input of size $n$ (where $p(n)$ is some polynomial). We will make use of the following lemma:
+
+\vspace{2mm}
+
+\begin{lemma}
+	Suppose $M(x)$ has executed $s$ steps. Then, only cells $-s$ to $s$ can be nonblank; cells $-\infty$ to $-s - 1$, and cells $s + 1$ to $\infty$ must be blank. 
+\end{lemma}
+
+\begin{center}
+	\begin{tikzpicture}[scale=0.5]
+		% tape
+		\renewcommand{\entriesarray}{$-5$, $-4$, $-3$, $-2$, $-1$, $0$, $1$, $2$, $3$, $4$, $5$}
+		\pgfmathsetmacro{\NumCells}{11}
+		\pgfmathsetmacro{\NumCellsMinusOne}{\NumCells - 1}
+		\foreach \x in {0, ...,\NumCellsMinusOne} {
+			\draw (\x, 0) rectangle (\x + 1, 1);
+			\node at (\x + 0.5, 1.2) {\footnotesize\texttt{\entries[\x]}};
+		}
+		\draw (-0.5, 0) -- (0, 0); \draw (-0.5, 1) -- (0, 1); \node[left] at (-0.5, 0.5) {$\ldots$}; 
+		\draw (\NumCells, 0) -- (\NumCells + 0.5, 0); \draw (\NumCells, 1) -- (\NumCells + 0.5, 1); \node[right] at (\NumCells + 0.5, 0.5) {$\ldots$}; 
+		
+		% head
+		\pgfmathsetmacro{\HeadPosition}{5}
+		\draw (\HeadPosition - 0.5, -2.5) rectangle (\HeadPosition + 1.5, -1.5);
+		\node at (\HeadPosition + 0.5, -2) {Head};
+		\draw[->] (\HeadPosition + 0.5, -1.5) -- (\HeadPosition + 0.5, 0);
+	\end{tikzpicture}
+\end{center}
+
+\noindent \textbf{Exercise 2.} Briefly justify the Lemma. \textit{Hint: How long does it take to move the read/write head?}
+\vspace{2mm}
+
+The Lemma guarantees that if $M$ is given an input $x$ of size $n$, then throughout $M(x)$'s execution, only cells $-p(n)$ to $p(n)$ can be overwritten.
+
+
+Now, given an input $x$, we will define the following collections of variables:
+
+\begin{table}[ht]
+	\centering
+	\begin{tabular}{c|c|c}
+		Variables & Range & Intended Interpretation\\
+		\hline 
+		$T_{i, j, k}$ & $-p(n) \leq i \leq p(n)$, $j \in \Sigma$, $0 \leq k \leq p(n)$ & Cell $i$ has symbol $j$ at step $k$ of execution.\\
+		\hline
+		$H_{i, k}$ & $-p(n) \leq i \leq p(n)$, $0 \leq k \leq p(n)$ & The read/write head is at cell $i$ at step $k$ of execution.\\
+		\hline
+		$Q_{q, k}$ & $q \in Q$, $0 \leq k \leq p(n)$ & The NTM is at state $q$ at step $k$ of execution.
+	\end{tabular}
+	\caption{Variables and their intended interpretations}
+	\label{table:1}
+\end{table}
+
+\noindent \textbf{Exercise 3.} Suppose $M$ is the \textit{deterministic} Turing machine below (with $\Sigma = \{a, b\}$). You may assume that $M(x)$ halts in $p(n) = n + 1$ steps or less.
+
+
+\begin{center}
+	\begin{tikzpicture}[shorten >=1pt,node distance=2.5cm,on grid,auto]
+		\node[state] (q0) [] {$q_0$};
+		\node[state] (q1) [right of=q0] {$q_1$};
+		\node[state, accepting] (qacc) [right of=q1] {$q_\text{acc}$};
+		\node[state] (qrej) [left of=q0] {$q_\text{rej}$};
+		
+		\path[->] (q0) edge node[above] {$(a, b, R)$} (q1);
+		\path[->] (q0) edge node[above] {$(\square, \square, R)$} (qrej);
+		\path[->] (q0) edge [loop below] node[below] {$(b, a, R)$} (q0);
+		\path[->] (q1) edge node[above] {$(\square, \square, R)$} (qacc);
+		\path[->] (q1) edge [bend right=70] node[below] {$(b, b, R)$} (qrej);
+		\path[->] (q1) edge [loop above] node[above] {$(a, a, R)$} (q1);
+	\end{tikzpicture}
+\end{center}
+\noindent Execute $M$ on the input $x = bba$ (so $M$ halts in $p(n) = 3 + 1 = 4$ steps), and label the variables below with their intended interpretations (consulting Table \ref{table:1}).
+\begin{center}
+	\begin{tikzpicture}[scale=0.5]
+		% tape
+		\renewcommand{\entriesarray}{$-5$, $-4$, $-3$, $-2$, $-1$, $0$, $1$, $2$, $3$, $4$, $5$}
+		\pgfmathsetmacro{\NumCells}{11}
+		\pgfmathsetmacro{\NumCellsMinusOne}{\NumCells - 1}
+		\foreach \x in {0, ...,\NumCellsMinusOne} {
+			\draw (\x, 0) rectangle (\x + 1, 1);
+			\node at (\x + 0.5, 1.2) {\footnotesize\texttt{\entries[\x]}};
+		}
+		\node at (5.5, 0.5) {$b$};
+		\node at (6.5, 0.5) {$b$};
+		\node at (7.5, 0.5) {$a$};
+		\draw (-0.5, 0) -- (0, 0); \draw (-0.5, 1) -- (0, 1); \node[left] at (-0.5, 0.5) {$\ldots$}; 
+		\draw (\NumCells, 0) -- (\NumCells + 0.5, 0); \draw (\NumCells, 1) -- (\NumCells + 0.5, 1); \node[right] at (\NumCells + 0.5, 0.5) {$\ldots$}; 
+		
+		% head
+		\pgfmathsetmacro{\HeadPosition}{5}
+		\draw (\HeadPosition - 0.5, -2.5) rectangle (\HeadPosition + 1.5, -1.5);
+		\node at (\HeadPosition + 0.5, -2) {Head};
+		\draw[->] (\HeadPosition + 0.5, -1.5) -- (\HeadPosition + 0.5, 0);
+	\end{tikzpicture}
+\end{center}
+
+\begin{minipage}{0.22\textwidth}
+	\begin{tabular}{c|c}
+		Variable & Value\\
+		\hline 
+		$T_{0, a, 0}$ & F\\
+		$T_{1, b, 0}$ & T\\
+		$T_{2, b, 0}$ & F\\
+		$T_{0, a, 1}$ & \\
+		$T_{1, a, 1}$ & \\
+		$T_{2, a, 2}$ & \\
+	\end{tabular}
+\end{minipage}
+\begin{minipage}{0.22\textwidth}
+	\begin{tabular}{c|c}
+		Variable & Value\\
+		\hline 
+		$T_{3, \square, 2}$ & \\
+		$T_{-2, \square, 2}$ & \\
+		$T_{2, b, 2}$ & \\
+		$T_{0, a, 3}$ & \\
+		$T_{1, a, 4}$ & \\
+		$T_{2, a, 4}$ & \\
+	\end{tabular}
+\end{minipage}
+\begin{minipage}{0.22\textwidth}
+	\begin{tabular}{c|c}
+		Variable & Value\\
+		\hline 
+		$H_{0, 0}$ & T\\
+		$H_{1, 0}$ & F\\
+		$H_{1, 1}$ & T\\
+		$H_{2, 1}$ & \\
+		$H_{2, 2}$ & \\
+		$H_{3, 3}$ & \\
+	\end{tabular}
+\end{minipage}
+\begin{minipage}{0.22\textwidth}
+	\begin{tabular}{c|c}
+		Variable & Value\\
+		\hline 
+		$Q_{q_0, 0}$ & T\\
+		$Q_{q_1, 0}$ & F\\
+		$Q_{q_1, 1}$ & F\\
+		$Q_{q_1, 2}$ & \\
+		$Q_{q_1, 3}$ & \\
+		$Q_{q_\text{acc}, 4}$ & \\
+	\end{tabular}
+\end{minipage}
+
+\newpage
+
+In Table \ref{table:1}, there are:
+\begin{itemize}
+	\item $(2p(n) + 1) \cdot |\Sigma| \cdot (p(n) + 1) = \mathcal O(p(n)^2)$ variables of the form $T_{i, j, k}$.
+	\item $(2p(n) + 1) \cdot (p(n) + 1) = \mathcal O(p(n)^2)$ variables of the form $H_{i, k}$.
+	\item $|Q| \cdot (p(n) + 1) = \mathcal O(p(n))$ variables of the form $Q_{q, k}$.
+\end{itemize}
+In total, we have created $\mathcal O(p(n)^2)$ variables given an input $x$ of size $n$.
+
+
+Recall that we want to create a poly-time computable $f$ so that $x \in L \Leftrightarrow f(x) \in \mathrm{SAT}$. In other words, given an $x$, we want to create a boolean formula $f(x)$ in polynomial time, so that $f(x)$ is satisfiable iff $x \in L$. Here's how we create this boolean formula $f(x)$:
+\begin{itemize}
+	\item The variables of this boolean formula are the $T_{i, j, k}$'s, the $H_{i, k}$'s, and the $Q_{q, k}$'s, as defined in Table \ref{table:1}. There are $\mathcal O(p(n)^2)$ variables.
+	\item The formula is the \textit{conjunction} ($\land$) of all of the following boolean subformulae (with $-p(n) \leq i \leq p(n)$, $0 \leq k \leq p(n)$):
+	
+	\begin{table}[ht]
+		\centering
+		\begin{tabular}{c|c|c|c}
+			Formulae & Range & Interpretation & How many formulae?\\
+			\hline
+			$T_{i, j, 0}$ & \begin{tabular}{c}
+				$j \in \Sigma$\\
+				cell $i$ initially\\
+				contains symbol $j$\\
+			\end{tabular} & Initial contents of the tape & $\mathcal O(p(n))$\\
+			\hline
+			$Q_{q_0, 0}$ &  & TM starts in state $q_0$ & $1$\\
+			\hline
+			$H_{0, 0}$ &  & R/W head starts at cell 0 & $1$\\
+			\hline
+			$\neg T_{i, j, k} \lor \neg T_{i, j', k}$ & $j, j' \in \Sigma$ with $j \neq j'$ & At most 1 symbol per cell & $\mathcal O(p(n)^2)$\\
+			\hline
+			$\displaystyle \bigvee_{j \in \Sigma} T_{i, j, k}$ & & At least 1 symbol per cell & $\mathcal O(p(n)^2)$\\
+			\hline
+			$T_{i, j, k} \land T_{i, j', k+1} \rightarrow H_{i, k}$ &
+				$j, j' \in \Sigma$ with $j \neq j'$ & 
+				\begin{tabular}{c}
+				To change cell $i$,\\
+				head must be at cell $i$
+				\end{tabular} & $\mathcal O(p(n)^2)$\\
+			\hline
+			$\neg Q_{q, k} \lor \neg Q_{q', k}$ & $q, q' \in Q$ with $q \neq q'$ & Only one state at a time & $\mathcal O(p(n))$\\	
+			\hline
+			$\neg H_{i, k} \lor \neg H_{i', k}$ & $i \neq i'$ & 
+			\begin{tabular}{c}
+				Only one head \\
+				position at a time
+			\end{tabular} & $\mathcal O(p(n)^3)$\\	
+			\hline
+			\begin{tabular}{c}
+				$(H_{i, k} \land Q_{q, k} \land T_{i, j, k}) \rightarrow$\\
+				{\footnotesize$\displaystyle \bigvee_{(q, j), (q', j', d) \in \delta}$
+				$\left(\begin{array}{c}
+					H_{i + d, k+1}\\
+					\land Q_{q', k+1}\\
+					\land T_{i, j', k + 1}
+				\end{array}\right)$}
+			\end{tabular} & \begin{tabular}{c}
+			$j \in \Sigma$\\
+			$q \in Q$\\
+			$k \neq p(n)$
+			\end{tabular} & \begin{tabular}{c}
+			Non-deterministic transition\\
+			function $\delta$ is obeyed
+			\end{tabular} & $\mathcal O(p(n)^2)$\\
+			\hline
+			$\displaystyle \bigvee_{0 \leq k \leq p(n)} Q_{q_\text{acc}, k}$ & & \begin{tabular}{c}
+				Accepting state $q_\text{acc}$\\ 
+				reached within $p(n)$ steps
+			\end{tabular} & $1$
+		\end{tabular}
+	\caption{$f(x)$ is the conjunction ($\land$) of all of the following subformulae.}
+	\label{table:2}
+	\end{table}
+\end{itemize}
+Notice that this huge boolean formula $f(x)$ is satisfiable iff $x \in L$:
+\begin{itemize}
+	\item If $f(x)$ is satisfiable, then there is some execution path in $M(x)$ that ends in the accepting state $q_\text{acc}$. It follows from the definition (since $M$ is a nondeterministic decider for $L$) that $x \in L$.
+	\item If $x \in L$, then there is some execution path in $M(x)$ leading to acceptance. We may then assign the $T_{i, j, k}$'s, the $H_{i, k}$'s, and the $Q_{q, k}$'s according to their intended interpretation to satisfy $f(x)$.
+\end{itemize}
+$f(x)$ takes $\mathcal O(p(n)^3)$ time to produce, and since $p(n)$ is polynomial, so is $p(n)^3$. Thus $f$ is indeed poly-time computable. This shows $L \leq_p \mathrm{SAT}$. $\square$
+
+\vspace{2mm}
+
+
+\noindent\textbf{Exercise 4.} Referring back to the Turing machine $M$ in Exercise 3, $M$ accepts the input $x = bba$. 
+
+\begin{enumerate}[label=(\alph*)]
+	\item List the variables in $f(x)$ (consulting Table \ref{table:1}).
+	\item Write down the boolean formula $f(x)$ (consulting table \ref{table:2}).
+\end{enumerate} 
+
+
+\end{document}
