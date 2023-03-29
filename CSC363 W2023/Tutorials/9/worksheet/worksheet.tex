@@ -25,7 +25,7 @@ Since $L \in \mathrm{NP}$, there is a poly-time nondeterministic Turing machine 
 \vspace{2mm}
 
 \begin{lemma}
-	Suppose $M(x)$ has executed $s$ steps. Then, only cells $-s$ to $s$ can be nonblank; cells $-\infty$ to $-s - 1$, and cells $s + 1$ to $\infty$ must be blank. 
+	Suppose $M(x)$ finishes executing in $p(n)$ steps. Then during execution, only cells $-p(n)$ to $p(n)$ could have been accessed during execution; cells $-\infty$ to $-p(n) - 1$, and cells $p(n) + 1$ to $\infty$ are inaccessible to the read/write head.
 \end{lemma}
 
 \begin{center}

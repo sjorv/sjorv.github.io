@@ -1,0 +1,133 @@
+\documentclass[10pt]{article}
+\usepackage{quiver}
+\input{structure.tex}
+
+
+\lhead{}
+\rhead{CSC363H5 Winter 2023} 
+\chead{\textbf{Tutorial 10: NP-Completeness II}}
+\date{}
+\begin{document}
+		
+\subsection*{Introduction}
+
+\begin{definition}[\textsf{3SAT}]
+	We say a formula \(\varphi\) is in \textit{conjunctive normal form}, or \(\varphi\) is a cnf-formula, if it can be written as a conjunction (\(\land\)) of \textit{clauses}, and each clause is a disjunction (\(\lor\)) of literals (either a variable \(x_i\) or its negation  \(\lnot x_i\)). 
+\begin{align*}
+	\varphi = \bigwedge_{i=1}^n\left(\bigvee_{j=1}^{k_i} f_{ij}\right) =  (f_{11} \lor \dots \lor f_{1k_1}) \land \dots \land (f_{n1} \lor \dots \lor f_{nk_n}).
+\end{align*}
+A \textit{3cnf-formula} is a cnf-formula such that each \textit{clause} has exactly \textit{three literals}.  For example:
+\begin{align*}
+	(x_1 \lor x_3 \lor \lnot x_2) \land (x_1 \lor \lnot x_1 \lor x_4) \land (\lnot x_5 \lor \lnot x_2 \lor \lnot x_7)& \text{ is a 3cnf-formula.}\\
+	(x_1 \lor x_3 \lor \lnot x_2) \land (x_1)\text{ and }
+	\lnot(x_4 \land x_1 \lor x_3) \land  (x_1 \lor \lnot x_1 \land x_4) & \text{ are not 3cnf-formulas.}
+\end{align*}
+Finally, we can define:
+\begin{align*}
+	\textsf{3SAT} = \{\langle\varphi\rangle: \varphi \text{ is a satisfiable 3cnf-formula}\} \subseteq \textsf{SAT}.
+\end{align*}
+\end{definition}
+The following theorem is striking, since it shows that increasing the \textit{vertical complexity} of a formula does not necessarily allow it to be more expressive.\\
+
+\begin{theorem}
+	\textsf{3SAT} is NP-complete.
+\end{theorem}
+\\\\
+If this theorem feels ``obvious'', then it may be more surprising that \(\textsf{2SAT}\) is not even NP-complete! This indicates that there is a \textit{fundamental difference in the difficulty} of solving cnf-formulas with clauses of size at most 2, and cnf-formulas with clauses of size at least 3. 
+\subsection*{Part 1.}
+
+In this tutorial, we will study the problem \textsf{VERTEX-COVER}, and eventually prove that it is NP-complete. \textsf{VERTEX-COVER} is phrased as follows: Given a graph \(G\) and \(k \in \N\), does there exist a set of  \(k\) vertices \(v_1, \dots, v_k\) in \(G\), such that every edge in \(G\) is incident with at least one of the \(v_i\)'s? If so, we say that \(\{v_1, \dots, v_k\}\) is a \(k\)-(vertex) cover of \(G\).\\
+\begin{align*}
+	\textsf{VERTEX-COVER} &= \{\langle G,k \rangle: G \text{ has a \(k\)-cover}\}
+\end{align*}
+
+\textbf{Exercise 1.} Try to find a \(3\)-cover of the following graph:
+\begin{center}
+\begin{tikzcd}
+	\bullet && \bullet \\
+	\bullet & \bullet && \bullet \\
+	& \bullet & \bullet
+	\arrow[no head, from=1-1, to=1-3]
+	\arrow[no head, from=1-3, to=2-1]
+	\arrow[no head, from=1-1, to=2-1]
+	\arrow[no head, from=1-1, to=2-4]
+	\arrow[no head, from=2-1, to=3-2]
+	\arrow[no head, from=2-4, to=3-3]
+	\arrow[no head, from=1-3, to=3-3]
+	\arrow[no head, from=2-2, to=3-3]
+\end{tikzcd}
+\end{center}
+\textbf{Exercise 2.} Reason that \( \textsf{VERTEX-COVER} \in \text{NP}\) using one of the following two methods:
+\begin{enumerate}
+	\item Show that there is a polynomial time verifier \(V(\langle G, k\rangle, c)\) for \( \textsf{VERTEX-COVER}\). \textit{Hint: the input \(c\) codes a ``solution'' to the problem; the format of \(c\) depends on the definition of \(V\) and should be chosen by you. What counts as evidence that \(G\) has a \(k\)-cover?}
+	\item Show that there is a polynomial time NTM \(T(\langle G, k\rangle)\) that decides \(\textsf{VERTEX-COVER}\). \textit{Hint: at some point in its computation, \(T\) will have to nondeterministically guess a property of \(G\), and later it should \textbf{deterministically} check that the guess was a correct one.}
+\end{enumerate}
+
+\subsection*{Part 2}
+
+We now show that \(\textsf{VERTEX-COVER}\) is NP-hard, hence proving that it is NP-complete. As a sanity check, recall that it suffices to show
+\begin{align*}
+	\textsf{3SAT} \leq_{\text{P}} \textsf{VERTEX-COVER}.
+\end{align*}
+In other words, given any 3cnf-formula \(\varphi(x_1, \dots, x_n) = \varphi_1(\vec{x}) \land \dots \land \varphi_\ell(\vec{x})\), we will construct in polynomial time (of \(|\varphi|\)) a graph \(\Gamma \varphi\) and an integer \(k\), such that \(\Gamma\varphi\) has a  \(k\)-clique iff \(\varphi\) is satisfiable.\\
+
+Let \(\Gamma \varphi\) be the graph constructed by the following steps:
+\begin{enumerate}
+	\item For each variable \(x_i\) in \(\varphi\), \(\Gamma \varphi\) will have the subgraph
+\begin{center}
+\begin{tikzcd}
+	{x_i} & {\lnot x_i}
+	\arrow[no head, from=1-1, to=1-2]
+\end{tikzcd}	
+\end{center}
+\item For each clause \(\varphi_j = (y_j \lor z_j \lor w_j)\), where, for example, \(y_j\) is a literal of the form \(x_i\) or \(\lnot x_i\) for some  \(i\), \(\Gamma \varphi\) will have the subgraph
+\begin{center}
+\begin{tikzcd}
+	{y_i} & {z_j} \\
+	& {w_j}
+	\arrow[no head, from=1-1, to=1-2]
+	\arrow[no head, from=2-2, to=1-1]
+	\arrow[no head, from=1-2, to=2-2]
+\end{tikzcd}	
+\end{center}
+\item Finally, connect each literal \(y_j, z_j, w_j\) to the corresponding variable in part 1, respecting negation.
+\end{enumerate}
+
+For example, the formula \(\varphi(x_1, x_2) = (x_1 \lor \lnot x_2 \lor x_1) \land (\lnot x_2\lor  \lnot x_1 \lor x_2)\) will have the graph \(\Gamma \varphi\) given by
+\begin{center}
+\begin{tikzcd}
+	{x_1} & {\lnot x_1} & {x_2} & {\lnot x_2} \\
+	{x_1} & {\lnot x_2} & {\lnot x_2} & {\lnot x_1} \\
+	& {x_1} && {x_2}
+	\arrow[no head, from=2-1, to=3-2]
+	\arrow[no head, from=2-2, to=3-2]
+	\arrow[no head, from=2-1, to=2-2]
+	\arrow[no head, from=2-3, to=3-4]
+	\arrow[no head, from=2-4, to=3-4]
+	\arrow[no head, from=2-3, to=2-4]
+	\arrow[dashed, no head, from=3-2, to=1-1]
+	\arrow[dashed, no head, from=2-1, to=1-1]
+	\arrow[no head, from=1-1, to=1-2]
+	\arrow[no head, from=1-3, to=1-4]
+	\arrow[dashed, no head, from=1-4, to=2-3]
+	\arrow[dashed, no head, from=3-4, to=1-3]
+	\arrow[dashed, no head, from=2-4, to=1-2]
+	\arrow[dashed, no head, from=2-2, to=1-4]
+\end{tikzcd}	
+\end{center}
+
+\textbf{Exercise 3.} Practice constructing the following graph:
+\begin{align*}
+	\Gamma((x_1 \lor \lnot x_2 \lor \lnot x_3 ) \land (\lnot x_2 \lor \lnot x_1 \lor x_1 ) \land (x_3 \lor x_2 \lor x_1))
+\end{align*}
+\textbf{Exercise 4.} Suppose \(\varphi\) is satisfiable, meaning we have an assignment  \(f: \{x_1, \dots, x_n\} \to \{0,1\}\). We construct a cover \(\mathcal{C}\) of \(\Gamma \varphi\) as follows: 
+\begin{enumerate}
+\item \(\mathcal{C}\) will contain exactly one of \(x_i\) and \(\lnot x_i\) corresponding to whether \(f(x_i)\) equals  \(1\) or \(0\), respectively.
+\item Since each clause \(\varphi_j = (y_j \lor z_j \lor w_j)\) is satisfied, then at least one of the literals of \(\varphi_j\) equals 1. Let \(\mathcal{C}\) contain the vertices corresponding to the other two literals.
+\end{enumerate}
+Using the solution \(f(x_1) = 1, f(x_2) = 0, f(x_3) = 0\) for \(\varphi\) in exercise 3, find the cover \(\mathcal{C}\).\\
+
+\textbf{Exercise 5.} Prove in general that \(\mathcal{C}\) is a \(k\)-cover for \(\Gamma \varphi\), where \(k = n + 2\ell\), \(n\) is the number of variables, and \(\ell\) is the number of clauses.\\
+
+\textbf{Exercise 6.} Now work backwards: if \(\Gamma \varphi\) has a  \(k\)-cover \(\mathcal{C}\), where \(k = n + 2\ell\), prove that  \(\varphi\) is satisfiable. \textit{Hint: first, reason that at least one vertex from each pair \(x_i, \lnot x_i\) is in  \(\mathcal{C}\), and similarly that \(\mathcal{C}\)  must contain vertices corresponding to at least two literals from each clause. Finally, conclude that this  choice of vertices actually represents a solution to \(\varphi\).}
+\end{document}
